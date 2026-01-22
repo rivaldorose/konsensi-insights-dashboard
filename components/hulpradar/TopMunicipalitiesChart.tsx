@@ -23,8 +23,8 @@ export function TopMunicipalitiesChart({ data }: TopMunicipalitiesChartProps) {
     if (active && payload && payload.length) {
       const item = payload[0].payload;
       return (
-        <div className="p-3 rounded-lg shadow-lg" style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a' }}>
-          <p className="font-medium text-white">{item.gemeente}</p>
+        <div className="p-3 rounded-lg shadow-lg" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
+          <p className="font-medium text-foreground">{item.gemeente}</p>
           <p className="text-sm text-[#3D7B4C]">
             {item.aantal.toLocaleString('nl-NL')} invullingen
           </p>
@@ -35,8 +35,8 @@ export function TopMunicipalitiesChart({ data }: TopMunicipalitiesChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Top Gemeentes</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Top Gemeentes</h3>
       <div className="h-[250px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
@@ -44,19 +44,19 @@ export function TopMunicipalitiesChart({ data }: TopMunicipalitiesChartProps) {
             layout="vertical"
             margin={{ top: 0, right: 20, left: 0, bottom: 0 }}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" horizontal={true} vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" horizontal={true} vertical={false} />
             <XAxis
               type="number"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
             />
             <YAxis
               type="category"
               dataKey="gemeente"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
               width={100}
             />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.04)' }} />

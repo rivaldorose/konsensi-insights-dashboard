@@ -72,12 +72,12 @@ function ToastContainer({ toasts, removeToast }: { toasts: Toast[]; removeToast:
           role="alert"
         >
           {icons[toast.type]}
-          <p className="text-sm font-medium text-white">{toast.message}</p>
+          <p className="text-sm font-medium text-foreground">{toast.message}</p>
           <button
             onClick={() => removeToast(toast.id)}
-            className="ml-2 p-1 rounded-full hover:bg-[#333333] transition-colors"
+            className="ml-2 p-1 rounded-full hover:bg-border-medium transition-colors"
           >
-            <X className="w-4 h-4 text-[#888888]" />
+            <X className="w-4 h-4 text-text-secondary" />
           </button>
         </div>
       ))}

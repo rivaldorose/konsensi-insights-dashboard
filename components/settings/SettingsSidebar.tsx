@@ -20,15 +20,15 @@ const tabs = [
 
 export function SettingsSidebar({ activeTab, onTabChange }: SettingsSidebarProps) {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       {/* Profile Section */}
-      <div className="flex items-center gap-4 pb-6 border-b border-[#2a2a2a] mb-6">
-        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center text-white text-lg font-semibold">
+      <div className="flex items-center gap-4 pb-6 border-b border-border-subtle mb-6">
+        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center text-foreground text-lg font-semibold">
           RR
         </div>
         <div>
-          <h3 className="font-semibold text-white">Rivaldo Rose</h3>
-          <p className="text-sm text-[#888888]">rivaldo@konsensi.nl</p>
+          <h3 className="font-semibold text-foreground">Rivaldo Rose</h3>
+          <p className="text-sm text-text-secondary">rivaldo@konsensi.nl</p>
         </div>
       </div>
 
@@ -44,10 +44,10 @@ export function SettingsSidebar({ activeTab, onTabChange }: SettingsSidebarProps
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                 isActive
                   ? 'bg-[#3D7B4C]/10 text-[#3D7B4C]'
-                  : 'text-[#888888] hover:bg-[#222222]'
+                  : 'text-text-secondary hover:bg-card-hover'
               }`}
             >
-              <Icon className={`w-5 h-5 ${isActive ? 'text-[#3D7B4C]' : 'text-[#888888]'}`} />
+              <Icon className={`w-5 h-5 ${isActive ? 'text-[#3D7B4C]' : 'text-text-secondary'}`} />
               {tab.label}
             </button>
           );

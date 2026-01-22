@@ -51,16 +51,16 @@ export function TotalStatsChart({ data }: TotalStatsChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-4 rounded-lg">
-          <p className="font-medium text-white mb-2">{label}</p>
+        <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-4 rounded-lg">
+          <p className="font-medium text-foreground mb-2">{label}</p>
           {payload.map((item, index) => (
             <div key={index} className="flex items-center gap-2 text-sm">
               <div
                 className="w-2.5 h-2.5 rounded-full"
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-[#888888]">{item.name}:</span>
-              <span className="font-medium text-white">
+              <span className="text-text-secondary">{item.name}:</span>
+              <span className="font-medium text-foreground">
                 {item.value.toLocaleString('nl-NL')}
               </span>
             </div>
@@ -84,11 +84,11 @@ export function TotalStatsChart({ data }: TotalStatsChartProps) {
 
   return (
     <>
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-semibold text-white">Platform Activiteit</h3>
-          <p className="text-sm text-[#888888]">Klik op een punt voor meer details</p>
+          <h3 className="text-lg font-semibold text-foreground">Platform Activiteit</h3>
+          <p className="text-sm text-text-secondary">Klik op een punt voor meer details</p>
         </div>
       </div>
       <div className="h-[300px] cursor-pointer">
@@ -112,24 +112,24 @@ export function TotalStatsChart({ data }: TotalStatsChartProps) {
                 <stop offset="95%" stopColor="#F59E0B" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" vertical={false} />
             <XAxis
               dataKey="maand"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
               tickFormatter={(value) => value.toLocaleString('nl-NL')}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend
               verticalAlign="top"
               height={36}
-              formatter={(value) => <span className="text-sm text-[#888888]">{value}</span>}
+              formatter={(value) => <span className="text-sm text-text-secondary">{value}</span>}
             />
             <Area
               type="monotone"

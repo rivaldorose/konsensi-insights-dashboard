@@ -22,9 +22,9 @@ export function DebtDistributionChart({ data }: DebtDistributionChartProps) {
     if (active && payload && payload.length) {
       const item = payload[0].payload;
       return (
-        <div className="bg-[#1a1a1a] p-3 rounded-lg shadow-lg border border-[#2a2a2a]">
-          <p className="font-medium text-white">{item.range}</p>
-          <p className="text-sm text-[#888888]">
+        <div className="bg-card p-3 rounded-lg shadow-lg border border-border-subtle">
+          <p className="font-medium text-foreground">{item.range}</p>
+          <p className="text-sm text-text-secondary">
             {item.count.toLocaleString('nl-NL')} schulden
           </p>
         </div>
@@ -40,19 +40,19 @@ export function DebtDistributionChart({ data }: DebtDistributionChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Schuldbedrag Verdeling</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Schuldbedrag Verdeling</h3>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
             <XAxis
               dataKey="range"
-              tick={{ fill: '#888888', fontSize: 10 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 10 }}
               axisLine={false}
               tickLine={false}
               interval={0}
             />
-            <YAxis tick={{ fill: '#888888', fontSize: 11 }} axisLine={false} tickLine={false} />
+            <YAxis tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} axisLine={false} tickLine={false} />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: '#2a2a2a' }} />
             <Bar dataKey="count" radius={[6, 6, 0, 0]} barSize={35}>
               {data.map((entry, index) => (
@@ -62,7 +62,7 @@ export function DebtDistributionChart({ data }: DebtDistributionChartProps) {
           </BarChart>
         </ResponsiveContainer>
       </div>
-      <p className="text-xs text-[#888888] text-center mt-2">
+      <p className="text-xs text-text-secondary text-center mt-2">
         Meest voorkomende schuldbedragen
       </p>
     </div>

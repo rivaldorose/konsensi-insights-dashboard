@@ -41,7 +41,7 @@ export function KpiCard({ label, value, icon, featured = false, sparklineData = 
 
   if (featured) {
     return (
-      <div className="bg-gradient-to-br from-[#3D7B4C] to-[#2d5a38] rounded-[20px] p-6 text-white relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#3D7B4C] to-[#2d5a38] rounded-[20px] p-6 text-foreground relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -49,12 +49,12 @@ export function KpiCard({ label, value, icon, featured = false, sparklineData = 
         <div className="relative z-10">
           <div className="flex items-start justify-between mb-8">
             <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-              <Icon className="w-5 h-5 text-white" />
+              <Icon className="w-5 h-5 text-foreground" />
             </div>
-            <ArrowUpRight className="w-5 h-5 text-white/70" />
+            <ArrowUpRight className="w-5 h-5 text-foreground/70" />
           </div>
 
-          <p className="text-white/70 text-xs font-medium tracking-wider mb-1">{label}</p>
+          <p className="text-foreground/70 text-xs font-medium tracking-wider mb-1">{label}</p>
           <p className="text-4xl font-bold">{value}</p>
         </div>
       </div>
@@ -62,18 +62,18 @@ export function KpiCard({ label, value, icon, featured = false, sparklineData = 
   }
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] hover:bg-[#222222] hover:border-[#333333] transition-colors">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle hover:bg-card-hover hover:border-border-medium transition-colors">
       <div className="flex items-start justify-between mb-6">
         <div className="w-10 h-10 bg-[#3D7B4C]/20 rounded-full flex items-center justify-center">
           <Icon className="w-5 h-5 text-[#3D7B4C]" />
         </div>
-        <ArrowUpRight className="w-5 h-5 text-[#666666]" />
+        <ArrowUpRight className="w-5 h-5 text-text-tertiary" />
       </div>
 
       <div className="flex items-end justify-between">
         <div>
-          <p className="text-[#888888] text-xs font-medium tracking-wider mb-1">{label}</p>
-          <p className="text-2xl font-bold text-white">{value}</p>
+          <p className="text-text-secondary text-xs font-medium tracking-wider mb-1">{label}</p>
+          <p className="text-2xl font-bold text-foreground">{value}</p>
         </div>
 
         {sparklineData.length > 0 && (

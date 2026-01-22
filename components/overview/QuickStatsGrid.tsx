@@ -32,22 +32,22 @@ export function QuickStatsGrid({ stats }: QuickStatsGridProps) {
         return (
           <div
             key={stat.id}
-            className="bg-[#1a1a1a] rounded-[20px] p-4 border border-[#2a2a2a]"
+            className="bg-card rounded-[20px] p-4 border border-border-subtle"
           >
             <div className="flex items-center gap-2 mb-2">
               <div className="w-8 h-8 rounded-lg bg-[#3D7B4C]/10 flex items-center justify-center">
                 <Icon className="w-4 h-4 text-[#3D7B4C]" />
               </div>
             </div>
-            <p className="text-2xl font-bold text-white mb-1">{stat.value}</p>
-            <p className="text-xs text-[#888888] mb-1">{stat.label}</p>
+            <p className="text-2xl font-bold text-foreground mb-1">{stat.value}</p>
+            <p className="text-xs text-text-secondary mb-1">{stat.label}</p>
             <p
               className={`text-xs font-medium ${
                 stat.changeType === 'positive'
                   ? 'text-green-500'
                   : stat.changeType === 'negative'
                   ? 'text-red-500'
-                  : 'text-[#888888]'
+                  : 'text-text-secondary'
               }`}
             >
               {stat.change}

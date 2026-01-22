@@ -27,10 +27,10 @@ const iconMap = {
 
 export function AutoInsights({ insights }: AutoInsightsProps) {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-white">Automatische Inzichten</h3>
-        <p className="text-sm text-[#888888]">Gegenereerde inzichten op basis van uw data</p>
+        <h3 className="text-lg font-bold text-foreground">Automatische Inzichten</h3>
+        <p className="text-sm text-text-secondary">Gegenereerde inzichten op basis van uw data</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -47,8 +47,8 @@ export function AutoInsights({ insights }: AutoInsightsProps) {
                 <Icon className={`w-5 h-5 ${insight.iconColor}`} />
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-white text-sm">{insight.title}</h4>
-                <p className="text-xs text-[#888888] mt-1">{insight.description}</p>
+                <h4 className="font-semibold text-foreground text-sm">{insight.title}</h4>
+                <p className="text-xs text-text-secondary mt-1">{insight.description}</p>
                 {insight.metric && (
                   <span className="inline-block mt-2 text-xs font-medium text-[#3D7B4C] bg-[#3D7B4C]/10 px-2 py-1 rounded-full">
                     {insight.metric}

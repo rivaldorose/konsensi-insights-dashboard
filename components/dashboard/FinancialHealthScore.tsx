@@ -28,8 +28,8 @@ export function FinancialHealthScore({ score, factors }: FinancialHealthScorePro
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 shadow-sm border border-[#2a2a2a]">
-      <h3 className="text-lg font-semibold text-white mb-6">Financiële Gezondheid Score</h3>
+    <div className="bg-card rounded-[20px] p-6 shadow-sm border border-border-subtle">
+      <h3 className="text-lg font-semibold text-foreground mb-6">Financiele Gezondheid Score</h3>
 
       <div className="flex flex-col lg:flex-row items-center gap-8">
         {/* Circular Progress */}
@@ -41,7 +41,7 @@ export function FinancialHealthScore({ score, factors }: FinancialHealthScorePro
               cy="90"
               r="70"
               fill="none"
-              stroke="#2a2a2a"
+              stroke="var(--border-subtle)"
               strokeWidth="12"
             />
             {/* Progress circle */}
@@ -62,7 +62,7 @@ export function FinancialHealthScore({ score, factors }: FinancialHealthScorePro
             <span className="text-4xl font-bold" style={{ color: scoreColor }}>
               {score}
             </span>
-            <span className="text-sm text-[#888888]">van 100</span>
+            <span className="text-sm text-text-secondary">van 100</span>
             <span
               className="text-sm font-medium mt-1 px-2 py-0.5 rounded-full"
               style={{
@@ -80,10 +80,10 @@ export function FinancialHealthScore({ score, factors }: FinancialHealthScorePro
           {factors.map((factor, index) => (
             <div key={index}>
               <div className="flex justify-between mb-1">
-                <span className="text-sm text-[#888888]">{factor.name}</span>
-                <span className="text-sm font-medium text-white">{factor.value}%</span>
+                <span className="text-sm text-text-secondary">{factor.name}</span>
+                <span className="text-sm font-medium text-foreground">{factor.value}%</span>
               </div>
-              <div className="h-2 bg-[#2a2a2a] rounded-full overflow-hidden">
+              <div className="h-2 bg-border-subtle rounded-full overflow-hidden">
                 <div
                   className="h-full rounded-full transition-all duration-500"
                   style={{

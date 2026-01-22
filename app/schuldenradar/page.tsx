@@ -234,19 +234,19 @@ export default function SchuldenradarPage() {
   const awarenessTotal = awarenessImpactData.reduce((sum, item) => sum + item.value, 0);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-background">
       <Navbar />
 
       <main className="px-8 py-8">
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-3xl font-bold text-white">Konsensi Schuldenradar</h1>
+            <h1 className="text-3xl font-bold text-foreground">Konsensi Schuldenradar</h1>
             <span className="px-3 py-1 bg-red-100 text-red-700 text-xs font-medium rounded-full">
               Schulden Opsporing
             </span>
           </div>
-          <p className="text-[#888888]">
+          <p className="text-text-secondary">
             Ontdek verborgen schulden en help gebruikers grip te krijgen op hun financiële situatie
           </p>
         </div>

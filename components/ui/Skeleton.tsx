@@ -8,7 +8,7 @@ interface SkeletonProps {
 export function Skeleton({ className = '', style }: SkeletonProps) {
   return (
     <div
-      className={`animate-pulse bg-[#2a2a2a] rounded ${className}`}
+      className={`animate-pulse bg-border-subtle rounded ${className}`}
       style={style}
     />
   );
@@ -16,7 +16,7 @@ export function Skeleton({ className = '', style }: SkeletonProps) {
 
 export function ChartSkeleton() {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
         <Skeleton className="h-6 w-48" />
         <Skeleton className="h-8 w-24 rounded-lg" />
@@ -36,7 +36,7 @@ export function ChartSkeleton() {
 
 export function KpiCardSkeleton() {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-5 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-5 border border-border-subtle">
       <div className="flex items-center justify-between mb-3">
         <Skeleton className="h-4 w-24" />
         <Skeleton className="h-8 w-8 rounded-lg" />
@@ -49,14 +49,14 @@ export function KpiCardSkeleton() {
 
 export function TableSkeleton({ rows = 5 }: { rows?: number }) {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
         <Skeleton className="h-6 w-48" />
         <Skeleton className="h-10 w-64 rounded-xl" />
       </div>
       <div className="space-y-4">
         {/* Header */}
-        <div className="flex gap-4 pb-3 border-b border-[#2a2a2a]">
+        <div className="flex gap-4 pb-3 border-b border-border-subtle">
           {Array.from({ length: 6 }).map((_, i) => (
             <Skeleton key={i} className="h-4 flex-1" />
           ))}

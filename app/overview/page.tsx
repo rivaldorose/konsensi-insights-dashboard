@@ -219,19 +219,19 @@ const recentActivityData = [
 
 export default function OverviewPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-background">
       <Navbar />
 
       <main className="px-8 py-8">
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-3xl font-bold text-white">Konsensi Platform Overzicht</h1>
+            <h1 className="text-3xl font-bold text-foreground">Konsensi Platform Overzicht</h1>
             <span className="px-3 py-1 bg-gradient-to-r from-[#3D7B4C] to-[#8FD14F] text-white text-xs font-medium rounded-full">
               Algemeen Dashboard
             </span>
           </div>
-          <p className="text-[#888888]">
+          <p className="text-text-secondary">
             Totaaloverzicht van alle Konsensi applicaties en hun prestaties
           </p>
         </div>
@@ -243,7 +243,7 @@ export default function OverviewPage() {
 
         {/* Apps Overview */}
         <div className="mb-8">
-          <h2 className="text-lg font-semibold text-white mb-4">Applicaties</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-4">Applicaties</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {appsData.map((app) => (
               <AppOverviewCard

@@ -23,9 +23,9 @@ export function DebtSourcesChart({ data }: DebtSourcesChartProps) {
     if (active && payload && payload.length) {
       const item = payload[0].payload;
       return (
-        <div className="bg-[#1a1a1a] p-3 rounded-lg shadow-lg border border-[#2a2a2a]">
-          <p className="font-medium text-white">{item.bron}</p>
-          <p className="text-sm text-[#888888]">
+        <div className="bg-card p-3 rounded-lg shadow-lg border border-border-subtle">
+          <p className="font-medium text-foreground">{item.bron}</p>
+          <p className="text-sm text-text-secondary">
             {item.aantal.toLocaleString('nl-NL')} schulden gevonden
           </p>
         </div>
@@ -35,16 +35,16 @@ export function DebtSourcesChart({ data }: DebtSourcesChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Schulden per Bron</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Schulden per Bron</h3>
       <div className="h-[260px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} layout="vertical" margin={{ top: 0, right: 20, left: 0, bottom: 0 }}>
-            <XAxis type="number" tick={{ fill: '#888888', fontSize: 11 }} axisLine={false} tickLine={false} />
+            <XAxis type="number" tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} axisLine={false} tickLine={false} />
             <YAxis
               type="category"
               dataKey="bron"
-              tick={{ fill: '#888888', fontSize: 11 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
               width={100}

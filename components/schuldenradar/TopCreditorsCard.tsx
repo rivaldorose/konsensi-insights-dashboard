@@ -15,17 +15,17 @@ interface TopCreditorsCardProps {
 
 export function TopCreditorsCard({ creditors }: TopCreditorsCardProps) {
   const getRankColor = (rank: number) => {
-    if (rank === 1) return 'bg-red-500 text-white';
-    if (rank === 2) return 'bg-red-400 text-white';
-    if (rank === 3) return 'bg-red-300 text-white';
-    return 'bg-[#2a2a2a] text-[#888888]';
+    if (rank === 1) return 'bg-red-500 text-foreground';
+    if (rank === 2) return 'bg-red-400 text-foreground';
+    if (rank === 3) return 'bg-red-300 text-foreground';
+    return 'bg-[#2a2a2a] text-text-secondary';
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
       <div className="flex items-center gap-2 mb-4">
         <Building2 className="w-5 h-5 text-red-500" />
-        <h3 className="text-lg font-semibold text-white">Top Schuldeisers Ontdekt</h3>
+        <h3 className="text-lg font-semibold text-foreground">Top Schuldeisers Ontdekt</h3>
       </div>
 
       <div className="space-y-2">
@@ -40,10 +40,10 @@ export function TopCreditorsCard({ creditors }: TopCreditorsCardProps) {
               >
                 {creditor.rank}
               </div>
-              <span className="font-medium text-white">{creditor.naam}</span>
+              <span className="font-medium text-foreground">{creditor.naam}</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-[#888888]">
+              <span className="text-sm text-text-secondary">
                 {creditor.aantal.toLocaleString('nl-NL')} gevonden
               </span>
               {creditor.trend === 'up' && (

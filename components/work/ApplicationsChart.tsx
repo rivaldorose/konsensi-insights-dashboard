@@ -25,9 +25,9 @@ export function ApplicationsChart({ data, average }: ApplicationsChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-3 rounded-lg shadow-lg">
-          <p className="font-medium text-white">{label}</p>
-          <p className="text-sm text-[#888888]">
+        <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-3 rounded-lg shadow-lg">
+          <p className="font-medium text-foreground">{label}</p>
+          <p className="text-sm text-text-secondary">
             Gem. {payload[0].value.toFixed(1)} sollicitaties
           </p>
         </div>
@@ -37,8 +37,8 @@ export function ApplicationsChart({ data, average }: ApplicationsChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-2">Sollicitaties per Vacature</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-2">Sollicitaties per Vacature</h3>
 
       {/* Key Insight */}
       <div className="flex items-center gap-2 mb-4">
@@ -61,11 +61,11 @@ export function ApplicationsChart({ data, average }: ApplicationsChartProps) {
             </defs>
             <XAxis
               dataKey="maand"
-              tick={{ fill: '#888888', fontSize: 11 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
             />
-            <YAxis tick={{ fill: '#888888', fontSize: 11 }} axisLine={false} tickLine={false} />
+            <YAxis tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} axisLine={false} tickLine={false} />
             <Tooltip content={<CustomTooltip />} />
             <Area
               type="monotone"

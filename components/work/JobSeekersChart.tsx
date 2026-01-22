@@ -33,8 +33,8 @@ export function JobSeekersChart({ data }: JobSeekersChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-3 rounded-lg shadow-lg">
-          <p className="font-medium text-white mb-2">{label}</p>
+        <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-3 rounded-lg shadow-lg">
+          <p className="font-medium text-foreground mb-2">{label}</p>
           {payload.map((entry, index) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
               {entry.name}: {entry.value.toLocaleString('nl-NL')}
@@ -47,34 +47,34 @@ export function JobSeekersChart({ data }: JobSeekersChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-white">
+        <h3 className="text-lg font-semibold text-foreground">
           Werkzoekenden & Plaatsingen per Maand
         </h3>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
             <div className="w-3 h-3 rounded-full bg-[#3B82F6]" />
-            <span className="text-xs text-[#888888]">Nieuwe werkzoekenden</span>
+            <span className="text-xs text-text-secondary">Nieuwe werkzoekenden</span>
           </div>
           <div className="flex items-center gap-1.5">
             <div className="w-3 h-3 rounded-full bg-[#22c55e]" />
-            <span className="text-xs text-[#888888]">Geplaatst</span>
+            <span className="text-xs text-text-secondary">Geplaatst</span>
           </div>
         </div>
       </div>
       <div className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" vertical={false} />
             <XAxis
               dataKey="maand"
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
               axisLine={{ stroke: '#2a2a2a' }}
               tickLine={false}
             />
             <YAxis
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
               axisLine={{ stroke: '#2a2a2a' }}
               tickLine={false}
             />

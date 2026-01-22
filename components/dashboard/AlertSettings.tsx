@@ -27,7 +27,7 @@ export function AlertSettings({ initialSettings }: AlertSettingsProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] border border-[#2a2a2a] overflow-hidden">
+    <div className="bg-card rounded-[20px] border border-border-subtle overflow-hidden">
       {/* Header - Clickable */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
@@ -38,20 +38,20 @@ export function AlertSettings({ initialSettings }: AlertSettingsProps) {
             <Bell className="w-5 h-5 text-[#3D7B4C]" />
           </div>
           <div className="text-left">
-            <h3 className="text-lg font-bold text-white">Notificatie Instellingen</h3>
-            <p className="text-sm text-[#888888]">Beheer uw meldingen en alerts</p>
+            <h3 className="text-lg font-bold text-foreground">Notificatie Instellingen</h3>
+            <p className="text-sm text-text-secondary">Beheer uw meldingen en alerts</p>
           </div>
         </div>
         {isExpanded ? (
-          <ChevronUp className="w-5 h-5 text-[#888888]" />
+          <ChevronUp className="w-5 h-5 text-text-secondary" />
         ) : (
-          <ChevronDown className="w-5 h-5 text-[#888888]" />
+          <ChevronDown className="w-5 h-5 text-text-secondary" />
         )}
       </button>
 
       {/* Collapsible Content */}
       {isExpanded && (
-        <div className="px-6 pb-6 border-t border-[#2a2a2a]">
+        <div className="px-6 pb-6 border-t border-border-subtle">
           <div className="pt-4 space-y-4">
             {settings.map((setting) => (
               <div
@@ -59,8 +59,8 @@ export function AlertSettings({ initialSettings }: AlertSettingsProps) {
                 className="flex items-center justify-between p-4 bg-[#2a2a2a] rounded-xl"
               >
                 <div className="flex-1">
-                  <p className="font-medium text-white text-sm">{setting.label}</p>
-                  <p className="text-xs text-[#888888]">{setting.description}</p>
+                  <p className="font-medium text-foreground text-sm">{setting.label}</p>
+                  <p className="text-xs text-text-secondary">{setting.description}</p>
                 </div>
 
                 {/* Toggle Switch */}

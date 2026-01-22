@@ -17,9 +17,9 @@ interface PartnerEmployersProps {
 
 export function PartnerEmployers({ partners }: PartnerEmployersProps) {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-white">Partner Werkgevers</h3>
+        <h3 className="text-lg font-semibold text-foreground">Partner Werkgevers</h3>
         <button className="text-sm text-[#3D7B4C] font-medium hover:underline">
           Bekijk alle partners
         </button>
@@ -32,16 +32,16 @@ export function PartnerEmployers({ partners }: PartnerEmployersProps) {
             className="p-4 bg-[#2a2a2a] rounded-xl hover:bg-[#333333] transition-colors cursor-pointer"
           >
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-12 h-12 bg-[#1a1a1a] rounded-xl flex items-center justify-center border border-[#2a2a2a]">
+              <div className="w-12 h-12 bg-card rounded-xl flex items-center justify-center border border-border-subtle">
                 <span className="text-lg font-bold text-[#3D7B4C]">{partner.logo}</span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-white truncate">{partner.naam}</p>
-                <p className="text-xs text-[#888888]">{partner.sector}</p>
+                <p className="font-medium text-foreground truncate">{partner.naam}</p>
+                <p className="text-xs text-text-secondary">{partner.sector}</p>
               </div>
             </div>
             <div className="flex items-center justify-between text-xs">
-              <div className="flex items-center gap-1 text-[#888888]">
+              <div className="flex items-center gap-1 text-text-secondary">
                 <Briefcase className="w-3.5 h-3.5" />
                 <span>{partner.vacatures} vacatures</span>
               </div>

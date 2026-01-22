@@ -34,8 +34,8 @@ export function MonthlyBalanceChart({ data }: MonthlyBalanceChartProps) {
     if (active && payload && payload.length) {
       const value = payload[0].value;
       return (
-        <div className="bg-[#1a1a1a] p-3 rounded-lg shadow-lg border border-[#2a2a2a]">
-          <p className="font-medium text-white">{label}</p>
+        <div className="bg-card p-3 rounded-lg shadow-lg border border-border-subtle">
+          <p className="font-medium text-foreground">{label}</p>
           <p className={`text-sm font-medium ${value >= 0 ? 'text-green-600' : 'text-red-500'}`}>
             {formatCurrency(value)}
           </p>
@@ -46,25 +46,25 @@ export function MonthlyBalanceChart({ data }: MonthlyBalanceChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 shadow-sm border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Maandelijkse Balans</h3>
+    <div className="bg-card rounded-[20px] p-6 shadow-sm border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Maandelijkse Balans</h3>
       <div className="h-[200px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
             <XAxis
               dataKey="month"
-              tick={{ fill: '#888888', fontSize: 10 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 10 }}
               axisLine={false}
               tickLine={false}
             />
             <YAxis
-              tick={{ fill: '#888888', fontSize: 10 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 10 }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(value) => `€${value / 1000}k`}
             />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
-            <ReferenceLine y={0} stroke="#2a2a2a" />
+            <ReferenceLine y={0} stroke="var(--border-subtle)" />
             <Bar dataKey="balance" radius={[4, 4, 4, 4]} barSize={24}>
               {data.map((entry, index) => (
                 <Cell

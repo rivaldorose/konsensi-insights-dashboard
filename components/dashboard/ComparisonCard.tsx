@@ -31,10 +31,10 @@ export function ComparisonCard({
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="mb-4">
-        <h3 className="text-base font-semibold text-white">{title}</h3>
-        <p className="text-sm text-[#888888]">{subtitle}</p>
+        <h3 className="text-base font-semibold text-foreground">{title}</h3>
+        <p className="text-sm text-text-secondary">{subtitle}</p>
       </div>
 
       <p className={`text-3xl font-bold mb-6 ${positive ? 'text-[#4a9d5c]' : 'text-[#ef4444]'}`}>
@@ -45,10 +45,10 @@ export function ComparisonCard({
         {/* This Month */}
         <div className="space-y-1">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-[#888888]">Deze Maand</span>
-            <span className="font-medium text-white">{formatCurrency(thisMonth)}</span>
+            <span className="text-text-secondary">Deze Maand</span>
+            <span className="font-medium text-foreground">{formatCurrency(thisMonth)}</span>
           </div>
-          <div className="h-3 bg-[#222222] rounded-full overflow-hidden">
+          <div className="h-3 bg-card-hover rounded-full overflow-hidden">
             <div
               className="h-full rounded-full"
               style={{
@@ -62,10 +62,10 @@ export function ComparisonCard({
         {/* Last Month */}
         <div className="space-y-1">
           <div className="flex items-center justify-between text-sm">
-            <span className="text-[#888888]">Vorige Maand</span>
-            <span className="font-medium text-white">{formatCurrency(lastMonth)}</span>
+            <span className="text-text-secondary">Vorige Maand</span>
+            <span className="font-medium text-foreground">{formatCurrency(lastMonth)}</span>
           </div>
-          <div className="h-3 bg-[#222222] rounded-full overflow-hidden">
+          <div className="h-3 bg-card-hover rounded-full overflow-hidden">
             <div
               className="h-full bg-[#4a9d5c] rounded-full"
               style={{ width: `${lastMonthWidth}%` }}
@@ -87,15 +87,15 @@ export function RatioCard({ title, value, healthy }: RatioCardProps) {
   const numericValue = parseInt(value);
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
-      <h3 className="text-base font-semibold text-white mb-2">{title}</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
+      <h3 className="text-base font-semibold text-foreground mb-2">{title}</h3>
 
       <p className={`text-4xl font-bold mb-4 ${healthy ? 'text-[#4a9d5c]' : 'text-[#ef4444]'}`}>
         {value}
       </p>
 
       <div className="space-y-2">
-        <div className="h-2 bg-[#222222] rounded-full overflow-hidden">
+        <div className="h-2 bg-card-hover rounded-full overflow-hidden">
           <div
             className={`h-full rounded-full transition-all duration-500 ${
               healthy ? 'bg-[#4a9d5c]' : 'bg-[#ef4444]'
@@ -103,7 +103,7 @@ export function RatioCard({ title, value, healthy }: RatioCardProps) {
             style={{ width: `${numericValue}%` }}
           />
         </div>
-        <div className="flex justify-between text-xs text-[#666666]">
+        <div className="flex justify-between text-xs text-text-tertiary">
           <span>0%</span>
           <span>100%</span>
         </div>

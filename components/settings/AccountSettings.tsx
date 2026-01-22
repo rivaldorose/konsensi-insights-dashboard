@@ -28,12 +28,12 @@ export function AccountSettings() {
   return (
     <div className="space-y-6">
       {/* Password Change */}
-      <div className="bg-[#1a1a1a] rounded-[20px] p-8 border border-[#2a2a2a]">
-        <h2 className="text-xl font-semibold text-white mb-6">Wachtwoord wijzigen</h2>
+      <div className="bg-card rounded-[20px] p-8 border border-border-subtle">
+        <h2 className="text-xl font-semibold text-foreground mb-6">Wachtwoord wijzigen</h2>
 
         <div className="space-y-4 max-w-md">
           <div>
-            <label className="block text-sm font-medium text-[#888888] mb-2">
+            <label className="block text-sm font-medium text-text-secondary mb-2">
               Huidig wachtwoord
             </label>
             <div className="relative">
@@ -41,12 +41,12 @@ export function AccountSettings() {
                 type={showCurrentPassword ? 'text' : 'password'}
                 value={passwords.current}
                 onChange={(e) => setPasswords((p) => ({ ...p, current: e.target.value }))}
-                className="w-full px-4 py-3 pr-12 bg-[#1e1e1e] border border-[#2a2a2a] rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                className="w-full px-4 py-3 pr-12 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
               />
               <button
                 type="button"
                 onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#888888] hover:text-white"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-foreground"
               >
                 {showCurrentPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>
@@ -54,7 +54,7 @@ export function AccountSettings() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-[#888888] mb-2">
+            <label className="block text-sm font-medium text-text-secondary mb-2">
               Nieuw wachtwoord
             </label>
             <div className="relative">
@@ -62,12 +62,12 @@ export function AccountSettings() {
                 type={showNewPassword ? 'text' : 'password'}
                 value={passwords.new}
                 onChange={(e) => setPasswords((p) => ({ ...p, new: e.target.value }))}
-                className="w-full px-4 py-3 pr-12 bg-[#1e1e1e] border border-[#2a2a2a] rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                className="w-full px-4 py-3 pr-12 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
               />
               <button
                 type="button"
                 onClick={() => setShowNewPassword(!showNewPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#888888] hover:text-white"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary hover:text-foreground"
               >
                 {showNewPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>
@@ -75,21 +75,21 @@ export function AccountSettings() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-[#888888] mb-2">
+            <label className="block text-sm font-medium text-text-secondary mb-2">
               Bevestig nieuw wachtwoord
             </label>
             <input
               type="password"
               value={passwords.confirm}
               onChange={(e) => setPasswords((p) => ({ ...p, confirm: e.target.value }))}
-              className="w-full px-4 py-3 bg-[#1e1e1e] border border-[#2a2a2a] rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
             />
           </div>
 
           <button
             onClick={handlePasswordChange}
             disabled={isSaving || !passwords.current || !passwords.new || passwords.new !== passwords.confirm}
-            className="flex items-center gap-2 px-6 py-3 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-4"
+            className="flex items-center gap-2 px-6 py-3 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-4"
           >
             {isSaving ? (
               <>
@@ -104,18 +104,18 @@ export function AccountSettings() {
       </div>
 
       {/* Language & Timezone */}
-      <div className="bg-[#1a1a1a] rounded-[20px] p-8 border border-[#2a2a2a]">
-        <h2 className="text-xl font-semibold text-white mb-6">Voorkeuren</h2>
+      <div className="bg-card rounded-[20px] p-8 border border-border-subtle">
+        <h2 className="text-xl font-semibold text-foreground mb-6">Voorkeuren</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
           <div>
-            <label className="block text-sm font-medium text-[#888888] mb-2">
+            <label className="block text-sm font-medium text-text-secondary mb-2">
               Taal
             </label>
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="w-full px-4 py-3 bg-[#1e1e1e] border border-[#2a2a2a] rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
             >
               <option value="nl">Nederlands</option>
               <option value="en">English</option>
@@ -123,13 +123,13 @@ export function AccountSettings() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-[#888888] mb-2">
+            <label className="block text-sm font-medium text-text-secondary mb-2">
               Tijdzone
             </label>
             <select
               value={timezone}
               onChange={(e) => setTimezone(e.target.value)}
-              className="w-full px-4 py-3 bg-[#1e1e1e] border border-[#2a2a2a] rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
             >
               <option value="Europe/Amsterdam">Amsterdam (CET)</option>
               <option value="Europe/London">London (GMT)</option>
@@ -140,9 +140,9 @@ export function AccountSettings() {
       </div>
 
       {/* Danger Zone */}
-      <div className="bg-[#1a1a1a] rounded-[20px] p-8 border border-red-900/50">
+      <div className="bg-card rounded-[20px] p-8 border border-red-900/50">
         <h2 className="text-xl font-semibold text-red-500 mb-2">Gevaarlijke zone</h2>
-        <p className="text-sm text-[#888888] mb-6">
+        <p className="text-sm text-text-secondary mb-6">
           Deze acties zijn permanent en kunnen niet ongedaan worden gemaakt.
         </p>
 
@@ -168,11 +168,11 @@ export function AccountSettings() {
                 <div className="flex gap-3">
                   <button
                     onClick={() => setShowDeleteConfirm(false)}
-                    className="px-4 py-2 bg-[#1e1e1e] text-[#888888] rounded-full text-sm font-medium border border-[#2a2a2a] hover:bg-[#222222]"
+                    className="px-4 py-2 bg-input text-text-secondary rounded-full text-sm font-medium border border-border-subtle hover:bg-card-hover"
                   >
                     Annuleren
                   </button>
-                  <button className="px-4 py-2 bg-red-600 text-white rounded-full text-sm font-medium hover:bg-red-700">
+                  <button className="px-4 py-2 bg-red-600 text-foreground rounded-full text-sm font-medium hover:bg-red-700">
                     Ja, verwijder mijn account
                   </button>
                 </div>

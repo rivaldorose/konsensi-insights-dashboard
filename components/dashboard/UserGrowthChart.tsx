@@ -21,10 +21,10 @@ interface UserGrowthChartProps {
 
 export function UserGrowthChart({ data }: UserGrowthChartProps) {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-white">Gebruikersgroei</h3>
-        <p className="text-sm text-[#888888]">Nieuwe gebruikers per maand</p>
+        <h3 className="text-lg font-bold text-foreground">Gebruikersgroei</h3>
+        <p className="text-sm text-text-secondary">Nieuwe gebruikers per maand</p>
       </div>
 
       <div className="h-[300px]">
@@ -39,29 +39,29 @@ export function UserGrowthChart({ data }: UserGrowthChartProps) {
                 <stop offset="95%" stopColor="#3D7B4C" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" vertical={false} />
             <XAxis
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
               dy={10}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
               dx={-10}
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#1a1a1a',
-                border: '1px solid #2a2a2a',
+                backgroundColor: 'var(--bg-card)',
+                border: '1px solid var(--border-subtle)',
                 borderRadius: '12px',
                 boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
                 padding: '12px 16px',
               }}
-              labelStyle={{ color: '#ffffff', fontWeight: 600, marginBottom: '4px' }}
+              labelStyle={{ color: 'var(--text-primary)', fontWeight: 600, marginBottom: '4px' }}
               itemStyle={{ color: '#4a9d5c' }}
               formatter={(value) => [`${value} gebruikers`, '']}
               labelFormatter={(label) => `${label}`}

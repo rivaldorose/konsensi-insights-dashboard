@@ -35,9 +35,9 @@ export function CostsByCategoryChart({ data }: CostsByCategoryChartProps) {
   const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ payload: CostCategory; value: number }> }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-[#1a1a1a] p-3 rounded-lg shadow-lg border border-[#2a2a2a]">
-          <p className="font-medium text-white">{payload[0].payload.name}</p>
-          <p className="text-sm text-[#888888]">{formatCurrency(payload[0].value)}</p>
+        <div className="bg-card p-3 rounded-lg shadow-lg border border-border-subtle">
+          <p className="font-medium text-foreground">{payload[0].payload.name}</p>
+          <p className="text-sm text-text-secondary">{formatCurrency(payload[0].value)}</p>
         </div>
       );
     }
@@ -45,8 +45,8 @@ export function CostsByCategoryChart({ data }: CostsByCategoryChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 shadow-sm border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Kosten per Categorie</h3>
+    <div className="bg-card rounded-[20px] p-6 shadow-sm border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Kosten per Categorie</h3>
       <div className="h-[200px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
@@ -58,7 +58,7 @@ export function CostsByCategoryChart({ data }: CostsByCategoryChartProps) {
             <YAxis
               type="category"
               dataKey="name"
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               width={90}
@@ -71,7 +71,7 @@ export function CostsByCategoryChart({ data }: CostsByCategoryChartProps) {
               label={{
                 position: 'right',
                 formatter: (value) => formatCurrency(value as number),
-                fill: '#888888',
+                fill: 'var(--text-secondary)',
                 fontSize: 11,
               }}
             >

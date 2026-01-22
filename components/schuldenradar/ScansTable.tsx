@@ -65,22 +65,22 @@ export function ScansTable({ scans }: ScansTableProps) {
   });
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-white">Recente Scans</h3>
-        <span className="text-sm text-[#888888]">{filteredScans.length} resultaten</span>
+        <h3 className="text-lg font-semibold text-foreground">Recente Scans</h3>
+        <span className="text-sm text-text-secondary">{filteredScans.length} resultaten</span>
       </div>
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3 mb-6">
         <div className="relative flex-1 min-w-[200px] max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary" />
           <input
             type="text"
             placeholder="Zoek op naam of schuldeiser..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-[#2a2a2a] rounded-xl text-sm bg-[#2a2a2a] text-white placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="w-full pl-10 pr-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-[#2a2a2a] text-foreground placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
           />
         </div>
 
@@ -88,14 +88,14 @@ export function ScansTable({ scans }: ScansTableProps) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-[#2a2a2a] rounded-xl text-sm bg-[#2a2a2a] text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-[#2a2a2a] text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
           >
             <option value="all">Alle acties</option>
             <option value="ja">Actie ondernomen</option>
             <option value="nee">Geen actie</option>
             <option value="in_behandeling">In behandeling</option>
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888] pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary pointer-events-none" />
         </div>
       </div>
 
@@ -103,26 +103,26 @@ export function ScansTable({ scans }: ScansTableProps) {
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#2a2a2a]">
-              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
+            <tr className="border-b border-border-subtle">
+              <th className="text-left py-3 px-4 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Datum
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Gebruiker
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Gevonden
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Totaal
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Hoogste Schuld
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Bronnen
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Actie
               </th>
             </tr>
@@ -131,17 +131,17 @@ export function ScansTable({ scans }: ScansTableProps) {
             {filteredScans.map((scan) => (
               <tr
                 key={scan.id}
-                className="border-b border-[#2a2a2a] hover:bg-[#2a2a2a] transition-colors"
+                className="border-b border-border-subtle hover:bg-[#2a2a2a] transition-colors"
               >
-                <td className="py-3 px-4 text-sm text-[#888888]">{scan.datum}</td>
+                <td className="py-3 px-4 text-sm text-text-secondary">{scan.datum}</td>
                 <td className="py-3 px-4">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center">
-                      <span className="text-white text-xs font-medium">
+                      <span className="text-foreground text-xs font-medium">
                         {scan.gebruiker.avatar}
                       </span>
                     </div>
-                    <span className="text-sm font-medium text-white">
+                    <span className="text-sm font-medium text-foreground">
                       {scan.gebruiker.naam}
                     </span>
                   </div>
@@ -161,15 +161,15 @@ export function ScansTable({ scans }: ScansTableProps) {
                     {scan.schuldenGevonden} schulden
                   </span>
                 </td>
-                <td className="py-3 px-4 text-sm font-medium text-white">
+                <td className="py-3 px-4 text-sm font-medium text-foreground">
                   {formatCurrency(scan.totaalBedrag)}
                 </td>
                 <td className="py-3 px-4">
                   <div className="text-sm">
-                    <span className="font-medium text-white">
+                    <span className="font-medium text-foreground">
                       {formatCurrency(scan.hoogsteSchuld.bedrag)}
                     </span>
-                    <span className="text-[#888888] ml-1">
+                    <span className="text-text-secondary ml-1">
                       ({scan.hoogsteSchuld.schuldeiser})
                     </span>
                   </div>
@@ -179,13 +179,13 @@ export function ScansTable({ scans }: ScansTableProps) {
                     {scan.bronnenGecheckt.slice(0, 3).map((bron) => (
                       <span
                         key={bron}
-                        className={`inline-flex px-2 py-0.5 rounded text-[10px] font-medium ${bronColors[bron] || 'bg-[#2a2a2a] text-[#888888]'}`}
+                        className={`inline-flex px-2 py-0.5 rounded text-[10px] font-medium ${bronColors[bron] || 'bg-[#2a2a2a] text-text-secondary'}`}
                       >
                         {bron}
                       </span>
                     ))}
                     {scan.bronnenGecheckt.length > 3 && (
-                      <span className="inline-flex px-2 py-0.5 rounded text-[10px] font-medium bg-[#2a2a2a] text-[#888888]">
+                      <span className="inline-flex px-2 py-0.5 rounded text-[10px] font-medium bg-[#2a2a2a] text-text-secondary">
                         +{scan.bronnenGecheckt.length - 3}
                       </span>
                     )}

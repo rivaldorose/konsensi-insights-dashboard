@@ -26,8 +26,8 @@ export function PaymentsByDayChart({ data }: PaymentsByDayChartProps) {
   const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
     if (active && payload && payload.length) {
       return (
-        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-3 rounded-lg shadow-lg">
-          <p className="font-medium text-white">{label}</p>
+        <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-3 rounded-lg shadow-lg">
+          <p className="font-medium text-foreground">{label}</p>
           <p className="text-sm text-[#3D7B4C]">{payload[0].value} betalingen</p>
         </div>
       );
@@ -36,26 +36,26 @@ export function PaymentsByDayChart({ data }: PaymentsByDayChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-lg font-semibold text-white">Betalingen per Dag van de Week</h3>
-          <p className="text-sm text-[#888888] mt-1">Beste dag voor herinneringen: Dinsdag</p>
+          <h3 className="text-lg font-semibold text-foreground">Betalingen per Dag van de Week</h3>
+          <p className="text-sm text-text-secondary mt-1">Beste dag voor herinneringen: Dinsdag</p>
         </div>
       </div>
       <div className="h-[250px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" vertical={false} />
             <XAxis
               dataKey="day"
-              tick={{ fill: '#888888', fontSize: 12 }}
-              axisLine={{ stroke: '#2a2a2a' }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
+              axisLine={{ stroke: 'var(--border-subtle)' }}
               tickLine={false}
             />
             <YAxis
-              tick={{ fill: '#888888', fontSize: 12 }}
-              axisLine={{ stroke: '#2a2a2a' }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
+              axisLine={{ stroke: 'var(--border-subtle)' }}
               tickLine={false}
             />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />

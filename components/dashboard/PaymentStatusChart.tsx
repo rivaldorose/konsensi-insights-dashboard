@@ -14,8 +14,8 @@ interface PaymentStatusChartProps {
 
 export function PaymentStatusChart({ data, total }: PaymentStatusChartProps) {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Betalingen Status</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Betalingen Status</h3>
 
       {/* Stacked bar */}
       <div className="mb-6">
@@ -42,20 +42,20 @@ export function PaymentStatusChart({ data, total }: PaymentStatusChartProps) {
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-sm text-[#888888]">{item.name}</span>
+              <span className="text-sm text-text-secondary">{item.name}</span>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-sm text-[#888888]">{item.value.toLocaleString('nl-NL')}</span>
-              <span className="text-sm font-medium text-white w-12 text-right">{item.percentage}%</span>
+              <span className="text-sm text-text-secondary">{item.value.toLocaleString('nl-NL')}</span>
+              <span className="text-sm font-medium text-foreground w-12 text-right">{item.percentage}%</span>
             </div>
           </div>
         ))}
       </div>
 
       {/* Total */}
-      <div className="mt-4 pt-4 border-t border-[#2a2a2a] flex items-center justify-between">
-        <span className="text-sm font-medium text-[#888888]">Totaal</span>
-        <span className="text-sm font-bold text-white">{total.toLocaleString('nl-NL')}</span>
+      <div className="mt-4 pt-4 border-t border-border-subtle flex items-center justify-between">
+        <span className="text-sm font-medium text-text-secondary">Totaal</span>
+        <span className="text-sm font-bold text-foreground">{total.toLocaleString('nl-NL')}</span>
       </div>
     </div>
   );

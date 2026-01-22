@@ -37,7 +37,7 @@ export function AppOverviewCard({
 
   return (
     <Link href={href}>
-      <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] hover:border-[#3a3a3a] transition-all cursor-pointer group h-full">
+      <div className="bg-card rounded-[20px] p-6 border border-border-subtle hover:border-[#3a3a3a] transition-all cursor-pointer group h-full">
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <div
@@ -47,23 +47,23 @@ export function AppOverviewCard({
               <div style={{ color }}>{icon}</div>
             </div>
             <div>
-              <h3 className="font-semibold text-white group-hover:text-[#3D7B4C] transition-colors">
+              <h3 className="font-semibold text-foreground group-hover:text-[#3D7B4C] transition-colors">
                 {name}
               </h3>
-              <p className="text-xs text-[#888888]">{description}</p>
+              <p className="text-xs text-text-secondary">{description}</p>
             </div>
           </div>
-          <ArrowUpRight className="w-5 h-5 text-[#888888] group-hover:text-[#3D7B4C] transition-colors" />
+          <ArrowUpRight className="w-5 h-5 text-text-secondary group-hover:text-[#3D7B4C] transition-colors" />
         </div>
 
         <div className="grid grid-cols-2 gap-3">
           {stats.map((stat, index) => (
             <div key={index} className="bg-[#2a2a2a] rounded-xl p-3">
               <div className="flex items-center gap-1 mb-1">
-                <span className="text-lg font-bold text-white">{stat.value}</span>
+                <span className="text-lg font-bold text-foreground">{stat.value}</span>
                 {getTrendIcon(stat.trend)}
               </div>
-              <p className="text-xs text-[#888888]">{stat.label}</p>
+              <p className="text-xs text-text-secondary">{stat.label}</p>
             </div>
           ))}
         </div>

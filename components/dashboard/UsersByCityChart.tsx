@@ -21,10 +21,10 @@ interface UsersByCityChartProps {
 
 export function UsersByCityChart({ data }: UsersByCityChartProps) {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-white">Gebruikers per Stad</h3>
-        <p className="text-sm text-[#888888]">Top 5 steden met meeste gebruikers</p>
+        <h3 className="text-lg font-bold text-foreground">Gebruikers per Stad</h3>
+        <p className="text-sm text-text-secondary">Top 5 steden met meeste gebruikers</p>
       </div>
 
       <div className="h-[280px]">
@@ -38,27 +38,27 @@ export function UsersByCityChart({ data }: UsersByCityChartProps) {
               type="number"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
             />
             <YAxis
               type="category"
               dataKey="city"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#ffffff', fontSize: 13, fontWeight: 500 }}
+              tick={{ fill: 'var(--text-primary)', fontSize: 13, fontWeight: 500 }}
               width={90}
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#1a1a1a',
-                border: '1px solid #2a2a2a',
+                backgroundColor: 'var(--bg-card)',
+                border: '1px solid var(--border-subtle)',
                 borderRadius: '12px',
                 boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
                 padding: '12px 16px',
-                color: '#ffffff',
+                color: 'var(--text-primary)',
               }}
               formatter={(value) => [`${value} gebruikers`, '']}
-              labelStyle={{ color: '#ffffff', fontWeight: 600 }}
+              labelStyle={{ color: 'var(--text-primary)', fontWeight: 600 }}
             />
             <Bar
               dataKey="users"

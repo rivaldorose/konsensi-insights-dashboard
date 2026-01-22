@@ -19,9 +19,9 @@ export function PaymentMethodsChart({ data }: PaymentMethodsChartProps) {
     if (active && payload && payload.length) {
       const item = payload[0].payload;
       return (
-        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-3 rounded-lg shadow-lg">
-          <p className="font-medium text-white">{item.name}</p>
-          <p className="text-sm text-[#888888]">{item.value} betalingen ({item.percentage}%)</p>
+        <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-3 rounded-lg shadow-lg">
+          <p className="font-medium text-foreground">{item.name}</p>
+          <p className="text-sm text-text-secondary">{item.value} betalingen ({item.percentage}%)</p>
         </div>
       );
     }
@@ -29,8 +29,8 @@ export function PaymentMethodsChart({ data }: PaymentMethodsChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Betaalmethodes</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Betaalmethodes</h3>
       <div className="flex items-center">
         <div className="w-1/2 h-[180px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -60,9 +60,9 @@ export function PaymentMethodsChart({ data }: PaymentMethodsChartProps) {
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: item.color }}
                 />
-                <span className="text-sm text-[#888888]">{item.name}</span>
+                <span className="text-sm text-text-secondary">{item.name}</span>
               </div>
-              <span className="text-sm font-medium text-white">{item.percentage}%</span>
+              <span className="text-sm font-medium text-foreground">{item.percentage}%</span>
             </div>
           ))}
         </div>

@@ -135,15 +135,15 @@ export function DateRangePicker({ value, onChange, placeholder = 'Selecteer peri
     <div className="relative" ref={containerRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2.5 border border-[#2a2a2a] rounded-xl text-sm bg-[#1a1a1a] hover:border-[#333333] transition-colors"
+        className="flex items-center gap-2 px-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-card hover:border-border-medium transition-colors"
       >
-        <Calendar className="w-4 h-4 text-[#888888]" />
+        <Calendar className="w-4 h-4 text-text-secondary" />
         {value.start && value.end ? (
-          <span className="text-white">
+          <span className="text-foreground">
             {formatDate(value.start)} - {formatDate(value.end)}
           </span>
         ) : (
-          <span className="text-[#888888]">{placeholder}</span>
+          <span className="text-text-secondary">{placeholder}</span>
         )}
         {value.start && (
           <button
@@ -151,18 +151,18 @@ export function DateRangePicker({ value, onChange, placeholder = 'Selecteer peri
               e.stopPropagation();
               onChange({ start: null, end: null });
             }}
-            className="ml-1 p-0.5 hover:bg-[#222222] rounded"
+            className="ml-1 p-0.5 hover:bg-card-hover rounded"
           >
-            <X className="w-3 h-3 text-[#888888]" />
+            <X className="w-3 h-3 text-text-secondary" />
           </button>
         )}
       </button>
 
       {isOpen && (
-        <div className="absolute top-full mt-2 left-0 z-50 bg-[#1a1a1a] rounded-xl shadow-lg border border-[#2a2a2a] p-4 flex gap-4">
+        <div className="absolute top-full mt-2 left-0 z-50 bg-card rounded-xl shadow-lg border border-border-subtle p-4 flex gap-4">
           {/* Presets */}
-          <div className="border-r border-[#2a2a2a] pr-4">
-            <p className="text-xs font-medium text-[#666666] uppercase tracking-wider mb-2">
+          <div className="border-r border-border-subtle pr-4">
+            <p className="text-xs font-medium text-text-tertiary uppercase tracking-wider mb-2">
               Snelle selectie
             </p>
             <div className="space-y-1">
@@ -170,7 +170,7 @@ export function DateRangePicker({ value, onChange, placeholder = 'Selecteer peri
                 <button
                   key={preset.label}
                   onClick={() => handlePresetClick(preset)}
-                  className="w-full text-left px-3 py-2 text-sm rounded-lg hover:bg-[#222222] text-white transition-colors"
+                  className="w-full text-left px-3 py-2 text-sm rounded-lg hover:bg-card-hover text-foreground transition-colors"
                 >
                   {preset.label}
                 </button>
@@ -188,11 +188,11 @@ export function DateRangePicker({ value, onChange, placeholder = 'Selecteer peri
                   newMonth.setMonth(newMonth.getMonth() - 1);
                   setCurrentMonth(newMonth);
                 }}
-                className="p-1 hover:bg-[#222222] rounded-lg transition-colors"
+                className="p-1 hover:bg-card-hover rounded-lg transition-colors"
               >
-                <ChevronLeft className="w-5 h-5 text-[#888888]" />
+                <ChevronLeft className="w-5 h-5 text-text-secondary" />
               </button>
-              <span className="font-medium text-white">
+              <span className="font-medium text-foreground">
                 {MONTHS[currentMonth.getMonth()]} {currentMonth.getFullYear()}
               </span>
               <button
@@ -201,9 +201,9 @@ export function DateRangePicker({ value, onChange, placeholder = 'Selecteer peri
                   newMonth.setMonth(newMonth.getMonth() + 1);
                   setCurrentMonth(newMonth);
                 }}
-                className="p-1 hover:bg-[#222222] rounded-lg transition-colors"
+                className="p-1 hover:bg-card-hover rounded-lg transition-colors"
               >
-                <ChevronRight className="w-5 h-5 text-[#888888]" />
+                <ChevronRight className="w-5 h-5 text-text-secondary" />
               </button>
             </div>
 
@@ -212,7 +212,7 @@ export function DateRangePicker({ value, onChange, placeholder = 'Selecteer peri
               {WEEKDAYS.map((day) => (
                 <div
                   key={day}
-                  className="w-9 h-9 flex items-center justify-center text-xs font-medium text-[#666666]"
+                  className="w-9 h-9 flex items-center justify-center text-xs font-medium text-text-tertiary"
                 >
                   {day}
                 </div>
@@ -228,10 +228,10 @@ export function DateRangePicker({ value, onChange, placeholder = 'Selecteer peri
                       onClick={() => handleDateClick(day)}
                       className={`w-9 h-9 flex items-center justify-center text-sm rounded-lg transition-colors ${
                         isSelected(day)
-                          ? 'bg-[#3D7B4C] text-white'
+                          ? 'bg-[#3D7B4C] text-foreground'
                           : isInRange(day)
                           ? 'bg-[#3D7B4C]/20 text-[#4a9d5c]'
-                          : 'hover:bg-[#222222] text-white'
+                          : 'hover:bg-card-hover text-foreground'
                       }`}
                     >
                       {day.getDate()}
@@ -244,7 +244,7 @@ export function DateRangePicker({ value, onChange, placeholder = 'Selecteer peri
             </div>
 
             {/* Selection hint */}
-            <p className="mt-3 text-xs text-[#888888] text-center">
+            <p className="mt-3 text-xs text-text-secondary text-center">
               {selecting === 'start' ? 'Selecteer startdatum' : 'Selecteer einddatum'}
             </p>
           </div>

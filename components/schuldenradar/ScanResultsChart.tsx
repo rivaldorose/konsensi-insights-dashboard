@@ -26,9 +26,9 @@ export function ScanResultsChart({ data, total }: ScanResultsChartProps) {
       const item = payload[0].payload;
       const percentage = ((item.value / total) * 100).toFixed(1);
       return (
-        <div className="bg-[#1a1a1a] p-3 rounded-lg shadow-lg border border-[#2a2a2a]">
-          <p className="font-medium text-white">{item.category}</p>
-          <p className="text-sm text-[#888888]">
+        <div className="bg-card p-3 rounded-lg shadow-lg border border-border-subtle">
+          <p className="font-medium text-foreground">{item.category}</p>
+          <p className="text-sm text-text-secondary">
             {item.value.toLocaleString('nl-NL')} scans ({percentage}%)
           </p>
         </div>
@@ -38,8 +38,8 @@ export function ScanResultsChart({ data, total }: ScanResultsChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Scan Resultaten</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Scan Resultaten</h3>
       <div className="flex items-center gap-4">
         <div className="h-[200px] w-[200px] relative">
           <ResponsiveContainer width="100%" height="100%">
@@ -61,8 +61,8 @@ export function ScanResultsChart({ data, total }: ScanResultsChartProps) {
             </PieChart>
           </ResponsiveContainer>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-2xl font-bold text-white">{total.toLocaleString('nl-NL')}</span>
-            <span className="text-xs text-[#888888]">scans</span>
+            <span className="text-2xl font-bold text-foreground">{total.toLocaleString('nl-NL')}</span>
+            <span className="text-xs text-text-secondary">scans</span>
           </div>
         </div>
         <div className="flex-1 space-y-2">
@@ -70,9 +70,9 @@ export function ScanResultsChart({ data, total }: ScanResultsChartProps) {
             <div key={item.category} className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
-                <span className="text-sm text-[#888888]">{item.category}</span>
+                <span className="text-sm text-text-secondary">{item.category}</span>
               </div>
-              <span className="text-sm font-medium text-white">
+              <span className="text-sm font-medium text-foreground">
                 {((item.value / total) * 100).toFixed(0)}%
               </span>
             </div>

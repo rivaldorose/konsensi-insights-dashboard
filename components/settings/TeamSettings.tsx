@@ -50,7 +50,7 @@ const initialMembers: TeamMember[] = [
 const rolColors = {
   Admin: 'bg-purple-900/30 text-purple-400',
   Beheerder: 'bg-blue-900/30 text-blue-400',
-  Medewerker: 'bg-[#2a2a2a] text-[#888888]',
+  Medewerker: 'bg-[#2a2a2a] text-text-secondary',
 };
 
 export function TeamSettings() {
@@ -81,17 +81,17 @@ export function TeamSettings() {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-8 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-8 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-white">Team Beheer</h2>
-          <p className="text-sm text-[#888888] mt-1">
+          <h2 className="text-xl font-semibold text-foreground">Team Beheer</h2>
+          <p className="text-sm text-text-secondary mt-1">
             Beheer teamleden en hun toegangsrechten
           </p>
         </div>
         <button
           onClick={() => setShowInviteModal(true)}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors"
+          className="flex items-center gap-2 px-5 py-2.5 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors"
         >
           <Plus className="w-4 h-4" />
           Uitnodigen
@@ -103,22 +103,22 @@ export function TeamSettings() {
         {members.map((member) => (
           <div
             key={member.id}
-            className="flex items-center justify-between p-4 bg-[#1e1e1e] rounded-xl border border-[#2a2a2a]"
+            className="flex items-center justify-between p-4 bg-input rounded-xl border border-border-subtle"
           >
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center text-white text-sm font-medium">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center text-foreground text-sm font-medium">
                 {member.avatar}
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <p className="font-medium text-white">{member.naam}</p>
+                  <p className="font-medium text-foreground">{member.naam}</p>
                   {member.status === 'Uitgenodigd' && (
                     <span className="px-2 py-0.5 bg-yellow-900/30 text-yellow-500 text-xs rounded-full">
                       Uitgenodigd
                     </span>
                   )}
                 </div>
-                <p className="text-sm text-[#888888]">{member.email}</p>
+                <p className="text-sm text-text-secondary">{member.email}</p>
               </div>
             </div>
 
@@ -129,17 +129,17 @@ export function TeamSettings() {
               <div className="relative">
                 <button
                   onClick={() => setOpenMenuId(openMenuId === member.id ? null : member.id)}
-                  className="p-2 hover:bg-[#222222] rounded-lg transition-colors"
+                  className="p-2 hover:bg-card-hover rounded-lg transition-colors"
                 >
-                  <MoreVertical className="w-4 h-4 text-[#888888]" />
+                  <MoreVertical className="w-4 h-4 text-text-secondary" />
                 </button>
                 {openMenuId === member.id && (
-                  <div className="absolute right-0 top-full mt-1 w-48 bg-[#1e1e1e] rounded-xl shadow-lg border border-[#2a2a2a] py-2 z-10">
-                    <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-[#888888] hover:bg-[#222222]">
+                  <div className="absolute right-0 top-full mt-1 w-48 bg-input rounded-xl shadow-lg border border-border-subtle py-2 z-10">
+                    <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-text-secondary hover:bg-card-hover">
                       <Mail className="w-4 h-4" />
                       Email sturen
                     </button>
-                    <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-[#888888] hover:bg-[#222222]">
+                    <button className="w-full flex items-center gap-2 px-4 py-2 text-sm text-text-secondary hover:bg-card-hover">
                       <Shield className="w-4 h-4" />
                       Rol wijzigen
                     </button>
@@ -163,11 +163,11 @@ export function TeamSettings() {
       {/* Invite Modal */}
       {showInviteModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-[#1a1a1a] rounded-[20px] p-6 w-full max-w-md mx-4 border border-[#2a2a2a]">
-            <h3 className="text-lg font-semibold text-white mb-4">Teamlid uitnodigen</h3>
+          <div className="bg-card rounded-[20px] p-6 w-full max-w-md mx-4 border border-border-subtle">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Teamlid uitnodigen</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-[#888888] mb-2">
+                <label className="block text-sm font-medium text-text-secondary mb-2">
                   E-mailadres
                 </label>
                 <input
@@ -175,17 +175,17 @@ export function TeamSettings() {
                   value={inviteEmail}
                   onChange={(e) => setInviteEmail(e.target.value)}
                   placeholder="naam@bedrijf.nl"
-                  className="w-full px-4 py-3 bg-[#1e1e1e] border border-[#2a2a2a] rounded-xl text-sm text-white placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                  className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#888888] mb-2">
+                <label className="block text-sm font-medium text-text-secondary mb-2">
                   Rol
                 </label>
                 <select
                   value={inviteRol}
                   onChange={(e) => setInviteRol(e.target.value as 'Beheerder' | 'Medewerker')}
-                  className="w-full px-4 py-3 bg-[#1e1e1e] border border-[#2a2a2a] rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                  className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
                 >
                   <option value="Medewerker">Medewerker</option>
                   <option value="Beheerder">Beheerder</option>
@@ -195,14 +195,14 @@ export function TeamSettings() {
             <div className="flex justify-end gap-3 mt-6">
               <button
                 onClick={() => setShowInviteModal(false)}
-                className="px-5 py-2.5 text-[#888888] font-medium text-sm hover:bg-[#222222] rounded-full transition-colors"
+                className="px-5 py-2.5 text-text-secondary font-medium text-sm hover:bg-card-hover rounded-full transition-colors"
               >
                 Annuleren
               </button>
               <button
                 onClick={handleInvite}
                 disabled={!inviteEmail}
-                className="px-5 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
+                className="px-5 py-2.5 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
               >
                 Uitnodigen
               </button>

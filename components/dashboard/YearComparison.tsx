@@ -39,20 +39,20 @@ export function YearComparison({ items }: YearComparisonProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-white">Vergelijking met Vorig Jaar</h3>
-        <p className="text-sm text-[#888888]">2025 vs 2024</p>
+        <h3 className="text-lg font-bold text-foreground">Vergelijking met Vorig Jaar</h3>
+        <p className="text-sm text-text-secondary">2025 vs 2024</p>
       </div>
 
       <div className="flex items-center gap-4 mb-4 text-xs">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-[#3D7B4C]" />
-          <span className="text-[#888888]">Dit jaar</span>
+          <span className="text-text-secondary">Dit jaar</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-[#555555]" />
-          <span className="text-[#888888]">Vorig jaar</span>
+          <span className="text-text-secondary">Vorig jaar</span>
         </div>
       </div>
 
@@ -62,7 +62,7 @@ export function YearComparison({ items }: YearComparisonProps) {
           return (
             <div key={item.id}>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-white">{item.label}</span>
+                <span className="text-sm font-medium text-foreground">{item.label}</span>
               </div>
 
               <div className="space-y-2">
@@ -87,7 +87,7 @@ export function YearComparison({ items }: YearComparisonProps) {
                       style={{ width: `${getBarWidth(item.lastYear, maxVal)}%` }}
                     />
                   </div>
-                  <span className="text-sm font-medium text-[#888888] w-24 text-right">
+                  <span className="text-sm font-medium text-text-secondary w-24 text-right">
                     {formatValue(item.lastYear, item.format)}
                   </span>
                 </div>

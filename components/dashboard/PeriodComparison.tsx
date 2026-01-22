@@ -56,10 +56,10 @@ export function PeriodComparison({ data }: PeriodComparisonProps) {
   ];
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-white">Periode Vergelijking</h3>
-        <p className="text-sm text-[#888888]">Vergelijk statistieken tussen periodes</p>
+        <h3 className="text-lg font-bold text-foreground">Periode Vergelijking</h3>
+        <p className="text-sm text-text-secondary">Vergelijk statistieken tussen periodes</p>
       </div>
 
       {/* Period Selectors */}
@@ -68,7 +68,7 @@ export function PeriodComparison({ data }: PeriodComparisonProps) {
           <select
             value={period1}
             onChange={(e) => setPeriod1(e.target.value)}
-            className="w-full appearance-none bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2.5 pr-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer"
+            className="w-full appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer"
           >
             {periodOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -76,16 +76,16 @@ export function PeriodComparison({ data }: PeriodComparisonProps) {
               </option>
             ))}
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666] pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-tertiary pointer-events-none" />
         </div>
 
-        <span className="text-[#666666] text-sm">vs</span>
+        <span className="text-text-tertiary text-sm">vs</span>
 
         <div className="relative flex-1">
           <select
             value={period2}
             onChange={(e) => setPeriod2(e.target.value)}
-            className="w-full appearance-none bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2.5 pr-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer"
+            className="w-full appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer"
           >
             {periodOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -93,7 +93,7 @@ export function PeriodComparison({ data }: PeriodComparisonProps) {
               </option>
             ))}
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666] pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-tertiary pointer-events-none" />
         </div>
       </div>
 
@@ -102,7 +102,7 @@ export function PeriodComparison({ data }: PeriodComparisonProps) {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="flex items-center gap-4 p-4 bg-[#222222] rounded-xl"
+            className="flex items-center gap-4 p-4 bg-card-hover rounded-xl"
           >
             <div className="w-10 h-10 bg-[#3D7B4C]/20 rounded-full flex items-center justify-center">
               <stat.icon className="w-5 h-5 text-[#3D7B4C]" />
@@ -115,7 +115,7 @@ export function PeriodComparison({ data }: PeriodComparisonProps) {
               >
                 {stat.format(stat.value)}
               </p>
-              <p className="text-sm text-[#888888]">{stat.label}</p>
+              <p className="text-sm text-text-secondary">{stat.label}</p>
             </div>
           </div>
         ))}

@@ -19,7 +19,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-[#0a0a0a]">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-background">
       <div className="absolute top-4 right-4">
         <ThemeToggle />
       </div>
@@ -32,10 +32,10 @@ export default function LoginPage() {
               <BarChart3 className="h-10 w-10 text-white" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-white">
+          <h1 className="text-3xl font-bold text-foreground">
             Konsensi Insights
           </h1>
-          <p className="mt-2 text-[#888888]">
+          <p className="mt-2 text-text-secondary">
             Centraal dashboard voor schuldhulpverlening
           </p>
         </div>
@@ -46,13 +46,13 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-[#888888] mb-1"
+                className="block text-sm font-medium text-text-secondary mb-1"
               >
                 E-mailadres
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-[#888888]" />
+                  <Mail className="h-5 w-5 text-text-secondary" />
                 </div>
                 <input
                   id="email"
@@ -62,7 +62,7 @@ export default function LoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-3 border border-[#2a2a2a] rounded-lg bg-[#1e1e1e] text-white placeholder-[#666666] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] transition-colors"
+                  className="block w-full pl-10 pr-3 py-3 border border-border-subtle rounded-lg bg-input text-foreground placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] transition-colors"
                   placeholder="uw@email.nl"
                 />
               </div>
@@ -71,13 +71,13 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-[#888888] mb-1"
+                className="block text-sm font-medium text-text-secondary mb-1"
               >
                 Wachtwoord
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-[#888888]" />
+                  <Lock className="h-5 w-5 text-text-secondary" />
                 </div>
                 <input
                   id="password"
@@ -87,7 +87,7 @@ export default function LoginPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full pl-10 pr-10 py-3 border border-[#2a2a2a] rounded-lg bg-[#1e1e1e] text-white placeholder-[#666666] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] transition-colors"
+                  className="block w-full pl-10 pr-10 py-3 border border-border-subtle rounded-lg bg-input text-foreground placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] transition-colors"
                   placeholder="Voer uw wachtwoord in"
                 />
                 <button
@@ -96,9 +96,9 @@ export default function LoginPage() {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
                 >
                   {showPassword ? (
-                    <EyeOff className="h-5 w-5 text-[#888888] hover:text-white" />
+                    <EyeOff className="h-5 w-5 text-text-secondary hover:text-foreground" />
                   ) : (
-                    <Eye className="h-5 w-5 text-[#888888] hover:text-white" />
+                    <Eye className="h-5 w-5 text-text-secondary hover:text-foreground" />
                   )}
                 </button>
               </div>
@@ -111,11 +111,11 @@ export default function LoginPage() {
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
-                className="h-4 w-4 text-[#3D7B4C] focus:ring-[#3D7B4C] border-[#2a2a2a] rounded bg-[#1e1e1e]"
+                className="h-4 w-4 text-[#3D7B4C] focus:ring-[#3D7B4C] border-border-subtle rounded bg-input"
               />
               <label
                 htmlFor="remember-me"
-                className="ml-2 block text-sm text-[#888888]"
+                className="ml-2 block text-sm text-text-secondary"
               >
                 Onthoud mij
               </label>
@@ -139,11 +139,11 @@ export default function LoginPage() {
         </form>
 
         {/* App Sources Info */}
-        <div className="mt-8 pt-6 border-t border-[#2a2a2a]">
-          <p className="text-center text-sm text-[#888888]">
+        <div className="mt-8 pt-6 border-t border-border-subtle">
+          <p className="text-center text-sm text-text-secondary">
             Gekoppelde applicaties
           </p>
-          <div className="mt-3 flex justify-center gap-4 text-xs text-[#666666]">
+          <div className="mt-3 flex justify-center gap-4 text-xs text-text-tertiary">
             <span>Jongeren App</span>
             <span>|</span>
             <span>Bewind</span>

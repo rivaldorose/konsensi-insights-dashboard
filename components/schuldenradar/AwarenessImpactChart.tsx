@@ -29,9 +29,9 @@ export function AwarenessImpactChart({ data, total, knownBefore, discoveredNew }
       const item = payload[0].payload;
       const percentage = ((item.value / total) * 100).toFixed(1);
       return (
-        <div className="bg-[#1a1a1a] p-3 rounded-lg shadow-lg border border-[#2a2a2a]">
-          <p className="font-medium text-white">{item.type}</p>
-          <p className="text-sm text-[#888888]">
+        <div className="bg-card p-3 rounded-lg shadow-lg border border-border-subtle">
+          <p className="font-medium text-foreground">{item.type}</p>
+          <p className="text-sm text-text-secondary">
             {item.value.toLocaleString('nl-NL')} schulden ({percentage}%)
           </p>
         </div>
@@ -43,8 +43,8 @@ export function AwarenessImpactChart({ data, total, knownBefore, discoveredNew }
   const discoveredPercentage = ((discoveredNew / total) * 100).toFixed(0);
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Bewustzijn Impact</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Bewustzijn Impact</h3>
 
       <div className="flex items-center gap-4">
         {/* Pie Chart */}
@@ -69,7 +69,7 @@ export function AwarenessImpactChart({ data, total, knownBefore, discoveredNew }
           </ResponsiveContainer>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <span className="text-xl font-bold text-[#EF4444]">{discoveredPercentage}%</span>
-            <span className="text-[10px] text-[#888888]">nieuw</span>
+            <span className="text-[10px] text-text-secondary">nieuw</span>
           </div>
         </div>
 
@@ -77,10 +77,10 @@ export function AwarenessImpactChart({ data, total, knownBefore, discoveredNew }
         <div className="flex-1 space-y-3">
           <div className="p-3 bg-[#2a2a2a] rounded-xl">
             <div className="flex items-center gap-2 mb-1">
-              <Eye className="w-4 h-4 text-[#888888]" />
-              <span className="text-xs text-[#888888]">Bekend voor scan</span>
+              <Eye className="w-4 h-4 text-text-secondary" />
+              <span className="text-xs text-text-secondary">Bekend voor scan</span>
             </div>
-            <p className="text-lg font-bold text-white">{knownBefore.toLocaleString('nl-NL')}</p>
+            <p className="text-lg font-bold text-foreground">{knownBefore.toLocaleString('nl-NL')}</p>
           </div>
           <div className="p-3 bg-red-900/30 rounded-xl border border-red-800/50">
             <div className="flex items-center gap-2 mb-1">
@@ -97,7 +97,7 @@ export function AwarenessImpactChart({ data, total, knownBefore, discoveredNew }
         {data.map((item) => (
           <div key={item.type} className="flex items-center gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }} />
-            <span className="text-xs text-[#888888]">{item.type}</span>
+            <span className="text-xs text-text-secondary">{item.type}</span>
           </div>
         ))}
       </div>

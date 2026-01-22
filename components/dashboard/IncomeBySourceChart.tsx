@@ -28,9 +28,9 @@ export function IncomeBySourceChart({ data, total }: IncomeBySourceChartProps) {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-[#1a1a1a] p-3 rounded-lg shadow-lg border border-[#2a2a2a]">
-          <p className="font-medium text-white">{data.name}</p>
-          <p className="text-sm text-[#888888]">{formatCurrency(data.value)}</p>
+        <div className="bg-card p-3 rounded-lg shadow-lg border border-border-subtle">
+          <p className="font-medium text-foreground">{data.name}</p>
+          <p className="text-sm text-text-secondary">{formatCurrency(data.value)}</p>
         </div>
       );
     }
@@ -38,8 +38,8 @@ export function IncomeBySourceChart({ data, total }: IncomeBySourceChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 shadow-sm border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Inkomen per Bron</h3>
+    <div className="bg-card rounded-[20px] p-6 shadow-sm border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Inkomen per Bron</h3>
       <div className="flex items-center">
         <div className="w-1/2 h-[200px] relative">
           <ResponsiveContainer width="100%" height="100%">
@@ -62,8 +62,8 @@ export function IncomeBySourceChart({ data, total }: IncomeBySourceChartProps) {
           </ResponsiveContainer>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-xs text-[#888888]">Totaal</p>
-              <p className="text-lg font-bold text-white">{formatCurrency(total)}</p>
+              <p className="text-xs text-text-secondary">Totaal</p>
+              <p className="text-lg font-bold text-foreground">{formatCurrency(total)}</p>
             </div>
           </div>
         </div>
@@ -75,9 +75,9 @@ export function IncomeBySourceChart({ data, total }: IncomeBySourceChartProps) {
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: item.color }}
                 />
-                <span className="text-sm text-[#888888]">{item.name}</span>
+                <span className="text-sm text-text-secondary">{item.name}</span>
               </div>
-              <span className="text-sm font-medium text-white">
+              <span className="text-sm font-medium text-foreground">
                 {formatCurrency(item.value)}
               </span>
             </div>

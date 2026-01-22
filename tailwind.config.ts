@@ -12,36 +12,27 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // Dark mode colors
-        dark: {
-          bg: {
-            primary: "#0a0a0a",
-            secondary: "#111111",
-            card: "#1a1a1a",
-            "card-hover": "#222222",
-            input: "#1e1e1e",
-          },
-          border: {
-            subtle: "#2a2a2a",
-            medium: "#333333",
-          },
-          text: {
-            primary: "#ffffff",
-            secondary: "#888888",
-            tertiary: "#666666",
-          },
-        },
+        // Theme-aware colors using CSS variables
+        card: "var(--bg-card)",
+        "card-hover": "var(--bg-card-hover)",
+        input: "var(--bg-input)",
+        "bg-primary": "var(--bg-primary)",
+        "bg-secondary": "var(--bg-secondary)",
+        "border-subtle": "var(--border-subtle)",
+        "border-medium": "var(--border-medium)",
+        "text-primary": "var(--text-primary)",
+        "text-secondary": "var(--text-secondary)",
+        "text-tertiary": "var(--text-tertiary)",
         // Konsensi brand colors
         konsensi: {
           green: {
             DEFAULT: "#3D7B4C",
             light: "#4a9d5c",
             dark: "#2d5a38",
-            muted: "rgba(61, 123, 76, 0.2)",
+            muted: "var(--green-muted)",
           },
           mint: "#4ade80",
           coral: "#f87171",
-          dark: "#0a0a0a",
         },
         // Chart colors
         chart: {

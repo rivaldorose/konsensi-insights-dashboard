@@ -75,16 +75,16 @@ export function DebtsTable({ debts }: DebtsTableProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] shadow-sm border border-[#2a2a2a] overflow-hidden">
+    <div className="bg-card rounded-[20px] shadow-sm border border-border-subtle overflow-hidden">
       {/* Header */}
-      <div className="p-6 border-b border-[#2a2a2a]">
+      <div className="p-6 border-b border-border-subtle">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <h3 className="text-lg font-semibold text-white">Alle Schulden</h3>
+          <h3 className="text-lg font-semibold text-foreground">Alle Schulden</h3>
 
           <div className="flex flex-wrap items-center gap-3">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary" />
               <input
                 type="text"
                 placeholder="Zoeken..."
@@ -93,7 +93,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
                   setSearchTerm(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="pl-10 pr-4 py-2 border border-[#2a2a2a] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-48 bg-[#1a1a1a] text-white placeholder-[#888888]"
+                className="pl-10 pr-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-48 bg-card text-foreground placeholder-[#888888]"
               />
             </div>
 
@@ -104,7 +104,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
                 setUrgencyFilter(e.target.value as DebtUrgency | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-[#2a2a2a] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-[#1a1a1a] text-white"
+              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-card text-foreground"
             >
               <option value="Alle">Alle Urgentie</option>
               <option value="Hoog">Hoog</option>
@@ -119,7 +119,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
                 setTypeFilter(e.target.value as DebtType | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-[#2a2a2a] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-[#1a1a1a] text-white"
+              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-card text-foreground"
             >
               <option value="Alle">Alle Types</option>
               <option value="Telefoon">Telefoon</option>
@@ -137,7 +137,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
                 setStatusFilter(e.target.value as DebtStatus | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-[#2a2a2a] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-[#1a1a1a] text-white"
+              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-card text-foreground"
             >
               <option value="Alle">Alle Status</option>
               <option value="Actief">Actief</option>
@@ -152,26 +152,26 @@ export function DebtsTable({ debts }: DebtsTableProps) {
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[#2a2a2a]">
-              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
+            <tr className="border-b border-border-subtle">
+              <th className="text-left py-4 px-6 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Gebruiker
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Crediteur
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Type
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Origineel
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Huidig
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Urgentie
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-text-secondary uppercase tracking-wider">
                 Status
               </th>
             </tr>
@@ -181,17 +181,17 @@ export function DebtsTable({ debts }: DebtsTableProps) {
               const urgencyStyle = urgencyColors[debt.urgentie];
               const statusStyle = statusColors[debt.status];
               return (
-                <tr key={debt.id} className="border-b border-[#2a2a2a] hover:bg-[#2a2a2a]/50 transition-colors">
+                <tr key={debt.id} className="border-b border-border-subtle hover:bg-[#2a2a2a]/50 transition-colors">
                   <td className="py-4 px-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center text-white text-xs font-medium">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center text-foreground text-xs font-medium">
                         {debt.avatar}
                       </div>
-                      <span className="text-sm text-white">{debt.gebruiker}</span>
+                      <span className="text-sm text-foreground">{debt.gebruiker}</span>
                     </div>
                   </td>
                   <td className="py-4 px-6">
-                    <span className="text-sm text-[#888888]">{debt.crediteur}</span>
+                    <span className="text-sm text-text-secondary">{debt.crediteur}</span>
                   </td>
                   <td className="py-4 px-6">
                     <span
@@ -201,10 +201,10 @@ export function DebtsTable({ debts }: DebtsTableProps) {
                     </span>
                   </td>
                   <td className="py-4 px-6">
-                    <span className="text-sm text-[#888888]">{formatCurrency(debt.origineel)}</span>
+                    <span className="text-sm text-text-secondary">{formatCurrency(debt.origineel)}</span>
                   </td>
                   <td className="py-4 px-6">
-                    <span className="text-sm font-medium text-white">
+                    <span className="text-sm font-medium text-foreground">
                       {formatCurrency(debt.huidig)}
                     </span>
                   </td>
@@ -230,8 +230,8 @@ export function DebtsTable({ debts }: DebtsTableProps) {
       </div>
 
       {/* Pagination */}
-      <div className="p-4 border-t border-[#2a2a2a] flex items-center justify-between">
-        <p className="text-sm text-[#888888]">
+      <div className="p-4 border-t border-border-subtle flex items-center justify-between">
+        <p className="text-sm text-text-secondary">
           Toont {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredDebts.length)} van{' '}
           {filteredDebts.length} schulden
         </p>
@@ -241,7 +241,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
             disabled={currentPage === 1}
             className="p-2 rounded-full hover:bg-[#2a2a2a] disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <ChevronLeft className="w-5 h-5 text-[#888888]" />
+            <ChevronLeft className="w-5 h-5 text-text-secondary" />
           </button>
           {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => i + 1).map((page) => (
             <button
@@ -249,8 +249,8 @@ export function DebtsTable({ debts }: DebtsTableProps) {
               onClick={() => setCurrentPage(page)}
               className={`w-8 h-8 rounded-full text-sm font-medium transition-colors ${
                 currentPage === page
-                  ? 'bg-[#3D7B4C] text-white'
-                  : 'text-[#888888] hover:bg-[#2a2a2a]'
+                  ? 'bg-[#3D7B4C] text-foreground'
+                  : 'text-text-secondary hover:bg-[#2a2a2a]'
               }`}
             >
               {page}
@@ -261,7 +261,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
             disabled={currentPage === totalPages}
             className="p-2 rounded-full hover:bg-[#2a2a2a] disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <ChevronRight className="w-5 h-5 text-[#888888]" />
+            <ChevronRight className="w-5 h-5 text-text-secondary" />
           </button>
         </div>
       </div>

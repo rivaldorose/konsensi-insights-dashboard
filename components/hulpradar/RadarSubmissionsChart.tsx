@@ -24,8 +24,8 @@ export function RadarSubmissionsChart({ data }: RadarSubmissionsChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="p-3 rounded-lg shadow-lg" style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a' }}>
-          <p className="font-medium text-white">{label}</p>
+        <div className="p-3 rounded-lg shadow-lg" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
+          <p className="font-medium text-foreground">{label}</p>
           <p className="text-sm text-[#3D7B4C]">
             {payload[0].value.toLocaleString('nl-NL')} invullingen
           </p>
@@ -36,13 +36,13 @@ export function RadarSubmissionsChart({ data }: RadarSubmissionsChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-white">Radar Invullingen per Maand</h3>
+        <h3 className="text-lg font-semibold text-foreground">Radar Invullingen per Maand</h3>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-[#3D7B4C]" />
-            <span className="text-sm text-[#888888]">Invullingen</span>
+            <span className="text-sm text-text-secondary">Invullingen</span>
           </div>
         </div>
       </div>
@@ -55,17 +55,17 @@ export function RadarSubmissionsChart({ data }: RadarSubmissionsChartProps) {
                 <stop offset="95%" stopColor="#3D7B4C" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" vertical={false} />
             <XAxis
               dataKey="maand"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#888888', fontSize: 12 }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
               tickFormatter={(value) => value.toLocaleString('nl-NL')}
             />
             <Tooltip content={<CustomTooltip />} />

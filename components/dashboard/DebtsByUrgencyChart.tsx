@@ -19,9 +19,9 @@ export function DebtsByUrgencyChart({ data, total }: DebtsByUrgencyChartProps) {
     if (active && payload && payload.length) {
       const item = payload[0].payload;
       return (
-        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-3 rounded-lg shadow-lg">
-          <p className="font-medium text-white">{item.name}</p>
-          <p className="text-sm text-[#888888]">{item.value} schulden</p>
+        <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-3 rounded-lg shadow-lg">
+          <p className="font-medium text-foreground">{item.name}</p>
+          <p className="text-sm text-text-secondary">{item.value} schulden</p>
         </div>
       );
     }
@@ -29,8 +29,8 @@ export function DebtsByUrgencyChart({ data, total }: DebtsByUrgencyChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 shadow-sm border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Schulden per Urgentie</h3>
+    <div className="bg-card rounded-[20px] p-6 shadow-sm border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Schulden per Urgentie</h3>
       <div className="flex flex-col items-center">
         <div className="w-full h-[180px] relative">
           <ResponsiveContainer width="100%" height="100%">
@@ -53,8 +53,8 @@ export function DebtsByUrgencyChart({ data, total }: DebtsByUrgencyChartProps) {
           </ResponsiveContainer>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-2xl font-bold text-white">{total}</p>
-              <p className="text-xs text-[#888888]">totaal</p>
+              <p className="text-2xl font-bold text-foreground">{total}</p>
+              <p className="text-xs text-text-secondary">totaal</p>
             </div>
           </div>
         </div>
@@ -65,8 +65,8 @@ export function DebtsByUrgencyChart({ data, total }: DebtsByUrgencyChartProps) {
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-sm text-[#888888]">{item.name}</span>
-              <span className="text-sm font-medium text-white">({item.value})</span>
+              <span className="text-sm text-text-secondary">{item.name}</span>
+              <span className="text-sm font-medium text-foreground">({item.value})</span>
             </div>
           ))}
         </div>

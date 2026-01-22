@@ -32,8 +32,8 @@ export function MonthlyRepaymentChart({ data }: MonthlyRepaymentChartProps) {
   const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: Array<{ value: number }>; label?: string }) => {
     if (active && payload && payload.length) {
       return (
-        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-3 rounded-lg shadow-lg">
-          <p className="font-medium text-white">{label}</p>
+        <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-3 rounded-lg shadow-lg">
+          <p className="font-medium text-foreground">{label}</p>
           <p className="text-sm text-[#3D7B4C]">{formatCurrency(payload[0].value)}</p>
         </div>
       );
@@ -42,21 +42,21 @@ export function MonthlyRepaymentChart({ data }: MonthlyRepaymentChartProps) {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 shadow-sm border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Afbetaalde Schulden per Maand</h3>
+    <div className="bg-card rounded-[20px] p-6 shadow-sm border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Afbetaalde Schulden per Maand</h3>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" vertical={false} />
             <XAxis
               dataKey="month"
-              tick={{ fill: '#888888', fontSize: 11 }}
-              axisLine={{ stroke: '#2a2a2a' }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 11 }}
+              axisLine={{ stroke: 'var(--border-subtle)' }}
               tickLine={false}
             />
             <YAxis
-              tick={{ fill: '#888888', fontSize: 12 }}
-              axisLine={{ stroke: '#2a2a2a' }}
+              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
+              axisLine={{ stroke: 'var(--border-subtle)' }}
               tickLine={false}
               tickFormatter={(value) => `€${value / 1000}k`}
             />

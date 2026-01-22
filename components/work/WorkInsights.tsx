@@ -33,10 +33,10 @@ const iconColorMap = {
 
 export function WorkInsights({ insights }: WorkInsightsProps) {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="flex items-center gap-2 mb-4">
         <Lightbulb className="w-5 h-5 text-amber-400" />
-        <h3 className="text-lg font-semibold text-white">Work Inzichten</h3>
+        <h3 className="text-lg font-semibold text-foreground">Work Inzichten</h3>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

@@ -27,9 +27,9 @@ export function MatchSuccessChart({ data, total, successRate }: MatchSuccessChar
       const item = payload[0].payload;
       const percentage = ((item.value / total) * 100).toFixed(1);
       return (
-        <div className="p-3 rounded-lg shadow-lg" style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a' }}>
-          <p className="font-medium text-white">{item.status}</p>
-          <p className="text-sm text-[#888888]">
+        <div className="p-3 rounded-lg shadow-lg" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
+          <p className="font-medium text-foreground">{item.status}</p>
+          <p className="text-sm text-text-secondary">
             {item.value.toLocaleString('nl-NL')} ({percentage}%)
           </p>
         </div>
@@ -39,8 +39,8 @@ export function MatchSuccessChart({ data, total, successRate }: MatchSuccessChar
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
-      <h3 className="text-lg font-semibold text-white mb-4">Match Succes Rate</h3>
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
+      <h3 className="text-lg font-semibold text-foreground mb-4">Match Succes Rate</h3>
       <div className="flex flex-col items-center">
         <div className="h-[180px] w-[180px] relative">
           <ResponsiveContainer width="100%" height="100%">
@@ -63,14 +63,14 @@ export function MatchSuccessChart({ data, total, successRate }: MatchSuccessChar
           </ResponsiveContainer>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <span className="text-3xl font-bold text-[#3D7B4C]">{successRate}%</span>
-            <span className="text-xs text-[#888888]">Succes</span>
+            <span className="text-xs text-text-secondary">Succes</span>
           </div>
         </div>
         <div className="mt-4 flex flex-wrap justify-center gap-4">
           {data.map((item) => (
             <div key={item.status} className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
-              <span className="text-sm text-[#888888]">{item.status}</span>
+              <span className="text-sm text-text-secondary">{item.status}</span>
             </div>
           ))}
         </div>

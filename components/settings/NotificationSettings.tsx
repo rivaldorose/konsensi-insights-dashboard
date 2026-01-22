@@ -57,20 +57,20 @@ export function NotificationSettings() {
   };
 
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-8 border border-[#2a2a2a]">
-      <h2 className="text-xl font-semibold text-white mb-6">Notificatie Instellingen</h2>
+    <div className="bg-card rounded-[20px] p-8 border border-border-subtle">
+      <h2 className="text-xl font-semibold text-foreground mb-6">Notificatie Instellingen</h2>
 
       <div className="space-y-8">
         {groups.map((group, groupIndex) => (
           <div key={group.title}>
-            <h3 className="text-sm font-medium text-[#888888] mb-4">{group.title}</h3>
+            <h3 className="text-sm font-medium text-text-secondary mb-4">{group.title}</h3>
             <div className="space-y-3">
               {group.settings.map((setting) => (
                 <div
                   key={setting.id}
-                  className="flex items-center justify-between py-3 px-4 bg-[#1e1e1e] rounded-xl border border-[#2a2a2a]"
+                  className="flex items-center justify-between py-3 px-4 bg-input rounded-xl border border-border-subtle"
                 >
-                  <span className="text-sm text-white">{setting.label}</span>
+                  <span className="text-sm text-foreground">{setting.label}</span>
                   <button
                     onClick={() => toggleSetting(groupIndex, setting.id)}
                     className={`relative w-11 h-6 rounded-full transition-colors ${
@@ -95,7 +95,7 @@ export function NotificationSettings() {
         <button
           onClick={handleSave}
           disabled={isSaving}
-          className="flex items-center gap-2 px-6 py-3 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
+          className="flex items-center gap-2 px-6 py-3 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
         >
           {isSaving ? (
             <>

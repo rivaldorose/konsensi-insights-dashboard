@@ -57,10 +57,10 @@ const actionIcons: Record<ActionType, React.ReactNode> = {
 
 export function RecentActivityFeed({ activities }: RecentActivityFeedProps) {
   return (
-    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle h-full">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-white">Recente Activiteit</h3>
-        <span className="text-sm text-[#888888]">Vandaag</span>
+        <h3 className="text-lg font-semibold text-foreground">Recente Activiteit</h3>
+        <span className="text-sm text-text-secondary">Vandaag</span>
       </div>
 
       <div className="space-y-4 max-h-[400px] overflow-y-auto">
@@ -79,7 +79,7 @@ export function RecentActivityFeed({ activities }: RecentActivityFeedProps) {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <p className="text-sm font-medium text-white truncate">
+                  <p className="text-sm font-medium text-foreground truncate">
                     {activity.description}
                   </p>
                   <span
@@ -90,9 +90,9 @@ export function RecentActivityFeed({ activities }: RecentActivityFeedProps) {
                   </span>
                 </div>
                 {activity.details && (
-                  <p className="text-xs text-[#888888] mt-0.5 truncate">{activity.details}</p>
+                  <p className="text-xs text-text-secondary mt-0.5 truncate">{activity.details}</p>
                 )}
-                <p className="text-xs text-[#888888] mt-1">{activity.timestamp}</p>
+                <p className="text-xs text-text-secondary mt-1">{activity.timestamp}</p>
               </div>
             </div>
           );

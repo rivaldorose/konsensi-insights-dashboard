@@ -23,15 +23,15 @@ export function ContentTabs({ tabs, activeTab: controlledActiveTab, onTabChange 
   };
 
   return (
-    <div className="flex items-center gap-1 bg-[#1a1a1a] rounded-full p-1 border border-[#2a2a2a] w-fit">
+    <div className="flex items-center gap-1 bg-card rounded-full p-1 border border-border-subtle w-fit">
       {tabs.map((tab) => (
         <button
           key={tab.id}
           onClick={() => handleTabClick(tab.id)}
           className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
             activeTab === tab.id
-              ? 'bg-[#3D7B4C] text-white'
-              : 'text-[#888888] hover:text-white hover:bg-[#222222]'
+              ? 'bg-[#3D7B4C] text-foreground'
+              : 'text-text-secondary hover:text-foreground hover:bg-card-hover'
           }`}
         >
           {tab.label}
