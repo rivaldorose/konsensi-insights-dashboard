@@ -28,7 +28,7 @@ const icons: Record<ToastType, ReactNode> = {
 };
 
 const backgrounds: Record<ToastType, string> = {
-  success: 'bg-[#3D7B4C]/20 border-[#3D7B4C]',
+  success: 'bg-konsensi-green/20 border-konsensi-green',
   error: 'bg-red-900/20 border-red-800',
   warning: 'bg-amber-900/20 border-amber-800',
   info: 'bg-blue-900/20 border-blue-800',

@@ -47,7 +47,7 @@ export function BulkActions({
     >
       {/* Selection Count */}
       <div className="flex items-center gap-2 pr-4 border-r border-gray-200 dark:border-gray-700">
-        <div className="w-8 h-8 bg-[#3D7B4C] rounded-lg flex items-center justify-center">
+        <div className="w-8 h-8 bg-konsensi-green rounded-lg flex items-center justify-center">
           <Check className="w-4 h-4 text-white" />
         </div>
         <div>
@@ -56,7 +56,7 @@ export function BulkActions({
           </p>
           <button
             onClick={onClearSelection}
-            className="text-xs text-[#3D7B4C] hover:underline"
+            className="text-xs text-konsensi-green hover:underline"
           >
             Selectie wissen
           </button>
@@ -220,8 +220,8 @@ export function SelectCheckbox({ checked, onChange, indeterminate }: SelectCheck
       <div
         className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all ${
           checked || indeterminate
-            ? 'bg-[#3D7B4C] border-[#3D7B4C]'
-            : 'border-gray-300 dark:border-gray-600 hover:border-[#3D7B4C]'
+            ? 'bg-konsensi-green border-konsensi-green'
+            : 'border-gray-300 dark:border-gray-600 hover:border-konsensi-green'
         }`}
       >
         {checked && <Check className="w-3 h-3 text-white" />}

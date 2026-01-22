@@ -27,20 +27,20 @@ interface ScansTableProps {
 }
 
 const bronColors: Record<string, string> = {
-  BKR: 'bg-purple-900/50 text-purple-300',
-  CJIB: 'bg-red-900/50 text-red-300',
-  Belastingdienst: 'bg-blue-900/50 text-blue-300',
-  CAK: 'bg-green-900/50 text-green-300',
-  Energie: 'bg-yellow-900/50 text-yellow-300',
-  Telecom: 'bg-cyan-900/50 text-cyan-300',
-  Webshops: 'bg-pink-900/50 text-pink-300',
-  Verzekeraars: 'bg-orange-900/50 text-orange-300',
+  BKR: 'bg-purple-500/20 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300',
+  CJIB: 'bg-red-500/20 dark:bg-red-900/50 text-red-600 dark:text-red-300',
+  Belastingdienst: 'bg-blue-500/20 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300',
+  CAK: 'bg-green-500/20 dark:bg-green-900/50 text-green-600 dark:text-green-300',
+  Energie: 'bg-yellow-500/20 dark:bg-yellow-900/50 text-yellow-600 dark:text-yellow-300',
+  Telecom: 'bg-cyan-500/20 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-300',
+  Webshops: 'bg-pink-500/20 dark:bg-pink-900/50 text-pink-600 dark:text-pink-300',
+  Verzekeraars: 'bg-orange-500/20 dark:bg-orange-900/50 text-orange-600 dark:text-orange-300',
 };
 
 const actionConfig: Record<ActionStatus, { label: string; icon: React.ReactNode; color: string }> = {
-  ja: { label: 'Ja', icon: <CheckCircle className="w-3.5 h-3.5" />, color: 'bg-green-900/50 text-green-300' },
-  nee: { label: 'Nee', icon: <XCircle className="w-3.5 h-3.5" />, color: 'bg-red-900/50 text-red-300' },
-  in_behandeling: { label: 'In behandeling', icon: <Clock className="w-3.5 h-3.5" />, color: 'bg-yellow-900/50 text-yellow-300' },
+  ja: { label: 'Ja', icon: <CheckCircle className="w-3.5 h-3.5" />, color: 'bg-green-500/20 dark:bg-green-900/50 text-green-600 dark:text-green-300' },
+  nee: { label: 'Nee', icon: <XCircle className="w-3.5 h-3.5" />, color: 'bg-red-500/20 dark:bg-red-900/50 text-red-600 dark:text-red-300' },
+  in_behandeling: { label: 'In behandeling', icon: <Clock className="w-3.5 h-3.5" />, color: 'bg-yellow-500/20 dark:bg-yellow-900/50 text-yellow-600 dark:text-yellow-300' },
 };
 
 export function ScansTable({ scans }: ScansTableProps) {
@@ -80,7 +80,7 @@ export function ScansTable({ scans }: ScansTableProps) {
             placeholder="Zoek op naam of schuldeiser..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-[#2a2a2a] text-foreground placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="w-full pl-10 pr-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-input text-foreground placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           />
         </div>
 
@@ -88,7 +88,7 @@ export function ScansTable({ scans }: ScansTableProps) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-[#2a2a2a] text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-input text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           >
             <option value="all">Alle acties</option>
             <option value="ja">Actie ondernomen</option>
@@ -131,7 +131,7 @@ export function ScansTable({ scans }: ScansTableProps) {
             {filteredScans.map((scan) => (
               <tr
                 key={scan.id}
-                className="border-b border-border-subtle hover:bg-[#2a2a2a] transition-colors"
+                className="border-b border-border-subtle hover:bg-border-subtle transition-colors"
               >
                 <td className="py-3 px-4 text-sm text-text-secondary">{scan.datum}</td>
                 <td className="py-3 px-4">
@@ -150,12 +150,12 @@ export function ScansTable({ scans }: ScansTableProps) {
                   <span
                     className={`inline-flex px-2.5 py-1 rounded-full text-xs font-medium ${
                       scan.schuldenGevonden === 0
-                        ? 'bg-green-900/50 text-green-300'
+                        ? 'bg-green-500/20 dark:bg-green-900/50 text-green-600 dark:text-green-300'
                         : scan.schuldenGevonden <= 2
-                          ? 'bg-yellow-900/50 text-yellow-300'
+                          ? 'bg-yellow-500/20 dark:bg-yellow-900/50 text-yellow-600 dark:text-yellow-300'
                           : scan.schuldenGevonden <= 5
-                            ? 'bg-orange-900/50 text-orange-300'
-                            : 'bg-red-900/50 text-red-300'
+                            ? 'bg-orange-500/20 dark:bg-orange-900/50 text-orange-600 dark:text-orange-300'
+                            : 'bg-red-500/20 dark:bg-red-900/50 text-red-600 dark:text-red-300'
                     }`}
                   >
                     {scan.schuldenGevonden} schulden
@@ -179,13 +179,13 @@ export function ScansTable({ scans }: ScansTableProps) {
                     {scan.bronnenGecheckt.slice(0, 3).map((bron) => (
                       <span
                         key={bron}
-                        className={`inline-flex px-2 py-0.5 rounded text-[10px] font-medium ${bronColors[bron] || 'bg-[#2a2a2a] text-text-secondary'}`}
+                        className={`inline-flex px-2 py-0.5 rounded text-[10px] font-medium ${bronColors[bron] || 'bg-border-subtle text-text-secondary'}`}
                       >
                         {bron}
                       </span>
                     ))}
                     {scan.bronnenGecheckt.length > 3 && (
-                      <span className="inline-flex px-2 py-0.5 rounded text-[10px] font-medium bg-[#2a2a2a] text-text-secondary">
+                      <span className="inline-flex px-2 py-0.5 rounded text-[10px] font-medium bg-border-subtle text-text-secondary">
                         +{scan.bronnenGecheckt.length - 3}
                       </span>
                     )}

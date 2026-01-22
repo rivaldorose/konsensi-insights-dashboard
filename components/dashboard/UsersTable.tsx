@@ -115,7 +115,7 @@ export function UsersTable({ users }: UsersTableProps) {
                   <span
                     className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
                       user.status === 'Actief'
-                        ? 'bg-[#3D7B4C]/20 text-[#4a9d5c] border border-[#3D7B4C]'
+                        ? 'bg-konsensi-green/20 text-konsensi-green-light border border-konsensi-green'
                         : 'bg-[#f59e0b]/20 text-[#f59e0b] border border-[#f59e0b]'
                     }`}
                   >
@@ -133,7 +133,7 @@ export function UsersTable({ users }: UsersTableProps) {
       </div>
 
       <div className="mt-4 pt-4 border-t border-border-subtle">
-        <button className="flex items-center gap-2 text-[#3D7B4C] hover:text-[#4a9d5c] font-medium text-sm transition-colors">
+        <button className="flex items-center gap-2 text-konsensi-green hover:text-konsensi-green-light font-medium text-sm transition-colors">
           Bekijk alle gebruikers
           <ArrowRight className="w-4 h-4" />
         </button>

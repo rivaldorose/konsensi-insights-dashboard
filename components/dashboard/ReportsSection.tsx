@@ -32,21 +32,21 @@ export function ReportsSection({ reports }: ReportsSectionProps) {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-3 gap-3 mb-6">
-        <button className="flex flex-col items-center gap-2 p-4 bg-[#3D7B4C]/10 rounded-xl hover:bg-[#3D7B4C]/20 transition-colors group">
-          <div className="w-10 h-10 bg-[#3D7B4C] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+        <button className="flex flex-col items-center gap-2 p-4 bg-konsensi-green/10 rounded-xl hover:bg-konsensi-green/20 transition-colors group">
+          <div className="w-10 h-10 bg-konsensi-green rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
             <Calendar className="w-5 h-5 text-foreground" />
           </div>
-          <span className="text-xs font-medium text-[#3D7B4C]">Maandrapport</span>
+          <span className="text-xs font-medium text-konsensi-green">Maandrapport</span>
         </button>
 
-        <button className="flex flex-col items-center gap-2 p-4 bg-[#3D7B4C]/10 rounded-xl hover:bg-[#3D7B4C]/20 transition-colors group">
-          <div className="w-10 h-10 bg-[#3D7B4C] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+        <button className="flex flex-col items-center gap-2 p-4 bg-konsensi-green/10 rounded-xl hover:bg-konsensi-green/20 transition-colors group">
+          <div className="w-10 h-10 bg-konsensi-green rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
             <FileText className="w-5 h-5 text-foreground" />
           </div>
-          <span className="text-xs font-medium text-[#3D7B4C]">Kwartaalrapport</span>
+          <span className="text-xs font-medium text-konsensi-green">Kwartaalrapport</span>
         </button>
 
-        <button className="flex flex-col items-center gap-2 p-4 bg-[#2a2a2a] rounded-xl hover:bg-[#333333] transition-colors group">
+        <button className="flex flex-col items-center gap-2 p-4 bg-border-subtle rounded-xl hover:bg-border-medium transition-colors group">
           <div className="w-10 h-10 bg-[#555555] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
             <Settings className="w-5 h-5 text-foreground" />
           </div>
@@ -61,7 +61,7 @@ export function ReportsSection({ reports }: ReportsSectionProps) {
           {reports.map((report) => (
             <div
               key={report.id}
-              className="flex items-center justify-between p-3 bg-[#2a2a2a] rounded-xl hover:bg-[#333333] transition-colors"
+              className="flex items-center justify-between p-3 bg-border-subtle rounded-xl hover:bg-border-medium transition-colors"
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-red-900/30 rounded-lg flex items-center justify-center">

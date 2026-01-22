@@ -47,18 +47,18 @@ export function AppOverviewCard({
               <div style={{ color }}>{icon}</div>
             </div>
             <div>
-              <h3 className="font-semibold text-foreground group-hover:text-[#3D7B4C] transition-colors">
+              <h3 className="font-semibold text-foreground group-hover:text-konsensi-green transition-colors">
                 {name}
               </h3>
               <p className="text-xs text-text-secondary">{description}</p>
             </div>
           </div>
-          <ArrowUpRight className="w-5 h-5 text-text-secondary group-hover:text-[#3D7B4C] transition-colors" />
+          <ArrowUpRight className="w-5 h-5 text-text-secondary group-hover:text-konsensi-green transition-colors" />
         </div>
 
         <div className="grid grid-cols-2 gap-3">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-[#2a2a2a] rounded-xl p-3">
+            <div key={index} className="bg-border-subtle rounded-xl p-3">
               <div className="flex items-center gap-1 mb-1">
                 <span className="text-lg font-bold text-foreground">{stat.value}</span>
                 {getTrendIcon(stat.trend)}

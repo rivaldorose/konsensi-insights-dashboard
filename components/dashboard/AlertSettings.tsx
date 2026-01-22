@@ -31,11 +31,11 @@ export function AlertSettings({ initialSettings }: AlertSettingsProps) {
       {/* Header - Clickable */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between p-6 hover:bg-[#2a2a2a] transition-colors"
+        className="w-full flex items-center justify-between p-6 hover:bg-border-subtle transition-colors"
       >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#3D7B4C]/10 rounded-full flex items-center justify-center">
-            <Bell className="w-5 h-5 text-[#3D7B4C]" />
+          <div className="w-10 h-10 bg-konsensi-green/10 rounded-full flex items-center justify-center">
+            <Bell className="w-5 h-5 text-konsensi-green" />
           </div>
           <div className="text-left">
             <h3 className="text-lg font-bold text-foreground">Notificatie Instellingen</h3>
@@ -56,7 +56,7 @@ export function AlertSettings({ initialSettings }: AlertSettingsProps) {
             {settings.map((setting) => (
               <div
                 key={setting.id}
-                className="flex items-center justify-between p-4 bg-[#2a2a2a] rounded-xl"
+                className="flex items-center justify-between p-4 bg-border-subtle rounded-xl"
               >
                 <div className="flex-1">
                   <p className="font-medium text-foreground text-sm">{setting.label}</p>
@@ -67,7 +67,7 @@ export function AlertSettings({ initialSettings }: AlertSettingsProps) {
                 <button
                   onClick={() => toggleSetting(setting.id)}
                   className={`relative w-12 h-6 rounded-full transition-colors ${
-                    setting.enabled ? 'bg-[#3D7B4C]' : 'bg-[#555555]'
+                    setting.enabled ? 'bg-konsensi-green' : 'bg-[#555555]'
                   }`}
                 >
                   <div

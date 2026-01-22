@@ -68,7 +68,7 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
           <select
             value={filters.actionType}
             onChange={(e) => updateFilter('actionType', e.target.value)}
-            className="appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[140px]"
+            className="appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green cursor-pointer min-w-[140px]"
           >
             {actionOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -84,7 +84,7 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
           <select
             value={filters.entityType}
             onChange={(e) => updateFilter('entityType', e.target.value)}
-            className="appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[140px]"
+            className="appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green cursor-pointer min-w-[140px]"
           >
             {entityOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -103,7 +103,7 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
               value={filters.dateFrom}
               onChange={(e) => updateFilter('dateFrom', e.target.value)}
               placeholder="Van"
-              className="bg-input border border-border-subtle rounded-full px-4 py-2.5 pl-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[150px]"
+              className="bg-input border border-border-subtle rounded-full px-4 py-2.5 pl-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green w-[150px]"
             />
             <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary" />
           </div>
@@ -114,7 +114,7 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
               value={filters.dateTo}
               onChange={(e) => updateFilter('dateTo', e.target.value)}
               placeholder="Tot"
-              className="bg-input border border-border-subtle rounded-full px-4 py-2.5 pl-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[150px]"
+              className="bg-input border border-border-subtle rounded-full px-4 py-2.5 pl-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green w-[150px]"
             />
             <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary" />
           </div>
@@ -138,7 +138,7 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
             value={filters.search}
             onChange={(e) => updateFilter('search', e.target.value)}
             placeholder="Zoeken..."
-            className="bg-input border border-border-subtle rounded-full px-4 py-2.5 pl-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[220px]"
+            className="bg-input border border-border-subtle rounded-full px-4 py-2.5 pl-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green w-[220px]"
           />
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary" />
         </div>

@@ -70,12 +70,12 @@ export function JobSeekersChart({ data }: JobSeekersChartProps) {
             <XAxis
               dataKey="maand"
               tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
-              axisLine={{ stroke: '#2a2a2a' }}
+              axisLine={{ stroke: 'var(--border-subtle)' }}
               tickLine={false}
             />
             <YAxis
               tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
-              axisLine={{ stroke: '#2a2a2a' }}
+              axisLine={{ stroke: 'var(--border-subtle)' }}
               tickLine={false}
             />
             <Tooltip content={<CustomTooltip />} />

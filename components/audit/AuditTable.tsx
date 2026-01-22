@@ -155,7 +155,7 @@ export function AuditTable({ data, itemsPerPage = 10 }: AuditTableProps) {
                         onClick={() =>
                           setExpandedRow(expandedRow === log.id ? null : log.id)
                         }
-                        className="flex items-center gap-1 text-[#3D7B4C] hover:text-[#8FD14F] text-sm font-medium transition-colors"
+                        className="flex items-center gap-1 text-konsensi-green hover:text-[#8FD14F] text-sm font-medium transition-colors"
                       >
                         <Eye className="w-4 h-4" />
                         Bekijk
@@ -217,7 +217,7 @@ export function AuditTable({ data, itemsPerPage = 10 }: AuditTableProps) {
                   onClick={() => setCurrentPage(pageNum)}
                   className={`w-8 h-8 rounded-full text-sm font-medium transition-colors ${
                     currentPage === pageNum
-                      ? 'bg-[#3D7B4C] text-foreground'
+                      ? 'bg-konsensi-green text-foreground'
                       : 'text-text-secondary hover:bg-card-hover'
                   }`}
                 >

@@ -69,7 +69,7 @@ export function RecentActivityFeed({ activities }: RecentActivityFeedProps) {
           return (
             <div
               key={activity.id}
-              className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#2a2a2a] transition-colors"
+              className="flex items-start gap-3 p-3 rounded-xl hover:bg-border-subtle transition-colors"
             >
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"

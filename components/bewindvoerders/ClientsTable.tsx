@@ -70,7 +70,7 @@ export function ClientsTable({ clients }: ClientsTableProps) {
             placeholder="Zoek op naam of email..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="w-full pl-10 pr-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           />
         </div>
 
@@ -78,7 +78,7 @@ export function ClientsTable({ clients }: ClientsTableProps) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           >
             <option value="all">Alle statussen</option>
             <option value="Actief">Actief</option>
@@ -92,7 +92,7 @@ export function ClientsTable({ clients }: ClientsTableProps) {
           <select
             value={stadFilter}
             onChange={(e) => setStadFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           >
             <option value="all">Alle steden</option>
             {uniqueSteden.map((stad) => (
@@ -108,7 +108,7 @@ export function ClientsTable({ clients }: ClientsTableProps) {
           <select
             value={bewindvoerderFilter}
             onChange={(e) => setBewindvoerderFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           >
             <option value="all">Alle bewindvoerders</option>
             {uniqueBewindvoerders.map((bw) => (

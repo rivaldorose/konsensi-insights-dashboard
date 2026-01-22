@@ -49,7 +49,7 @@ export function VacanciesBySectorChart({ data }: VacanciesBySectorChartProps) {
               tickLine={false}
               width={90}
             />
-            <Tooltip content={<CustomTooltip />} cursor={{ fill: '#2a2a2a' }} />
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'var(--border-subtle)' }} />
             <Bar dataKey="vacatures" radius={[0, 6, 6, 0]} barSize={20}>
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />

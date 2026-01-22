@@ -84,7 +84,7 @@ export function InlineEdit({
             onChange={(e) => setEditValue(e.target.value)}
             onKeyDown={handleKeyDown}
             onBlur={handleSave}
-            className="px-2 py-1 text-sm border border-[#3D7B4C] rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20"
+            className="px-2 py-1 text-sm border border-konsensi-green rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-konsensi-green/20"
           >
             {options.map((option) => (
               <option key={option.value} value={option.value}>
@@ -101,7 +101,7 @@ export function InlineEdit({
             onKeyDown={handleKeyDown}
             onBlur={handleSave}
             placeholder={placeholder}
-            className="px-2 py-1 text-sm border border-[#3D7B4C] rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 min-w-[100px]"
+            className="px-2 py-1 text-sm border border-konsensi-green rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 min-w-[100px]"
           />
         )}
         <button
@@ -129,11 +129,11 @@ export function InlineEdit({
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => setIsEditing(true)}
     >
-      <span className="group-hover:text-[#3D7B4C] transition-colors">
+      <span className="group-hover:text-konsensi-green transition-colors">
         {value || <span className="text-gray-400 italic">{placeholder}</span>}
       </span>
       {isHovered && (
-        <Pencil className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#3D7B4C] transition-colors" />
+        <Pencil className="w-3.5 h-3.5 text-gray-400 group-hover:text-konsensi-green transition-colors" />
       )}
     </div>
   );
@@ -213,7 +213,7 @@ export function EditableStatusBadge({
               />
               <span className="text-gray-700 dark:text-gray-300">{status.label}</span>
               {status.value === value && (
-                <Check className="w-4 h-4 ml-auto text-[#3D7B4C]" />
+                <Check className="w-4 h-4 ml-auto text-konsensi-green" />
               )}
             </button>
           ))}
@@ -235,7 +235,7 @@ export function EditableCell({ children, isEditing, onDoubleClick }: EditableCel
     <div
       className={`transition-colors ${
         isEditing
-          ? 'bg-[#3D7B4C]/5 rounded-lg'
+          ? 'bg-konsensi-green/5 rounded-lg'
           : 'hover:bg-gray-50 dark:hover:bg-gray-800/50 rounded-lg'
       }`}
       onDoubleClick={onDoubleClick}

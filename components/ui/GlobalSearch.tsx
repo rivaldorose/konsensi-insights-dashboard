@@ -171,13 +171,13 @@ export function GlobalSearch() {
                       }}
                       className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
                         globalIndex === selectedIndex
-                          ? 'bg-[#3D7B4C]/10 text-[#3D7B4C]'
+                          ? 'bg-konsensi-green/10 text-konsensi-green'
                           : 'hover:bg-card-hover text-foreground'
                       }`}
                     >
                       <div
                         className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                          globalIndex === selectedIndex ? 'bg-[#3D7B4C]/20' : 'bg-card-hover'
+                          globalIndex === selectedIndex ? 'bg-konsensi-green/20' : 'bg-card-hover'
                         }`}
                       >
                         {item.icon}

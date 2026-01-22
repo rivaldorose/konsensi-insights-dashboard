@@ -20,15 +20,15 @@ const iconMap = {
 };
 
 const colorMap = {
-  positive: 'bg-green-900/30 text-green-400 border-green-800',
-  warning: 'bg-amber-900/30 text-amber-400 border-amber-800',
-  info: 'bg-blue-900/30 text-blue-400 border-blue-800',
+  positive: 'bg-green-500/10 dark:bg-green-900/30 text-green-600 dark:text-green-400 border-green-300 dark:border-green-800',
+  warning: 'bg-amber-500/10 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 border-amber-300 dark:border-amber-800',
+  info: 'bg-blue-500/10 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 border-blue-300 dark:border-blue-800',
 };
 
 const iconColorMap = {
-  positive: 'text-green-400',
-  warning: 'text-amber-400',
-  info: 'text-blue-400',
+  positive: 'text-green-500 dark:text-green-400',
+  warning: 'text-amber-500 dark:text-amber-400',
+  info: 'text-blue-500 dark:text-blue-400',
 };
 
 export function HulpradarInsights({ insights }: HulpradarInsightsProps) {

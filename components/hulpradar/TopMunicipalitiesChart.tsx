@@ -25,7 +25,7 @@ export function TopMunicipalitiesChart({ data }: TopMunicipalitiesChartProps) {
       return (
         <div className="p-3 rounded-lg shadow-lg" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
           <p className="font-medium text-foreground">{item.gemeente}</p>
-          <p className="text-sm text-[#3D7B4C]">
+          <p className="text-sm text-konsensi-green">
             {item.aantal.toLocaleString('nl-NL')} invullingen
           </p>
         </div>

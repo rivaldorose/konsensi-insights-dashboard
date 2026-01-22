@@ -50,7 +50,7 @@ const initialMembers: TeamMember[] = [
 const rolColors = {
   Admin: 'bg-purple-900/30 text-purple-400',
   Beheerder: 'bg-blue-900/30 text-blue-400',
-  Medewerker: 'bg-[#2a2a2a] text-text-secondary',
+  Medewerker: 'bg-border-subtle text-text-secondary',
 };
 
 export function TeamSettings() {
@@ -91,7 +91,7 @@ export function TeamSettings() {
         </div>
         <button
           onClick={() => setShowInviteModal(true)}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors"
+          className="flex items-center gap-2 px-5 py-2.5 bg-konsensi-green text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors"
         >
           <Plus className="w-4 h-4" />
           Uitnodigen
@@ -175,7 +175,7 @@ export function TeamSettings() {
                   value={inviteEmail}
                   onChange={(e) => setInviteEmail(e.target.value)}
                   placeholder="naam@bedrijf.nl"
-                  className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                  className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
                 />
               </div>
               <div>
@@ -185,7 +185,7 @@ export function TeamSettings() {
                 <select
                   value={inviteRol}
                   onChange={(e) => setInviteRol(e.target.value as 'Beheerder' | 'Medewerker')}
-                  className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                  className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
                 >
                   <option value="Medewerker">Medewerker</option>
                   <option value="Beheerder">Beheerder</option>
@@ -202,7 +202,7 @@ export function TeamSettings() {
               <button
                 onClick={handleInvite}
                 disabled={!inviteEmail}
-                className="px-5 py-2.5 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
+                className="px-5 py-2.5 bg-konsensi-green text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
               >
                 Uitnodigen
               </button>

@@ -20,7 +20,7 @@ export function PartnerEmployers({ partners }: PartnerEmployersProps) {
     <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-lg font-semibold text-foreground">Partner Werkgevers</h3>
-        <button className="text-sm text-[#3D7B4C] font-medium hover:underline">
+        <button className="text-sm text-konsensi-green font-medium hover:underline">
           Bekijk alle partners
         </button>
       </div>
@@ -29,11 +29,11 @@ export function PartnerEmployers({ partners }: PartnerEmployersProps) {
         {partners.map((partner) => (
           <div
             key={partner.id}
-            className="p-4 bg-[#2a2a2a] rounded-xl hover:bg-[#333333] transition-colors cursor-pointer"
+            className="p-4 bg-border-subtle rounded-xl hover:bg-border-medium transition-colors cursor-pointer"
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="w-12 h-12 bg-card rounded-xl flex items-center justify-center border border-border-subtle">
-                <span className="text-lg font-bold text-[#3D7B4C]">{partner.logo}</span>
+                <span className="text-lg font-bold text-konsensi-green">{partner.logo}</span>
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-medium text-foreground truncate">{partner.naam}</p>

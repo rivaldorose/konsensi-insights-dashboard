@@ -34,7 +34,7 @@ export function MonthlyRepaymentChart({ data }: MonthlyRepaymentChartProps) {
       return (
         <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-3 rounded-lg shadow-lg">
           <p className="font-medium text-foreground">{label}</p>
-          <p className="text-sm text-[#3D7B4C]">{formatCurrency(payload[0].value)}</p>
+          <p className="text-sm text-konsensi-green">{formatCurrency(payload[0].value)}</p>
         </div>
       );
     }

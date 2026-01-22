@@ -35,8 +35,8 @@ export function QuickStatsGrid({ stats }: QuickStatsGridProps) {
             className="bg-card rounded-[20px] p-4 border border-border-subtle"
           >
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-[#3D7B4C]/10 flex items-center justify-center">
-                <Icon className="w-4 h-4 text-[#3D7B4C]" />
+              <div className="w-8 h-8 rounded-lg bg-konsensi-green/10 flex items-center justify-center">
+                <Icon className="w-4 h-4 text-konsensi-green" />
               </div>
             </div>
             <p className="text-2xl font-bold text-foreground mb-1">{stat.value}</p>

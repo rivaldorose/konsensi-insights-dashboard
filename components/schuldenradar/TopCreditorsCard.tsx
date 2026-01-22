@@ -18,7 +18,7 @@ export function TopCreditorsCard({ creditors }: TopCreditorsCardProps) {
     if (rank === 1) return 'bg-red-500 text-foreground';
     if (rank === 2) return 'bg-red-400 text-foreground';
     if (rank === 3) return 'bg-red-300 text-foreground';
-    return 'bg-[#2a2a2a] text-text-secondary';
+    return 'bg-border-subtle text-text-secondary';
   };
 
   return (
@@ -32,7 +32,7 @@ export function TopCreditorsCard({ creditors }: TopCreditorsCardProps) {
         {creditors.map((creditor) => (
           <div
             key={creditor.rank}
-            className="flex items-center justify-between p-3 bg-[#2a2a2a] rounded-xl hover:bg-[#333333] transition-colors"
+            className="flex items-center justify-between p-3 bg-border-subtle rounded-xl hover:bg-border-medium transition-colors"
           >
             <div className="flex items-center gap-3">
               <div

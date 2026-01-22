@@ -47,7 +47,7 @@ export function YearComparison({ items }: YearComparisonProps) {
 
       <div className="flex items-center gap-4 mb-4 text-xs">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-[#3D7B4C]" />
+          <div className="w-3 h-3 rounded-full bg-konsensi-green" />
           <span className="text-text-secondary">Dit jaar</span>
         </div>
         <div className="flex items-center gap-2">
@@ -68,20 +68,20 @@ export function YearComparison({ items }: YearComparisonProps) {
               <div className="space-y-2">
                 {/* This year bar */}
                 <div className="flex items-center gap-3">
-                  <div className="flex-1 h-6 bg-[#2a2a2a] rounded-full overflow-hidden">
+                  <div className="flex-1 h-6 bg-border-subtle rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#3D7B4C] rounded-full transition-all duration-500"
+                      className="h-full bg-konsensi-green rounded-full transition-all duration-500"
                       style={{ width: `${getBarWidth(item.thisYear, maxVal)}%` }}
                     />
                   </div>
-                  <span className="text-sm font-semibold text-[#3D7B4C] w-24 text-right">
+                  <span className="text-sm font-semibold text-konsensi-green w-24 text-right">
                     {formatValue(item.thisYear, item.format)}
                   </span>
                 </div>
 
                 {/* Last year bar */}
                 <div className="flex items-center gap-3">
-                  <div className="flex-1 h-6 bg-[#2a2a2a] rounded-full overflow-hidden">
+                  <div className="flex-1 h-6 bg-border-subtle rounded-full overflow-hidden">
                     <div
                       className="h-full bg-[#555555] rounded-full transition-all duration-500"
                       style={{ width: `${getBarWidth(item.lastYear, maxVal)}%` }}

@@ -75,7 +75,7 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
             placeholder="Zoek op naam, functie, werkgever..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="w-full pl-10 pr-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           />
         </div>
 
@@ -83,7 +83,7 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
           <select
             value={sectorFilter}
             onChange={(e) => setSectorFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           >
             <option value="all">Alle sectoren</option>
             <option value="Horeca">Horeca</option>
@@ -102,7 +102,7 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
           <select
             value={contractFilter}
             onChange={(e) => setContractFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           >
             <option value="all">Alle contracten</option>
             <option value="Vast">Vast contract</option>
@@ -150,7 +150,7 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
             {filteredPlacements.map((placement) => (
               <tr
                 key={placement.id}
-                className="border-b border-border-subtle hover:bg-[#2a2a2a] transition-colors"
+                className="border-b border-border-subtle hover:bg-border-subtle transition-colors"
               >
                 <td className="py-3 px-4 text-sm text-text-secondary">{placement.datum}</td>
                 <td className="py-3 px-4">

@@ -43,11 +43,11 @@ export function SettingsSidebar({ activeTab, onTabChange }: SettingsSidebarProps
               onClick={() => onTabChange(tab.id)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                 isActive
-                  ? 'bg-[#3D7B4C]/10 text-[#3D7B4C]'
+                  ? 'bg-konsensi-green/10 text-konsensi-green'
                   : 'text-text-secondary hover:bg-card-hover'
               }`}
             >
-              <Icon className={`w-5 h-5 ${isActive ? 'text-[#3D7B4C]' : 'text-text-secondary'}`} />
+              <Icon className={`w-5 h-5 ${isActive ? 'text-konsensi-green' : 'text-text-secondary'}`} />
               {tab.label}
             </button>
           );

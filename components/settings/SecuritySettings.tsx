@@ -69,8 +69,8 @@ export function SecuritySettings() {
       <div className="bg-card rounded-[20px] p-8 border border-border-subtle">
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-[#3D7B4C]/10 rounded-xl flex items-center justify-center">
-              <Shield className="w-6 h-6 text-[#3D7B4C]" />
+            <div className="w-12 h-12 bg-konsensi-green/10 rounded-xl flex items-center justify-center">
+              <Shield className="w-6 h-6 text-konsensi-green" />
             </div>
             <div>
               <h2 className="text-xl font-semibold text-foreground">Twee-factor authenticatie</h2>
@@ -85,7 +85,7 @@ export function SecuritySettings() {
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm transition-colors ${
               twoFactorEnabled
                 ? 'bg-red-900/20 text-red-500 hover:bg-red-900/30'
-                : 'bg-[#3D7B4C] text-foreground hover:bg-[#2d5a38]'
+                : 'bg-konsensi-green text-foreground hover:bg-[#2d5a38]'
             }`}
           >
             {isEnabling2FA ? (
@@ -131,24 +131,24 @@ export function SecuritySettings() {
             <div
               key={session.id}
               className={`flex items-center justify-between p-4 rounded-xl ${
-                session.current ? 'bg-[#3D7B4C]/10 border border-[#3D7B4C]/20' : 'bg-input border border-border-subtle'
+                session.current ? 'bg-konsensi-green/10 border border-konsensi-green/20' : 'bg-input border border-border-subtle'
               }`}
             >
               <div className="flex items-center gap-4">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                  session.current ? 'bg-[#3D7B4C]/10' : 'bg-[#2a2a2a]'
+                  session.current ? 'bg-konsensi-green/10' : 'bg-border-subtle'
                 }`}>
                   {session.icon === 'smartphone' ? (
-                    <Smartphone className={`w-5 h-5 ${session.current ? 'text-[#3D7B4C]' : 'text-text-secondary'}`} />
+                    <Smartphone className={`w-5 h-5 ${session.current ? 'text-konsensi-green' : 'text-text-secondary'}`} />
                   ) : (
-                    <Monitor className={`w-5 h-5 ${session.current ? 'text-[#3D7B4C]' : 'text-text-secondary'}`} />
+                    <Monitor className={`w-5 h-5 ${session.current ? 'text-konsensi-green' : 'text-text-secondary'}`} />
                   )}
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <p className="font-medium text-foreground">{session.device}</p>
                     {session.current && (
-                      <span className="px-2 py-0.5 bg-[#3D7B4C] text-foreground text-xs rounded-full">
+                      <span className="px-2 py-0.5 bg-konsensi-green text-foreground text-xs rounded-full">
                         Deze sessie
                       </span>
                     )}

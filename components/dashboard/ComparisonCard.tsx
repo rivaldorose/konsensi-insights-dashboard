@@ -37,7 +37,7 @@ export function ComparisonCard({
         <p className="text-sm text-text-secondary">{subtitle}</p>
       </div>
 
-      <p className={`text-3xl font-bold mb-6 ${positive ? 'text-[#4a9d5c]' : 'text-[#ef4444]'}`}>
+      <p className={`text-3xl font-bold mb-6 ${positive ? 'text-konsensi-green-light' : 'text-[#ef4444]'}`}>
         {percentage}
       </p>
 
@@ -67,7 +67,7 @@ export function ComparisonCard({
           </div>
           <div className="h-3 bg-card-hover rounded-full overflow-hidden">
             <div
-              className="h-full bg-[#4a9d5c] rounded-full"
+              className="h-full bg-konsensi-green-light rounded-full"
               style={{ width: `${lastMonthWidth}%` }}
             />
           </div>
@@ -90,7 +90,7 @@ export function RatioCard({ title, value, healthy }: RatioCardProps) {
     <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
       <h3 className="text-base font-semibold text-foreground mb-2">{title}</h3>
 
-      <p className={`text-4xl font-bold mb-4 ${healthy ? 'text-[#4a9d5c]' : 'text-[#ef4444]'}`}>
+      <p className={`text-4xl font-bold mb-4 ${healthy ? 'text-konsensi-green-light' : 'text-[#ef4444]'}`}>
         {value}
       </p>
 
@@ -98,7 +98,7 @@ export function RatioCard({ title, value, healthy }: RatioCardProps) {
         <div className="h-2 bg-card-hover rounded-full overflow-hidden">
           <div
             className={`h-full rounded-full transition-all duration-500 ${
-              healthy ? 'bg-[#4a9d5c]' : 'bg-[#ef4444]'
+              healthy ? 'bg-konsensi-green-light' : 'bg-[#ef4444]'
             }`}
             style={{ width: `${numericValue}%` }}
           />

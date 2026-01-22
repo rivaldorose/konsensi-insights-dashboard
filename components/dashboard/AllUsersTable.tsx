@@ -115,7 +115,7 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="appearance-none bg-input border border-border-subtle rounded-full px-4 py-2 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[130px]"
+                className="appearance-none bg-input border border-border-subtle rounded-full px-4 py-2 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green cursor-pointer min-w-[130px]"
               >
                 <option value="">Alle statussen</option>
                 {statusOptions.map((status) => (
@@ -132,7 +132,7 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
               <select
                 value={cityFilter}
                 onChange={(e) => setCityFilter(e.target.value)}
-                className="appearance-none bg-input border border-border-subtle rounded-full px-4 py-2 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[130px]"
+                className="appearance-none bg-input border border-border-subtle rounded-full px-4 py-2 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green cursor-pointer min-w-[130px]"
               >
                 <option value="">Alle steden</option>
                 {cities.map((city) => (
@@ -151,7 +151,7 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Zoeken..."
-                className="bg-input border border-border-subtle rounded-full px-4 py-2 pl-10 text-sm text-foreground placeholder-[#666666] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[200px]"
+                className="bg-input border border-border-subtle rounded-full px-4 py-2 pl-10 text-sm text-foreground placeholder-[#666666] focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green w-[200px]"
               />
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-tertiary" />
             </div>
@@ -228,10 +228,10 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
                 </td>
                 <td className="py-4 px-6">
                   <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button className="p-2 rounded-full hover:bg-[#333333] transition-colors">
+                    <button className="p-2 rounded-full hover:bg-border-medium transition-colors">
                       <Eye className="w-4 h-4 text-text-secondary" />
                     </button>
-                    <button className="p-2 rounded-full hover:bg-[#333333] transition-colors">
+                    <button className="p-2 rounded-full hover:bg-border-medium transition-colors">
                       <Pencil className="w-4 h-4 text-text-secondary" />
                     </button>
                   </div>
@@ -279,7 +279,7 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
                     onClick={() => setCurrentPage(pageNum)}
                     className={`w-8 h-8 rounded-full text-sm font-medium transition-colors ${
                       currentPage === pageNum
-                        ? 'bg-[#3D7B4C] text-foreground'
+                        ? 'bg-konsensi-green text-foreground'
                         : 'text-text-secondary hover:bg-card-hover'
                     }`}
                   >

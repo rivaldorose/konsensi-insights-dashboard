@@ -68,7 +68,7 @@ export function PeriodComparison({ data }: PeriodComparisonProps) {
           <select
             value={period1}
             onChange={(e) => setPeriod1(e.target.value)}
-            className="w-full appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer"
+            className="w-full appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green cursor-pointer"
           >
             {periodOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -85,7 +85,7 @@ export function PeriodComparison({ data }: PeriodComparisonProps) {
           <select
             value={period2}
             onChange={(e) => setPeriod2(e.target.value)}
-            className="w-full appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer"
+            className="w-full appearance-none bg-input border border-border-subtle rounded-full px-4 py-2.5 pr-10 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green cursor-pointer"
           >
             {periodOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -104,13 +104,13 @@ export function PeriodComparison({ data }: PeriodComparisonProps) {
             key={index}
             className="flex items-center gap-4 p-4 bg-card-hover rounded-xl"
           >
-            <div className="w-10 h-10 bg-[#3D7B4C]/20 rounded-full flex items-center justify-center">
-              <stat.icon className="w-5 h-5 text-[#3D7B4C]" />
+            <div className="w-10 h-10 bg-konsensi-green/20 rounded-full flex items-center justify-center">
+              <stat.icon className="w-5 h-5 text-konsensi-green" />
             </div>
             <div className="flex-1">
               <p
                 className={`text-xl font-bold ${
-                  stat.positive ? 'text-[#4a9d5c]' : 'text-[#ef4444]'
+                  stat.positive ? 'text-konsensi-green-light' : 'text-[#ef4444]'
                 }`}
               >
                 {stat.format(stat.value)}

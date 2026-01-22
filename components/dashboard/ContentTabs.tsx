@@ -30,7 +30,7 @@ export function ContentTabs({ tabs, activeTab: controlledActiveTab, onTabChange 
           onClick={() => handleTabClick(tab.id)}
           className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
             activeTab === tab.id
-              ? 'bg-[#3D7B4C] text-foreground'
+              ? 'bg-konsensi-green text-foreground'
               : 'text-text-secondary hover:text-foreground hover:bg-card-hover'
           }`}
         >

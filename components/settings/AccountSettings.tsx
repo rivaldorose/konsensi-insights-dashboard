@@ -41,7 +41,7 @@ export function AccountSettings() {
                 type={showCurrentPassword ? 'text' : 'password'}
                 value={passwords.current}
                 onChange={(e) => setPasswords((p) => ({ ...p, current: e.target.value }))}
-                className="w-full px-4 py-3 pr-12 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                className="w-full px-4 py-3 pr-12 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
               />
               <button
                 type="button"
@@ -62,7 +62,7 @@ export function AccountSettings() {
                 type={showNewPassword ? 'text' : 'password'}
                 value={passwords.new}
                 onChange={(e) => setPasswords((p) => ({ ...p, new: e.target.value }))}
-                className="w-full px-4 py-3 pr-12 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                className="w-full px-4 py-3 pr-12 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
               />
               <button
                 type="button"
@@ -82,14 +82,14 @@ export function AccountSettings() {
               type="password"
               value={passwords.confirm}
               onChange={(e) => setPasswords((p) => ({ ...p, confirm: e.target.value }))}
-              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
             />
           </div>
 
           <button
             onClick={handlePasswordChange}
             disabled={isSaving || !passwords.current || !passwords.new || passwords.new !== passwords.confirm}
-            className="flex items-center gap-2 px-6 py-3 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-4"
+            className="flex items-center gap-2 px-6 py-3 bg-konsensi-green text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-4"
           >
             {isSaving ? (
               <>
@@ -115,7 +115,7 @@ export function AccountSettings() {
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
             >
               <option value="nl">Nederlands</option>
               <option value="en">English</option>
@@ -129,7 +129,7 @@ export function AccountSettings() {
             <select
               value={timezone}
               onChange={(e) => setTimezone(e.target.value)}
-              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
             >
               <option value="Europe/Amsterdam">Amsterdam (CET)</option>
               <option value="Europe/London">London (GMT)</option>

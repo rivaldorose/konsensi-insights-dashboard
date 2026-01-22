@@ -26,7 +26,7 @@ export function RadarSubmissionsChart({ data }: RadarSubmissionsChartProps) {
       return (
         <div className="p-3 rounded-lg shadow-lg" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
           <p className="font-medium text-foreground">{label}</p>
-          <p className="text-sm text-[#3D7B4C]">
+          <p className="text-sm text-konsensi-green">
             {payload[0].value.toLocaleString('nl-NL')} invullingen
           </p>
         </div>
@@ -41,7 +41,7 @@ export function RadarSubmissionsChart({ data }: RadarSubmissionsChartProps) {
         <h3 className="text-lg font-semibold text-foreground">Radar Invullingen per Maand</h3>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#3D7B4C]" />
+            <div className="w-3 h-3 rounded-full bg-konsensi-green" />
             <span className="text-sm text-text-secondary">Invullingen</span>
           </div>
         </div>

@@ -39,7 +39,7 @@ export function AutoInsights({ insights }: AutoInsightsProps) {
           return (
             <div
               key={insight.id}
-              className="flex items-start gap-4 p-4 bg-[#2a2a2a] rounded-xl hover:bg-[#333333] transition-colors cursor-pointer"
+              className="flex items-start gap-4 p-4 bg-border-subtle rounded-xl hover:bg-border-medium transition-colors cursor-pointer"
             >
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${insight.iconBg}`}
@@ -50,7 +50,7 @@ export function AutoInsights({ insights }: AutoInsightsProps) {
                 <h4 className="font-semibold text-foreground text-sm">{insight.title}</h4>
                 <p className="text-xs text-text-secondary mt-1">{insight.description}</p>
                 {insight.metric && (
-                  <span className="inline-block mt-2 text-xs font-medium text-[#3D7B4C] bg-[#3D7B4C]/10 px-2 py-1 rounded-full">
+                  <span className="inline-block mt-2 text-xs font-medium text-konsensi-green bg-konsensi-green/10 px-2 py-1 rounded-full">
                     {insight.metric}
                   </span>
                 )}

@@ -20,15 +20,15 @@ const iconMap = {
 };
 
 const colorMap = {
-  warning: 'bg-red-900/30 text-red-300 border-red-800/50',
-  positive: 'bg-green-900/30 text-green-300 border-green-800/50',
-  info: 'bg-blue-900/30 text-blue-300 border-blue-800/50',
+  warning: 'bg-red-500/10 dark:bg-red-900/30 text-red-600 dark:text-red-300 border-red-300 dark:border-red-800/50',
+  positive: 'bg-green-500/10 dark:bg-green-900/30 text-green-600 dark:text-green-300 border-green-300 dark:border-green-800/50',
+  info: 'bg-blue-500/10 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 border-blue-300 dark:border-blue-800/50',
 };
 
 const iconColorMap = {
-  warning: 'text-red-400',
-  positive: 'text-green-400',
-  info: 'text-blue-400',
+  warning: 'text-red-500 dark:text-red-400',
+  positive: 'text-green-500 dark:text-green-400',
+  info: 'text-blue-500 dark:text-blue-400',
 };
 
 export function SchuldenradarInsights({ insights }: SchuldenradarInsightsProps) {

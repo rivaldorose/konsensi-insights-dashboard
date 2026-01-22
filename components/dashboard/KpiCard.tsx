@@ -64,8 +64,8 @@ export function KpiCard({ label, value, icon, featured = false, sparklineData = 
   return (
     <div className="bg-card rounded-[20px] p-6 border border-border-subtle hover:bg-card-hover hover:border-border-medium transition-colors">
       <div className="flex items-start justify-between mb-6">
-        <div className="w-10 h-10 bg-[#3D7B4C]/20 rounded-full flex items-center justify-center">
-          <Icon className="w-5 h-5 text-[#3D7B4C]" />
+        <div className="w-10 h-10 bg-konsensi-green/20 rounded-full flex items-center justify-center">
+          <Icon className="w-5 h-5 text-konsensi-green" />
         </div>
         <ArrowUpRight className="w-5 h-5 text-text-tertiary" />
       </div>

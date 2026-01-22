@@ -50,7 +50,7 @@ export function PrivacySettings() {
                 </div>
                 <div className="flex items-center gap-4 text-xs text-text-secondary">
                   <span>{category.items} items</span>
-                  <span className="bg-[#2a2a2a] px-2 py-0.5 rounded">{category.size}</span>
+                  <span className="bg-border-subtle px-2 py-0.5 rounded">{category.size}</span>
                 </div>
               </div>
             ))}
@@ -60,7 +60,7 @@ export function PrivacySettings() {
         <button
           onClick={handleExportData}
           disabled={isExporting}
-          className="flex items-center gap-2 px-6 py-3 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
+          className="flex items-center gap-2 px-6 py-3 bg-konsensi-green text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
         >
           {isExporting ? (
             <>
@@ -149,7 +149,7 @@ export function PrivacySettings() {
               <h3 className="text-lg font-semibold text-foreground">Bevestig verwijdering</h3>
             </div>
             <p className="text-sm text-text-secondary mb-4">
-              Typ <span className="font-mono bg-[#2a2a2a] px-1 rounded text-foreground">VERWIJDER</span> om te bevestigen
+              Typ <span className="font-mono bg-border-subtle px-1 rounded text-foreground">VERWIJDER</span> om te bevestigen
               dat je al je gegevens permanent wilt verwijderen.
             </p>
             <input

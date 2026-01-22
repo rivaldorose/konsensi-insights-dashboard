@@ -25,7 +25,7 @@ export function DebtDistributionChart({ data }: DebtDistributionChartProps) {
       return (
         <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-3 rounded-lg shadow-lg">
           <p className="font-medium text-foreground">{label}</p>
-          <p className="text-sm text-[#3D7B4C]">{payload[0].value} gebruikers</p>
+          <p className="text-sm text-konsensi-green">{payload[0].value} gebruikers</p>
         </div>
       );
     }

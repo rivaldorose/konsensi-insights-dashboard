@@ -44,7 +44,7 @@ const statusConfig: Record<PaymentStatus, { bg: string; text: string; icon: Reac
 const methodColors: Record<PaymentMethod, string> = {
   iDEAL: 'bg-purple-900/30 text-purple-400',
   'Automatische incasso': 'bg-blue-900/30 text-blue-400',
-  Handmatig: 'bg-[#2a2a2a] text-text-secondary',
+  Handmatig: 'bg-border-subtle text-text-secondary',
   Overig: 'bg-orange-900/30 text-orange-400',
 };
 
@@ -96,7 +96,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
                   setSearchTerm(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="pl-10 pr-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-48 bg-card text-foreground placeholder-[#888888]"
+                className="pl-10 pr-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green w-48 bg-card text-foreground placeholder-[#888888]"
               />
             </div>
 
@@ -107,7 +107,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
                 setStatusFilter(e.target.value as PaymentStatus | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-card text-foreground"
+              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green bg-card text-foreground"
             >
               <option value="Alle">Alle Status</option>
               <option value="Geslaagd">Geslaagd</option>
@@ -122,7 +122,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
                 setMethodFilter(e.target.value as PaymentMethod | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-card text-foreground"
+              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green bg-card text-foreground"
             >
               <option value="Alle">Alle Methodes</option>
               <option value="iDEAL">iDEAL</option>
@@ -166,7 +166,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
             {paginatedPayments.map((payment) => {
               const statusStyle = statusConfig[payment.status];
               return (
-                <tr key={payment.id} className="border-b border-border-subtle hover:bg-[#2a2a2a]/50 transition-colors">
+                <tr key={payment.id} className="border-b border-border-subtle hover:bg-border-subtle/50 transition-colors">
                   <td className="py-4 px-6">
                     <div>
                       <p className="text-sm font-medium text-foreground">{payment.datum}</p>
@@ -185,7 +185,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
                     <span className="text-sm text-text-secondary">{payment.schuld}</span>
                   </td>
                   <td className="py-4 px-6">
-                    <span className="text-sm font-medium text-[#3D7B4C]">
+                    <span className="text-sm font-medium text-konsensi-green">
                       {formatCurrency(payment.bedrag)}
                     </span>
                   </td>
@@ -224,7 +224,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="p-2 rounded-full hover:bg-[#2a2a2a] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-2 rounded-full hover:bg-border-subtle disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="w-5 h-5 text-text-secondary" />
           </button>
@@ -234,8 +234,8 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
               onClick={() => setCurrentPage(page)}
               className={`w-8 h-8 rounded-full text-sm font-medium transition-colors ${
                 currentPage === page
-                  ? 'bg-[#3D7B4C] text-foreground'
-                  : 'text-text-secondary hover:bg-[#2a2a2a]'
+                  ? 'bg-konsensi-green text-foreground'
+                  : 'text-text-secondary hover:bg-border-subtle'
               }`}
             >
               {page}
@@ -244,7 +244,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
           <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
-            className="p-2 rounded-full hover:bg-[#2a2a2a] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-2 rounded-full hover:bg-border-subtle disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ChevronRight className="w-5 h-5 text-text-secondary" />
           </button>

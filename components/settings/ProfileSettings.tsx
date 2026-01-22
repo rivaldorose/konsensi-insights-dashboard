@@ -62,7 +62,7 @@ export function ProfileSettings() {
             type="text"
             value={profileData.naam}
             onChange={(e) => handleChange('naam', e.target.value)}
-            className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           />
         </div>
 
@@ -88,7 +88,7 @@ export function ProfileSettings() {
               type="text"
               value={profileData.functie}
               onChange={(e) => handleChange('functie', e.target.value)}
-              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
             />
           </div>
 
@@ -100,7 +100,7 @@ export function ProfileSettings() {
               type="tel"
               value={profileData.telefoon}
               onChange={(e) => handleChange('telefoon', e.target.value)}
-              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+              className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
             />
           </div>
         </div>
@@ -113,7 +113,7 @@ export function ProfileSettings() {
             value={profileData.bio}
             onChange={(e) => handleChange('bio', e.target.value)}
             rows={4}
-            className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] resize-none"
+            className="w-full px-4 py-3 bg-input border border-border-subtle rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green resize-none"
           />
         </div>
       </div>
@@ -123,7 +123,7 @@ export function ProfileSettings() {
         <button
           onClick={handleSave}
           disabled={isSaving}
-          className="flex items-center gap-2 px-6 py-3 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
+          className="flex items-center gap-2 px-6 py-3 bg-konsensi-green text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
         >
           {isSaving ? (
             <>

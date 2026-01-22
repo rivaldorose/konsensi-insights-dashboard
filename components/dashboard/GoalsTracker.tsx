@@ -40,7 +40,7 @@ export function GoalsTracker({ goals }: GoalsTrackerProps) {
 
   const getProgressColor = (progress: number) => {
     if (progress >= 90) return 'bg-[#22c55e]';
-    if (progress >= 70) return 'bg-[#3D7B4C]';
+    if (progress >= 70) return 'bg-konsensi-green';
     if (progress >= 50) return 'bg-[#f59e0b]';
     return 'bg-[#ef4444]';
   };
@@ -52,7 +52,7 @@ export function GoalsTracker({ goals }: GoalsTrackerProps) {
           <h3 className="text-lg font-bold text-foreground">Doelen & Targets</h3>
           <p className="text-sm text-text-secondary">Voortgang naar uw doelstellingen</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-[#3D7B4C] text-foreground rounded-full text-sm font-medium hover:bg-[#346a41] transition-colors">
+        <button className="flex items-center gap-2 px-4 py-2 bg-konsensi-green text-foreground rounded-full text-sm font-medium hover:bg-[#346a41] transition-colors">
           <Plus className="w-4 h-4" />
           Nieuw Doel
         </button>
@@ -62,10 +62,10 @@ export function GoalsTracker({ goals }: GoalsTrackerProps) {
         {goals.map((goal) => {
           const progress = getProgress(goal.current, goal.target);
           return (
-            <div key={goal.id} className="p-4 bg-[#2a2a2a] rounded-xl">
+            <div key={goal.id} className="p-4 bg-border-subtle rounded-xl">
               <div className="flex items-center justify-between mb-2">
                 <h4 className="font-semibold text-foreground text-sm">{goal.title}</h4>
-                <span className="text-sm font-bold text-[#3D7B4C]">{Math.round(progress)}%</span>
+                <span className="text-sm font-bold text-konsensi-green">{Math.round(progress)}%</span>
               </div>
 
               <div className="w-full h-3 bg-card rounded-full mb-2 overflow-hidden">

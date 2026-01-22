@@ -78,7 +78,7 @@ export function RadarTable({ entries }: RadarTableProps) {
             placeholder="Zoek op gemeente, organisatie..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="w-full pl-10 pr-4 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           />
         </div>
 
@@ -86,7 +86,7 @@ export function RadarTable({ entries }: RadarTableProps) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           >
             <option value="all">Alle statussen</option>
             <option value="gematcht">Gematcht</option>
@@ -100,7 +100,7 @@ export function RadarTable({ entries }: RadarTableProps) {
           <select
             value={probleemFilter}
             onChange={(e) => setProbleemFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-border-subtle rounded-xl text-sm bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
           >
             <option value="all">Alle problemen</option>
             <option value="Huur achterstand">Huur achterstand</option>

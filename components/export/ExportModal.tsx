@@ -77,7 +77,7 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
           <h2 className="text-xl font-semibold text-foreground">Data Exporteren</h2>
           <button
             onClick={handleClose}
-            className="w-8 h-8 rounded-full bg-[#2a2a2a] hover:bg-[#333333] flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-full bg-border-subtle hover:bg-border-medium flex items-center justify-center transition-colors"
           >
             <X className="w-4 h-4 text-text-secondary" />
           </button>
@@ -88,14 +88,14 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
           {exportComplete ? (
             // Success State
             <div className="text-center py-8">
-              <div className="w-16 h-16 bg-[#3D7B4C]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Check className="w-8 h-8 text-[#4a9d5c]" />
+              <div className="w-16 h-16 bg-konsensi-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Check className="w-8 h-8 text-konsensi-green-light" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">Export voltooid!</h3>
               <p className="text-text-secondary mb-6">Je bestand wordt gedownload</p>
               <button
                 onClick={handleNewExport}
-                className="px-6 py-2.5 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#4a9d5c] transition-colors"
+                className="px-6 py-2.5 bg-konsensi-green text-foreground rounded-full font-medium text-sm hover:bg-konsensi-green-light transition-colors"
               >
                 Nog een export
               </button>
@@ -112,18 +112,18 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
                     onClick={() => setFormat('csv')}
                     className={`p-4 rounded-xl border-2 transition-all ${
                       format === 'csv'
-                        ? 'border-[#3D7B4C] bg-[#3D7B4C]/10'
+                        ? 'border-konsensi-green bg-konsensi-green/10'
                         : 'border-border-subtle hover:border-border-medium bg-card-hover'
                     }`}
                   >
                     <FileSpreadsheet
                       className={`w-8 h-8 mx-auto mb-2 ${
-                        format === 'csv' ? 'text-[#3D7B4C]' : 'text-text-secondary'
+                        format === 'csv' ? 'text-konsensi-green' : 'text-text-secondary'
                       }`}
                     />
                     <p
                       className={`font-medium ${
-                        format === 'csv' ? 'text-[#3D7B4C]' : 'text-foreground'
+                        format === 'csv' ? 'text-konsensi-green' : 'text-foreground'
                       }`}
                     >
                       CSV
@@ -134,18 +134,18 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
                     onClick={() => setFormat('pdf')}
                     className={`p-4 rounded-xl border-2 transition-all ${
                       format === 'pdf'
-                        ? 'border-[#3D7B4C] bg-[#3D7B4C]/10'
+                        ? 'border-konsensi-green bg-konsensi-green/10'
                         : 'border-border-subtle hover:border-border-medium bg-card-hover'
                     }`}
                   >
                     <FileText
                       className={`w-8 h-8 mx-auto mb-2 ${
-                        format === 'pdf' ? 'text-[#3D7B4C]' : 'text-text-secondary'
+                        format === 'pdf' ? 'text-konsensi-green' : 'text-text-secondary'
                       }`}
                     />
                     <p
                       className={`font-medium ${
-                        format === 'pdf' ? 'text-[#3D7B4C]' : 'text-foreground'
+                        format === 'pdf' ? 'text-konsensi-green' : 'text-foreground'
                       }`}
                     >
                       PDF
@@ -170,7 +170,7 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
                         <div
                           className={`w-5 h-5 rounded-md flex items-center justify-center transition-colors ${
                             option.checked
-                              ? 'bg-[#3D7B4C]'
+                              ? 'bg-konsensi-green'
                               : 'border-2 border-[#555555]'
                           }`}
                         >
@@ -210,8 +210,8 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
                       onClick={() => setDateRange(range.id as DateRange)}
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                         dateRange === range.id
-                          ? 'bg-[#3D7B4C] text-foreground'
-                          : 'bg-[#2a2a2a] text-text-secondary hover:bg-[#333333] hover:text-foreground'
+                          ? 'bg-konsensi-green text-foreground'
+                          : 'bg-border-subtle text-text-secondary hover:bg-border-medium hover:text-foreground'
                       }`}
                     >
                       {range.label}
@@ -226,7 +226,7 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
                         type="date"
                         value={customFrom}
                         onChange={(e) => setCustomFrom(e.target.value)}
-                        className="w-full px-3 py-2 border border-border-subtle bg-input rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                        className="w-full px-3 py-2 border border-border-subtle bg-input rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
                       />
                     </div>
                     <div className="flex-1">
@@ -235,7 +235,7 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
                         type="date"
                         value={customTo}
                         onChange={(e) => setCustomTo(e.target.value)}
-                        className="w-full px-3 py-2 border border-border-subtle bg-input rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                        className="w-full px-3 py-2 border border-border-subtle bg-input rounded-xl text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green"
                       />
                     </div>
                   </div>
@@ -257,7 +257,7 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
             <button
               onClick={handleExport}
               disabled={isExporting || selectedCount === 0}
-              className="flex items-center gap-2 px-6 py-2.5 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#4a9d5c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-6 py-2.5 bg-konsensi-green text-foreground rounded-full font-medium text-sm hover:bg-konsensi-green-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isExporting ? (
                 <>

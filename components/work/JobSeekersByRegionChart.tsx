@@ -48,7 +48,7 @@ export function JobSeekersByRegionChart({ data }: JobSeekersByRegionChartProps) 
               tickLine={false}
               width={90}
             />
-            <Tooltip content={<CustomTooltip />} cursor={{ fill: '#2a2a2a' }} />
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'var(--border-subtle)' }} />
             <Bar dataKey="werkzoekenden" fill="#3D7B4C" radius={[0, 6, 6, 0]} barSize={20} />
           </BarChart>
         </ResponsiveContainer>

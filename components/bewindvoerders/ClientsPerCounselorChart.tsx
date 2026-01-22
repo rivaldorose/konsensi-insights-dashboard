@@ -25,7 +25,7 @@ export function ClientsPerCounselorChart({ data }: ClientsPerCounselorChartProps
       return (
         <div style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }} className="p-3 rounded-lg shadow-lg">
           <p className="font-medium text-foreground">{item.naam}</p>
-          <p className="text-sm text-[#3D7B4C]">
+          <p className="text-sm text-konsensi-green">
             {item.clienten} cliënten
           </p>
         </div>

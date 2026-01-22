@@ -62,7 +62,7 @@ export function MatchSuccessChart({ data, total, successRate }: MatchSuccessChar
             </PieChart>
           </ResponsiveContainer>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-3xl font-bold text-[#3D7B4C]">{successRate}%</span>
+            <span className="text-3xl font-bold text-konsensi-green">{successRate}%</span>
             <span className="text-xs text-text-secondary">Succes</span>
           </div>
         </div>

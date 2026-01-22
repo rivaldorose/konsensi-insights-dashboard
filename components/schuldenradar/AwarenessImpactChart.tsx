@@ -75,7 +75,7 @@ export function AwarenessImpactChart({ data, total, knownBefore, discoveredNew }
 
         {/* Stats */}
         <div className="flex-1 space-y-3">
-          <div className="p-3 bg-[#2a2a2a] rounded-xl">
+          <div className="p-3 bg-border-subtle rounded-xl">
             <div className="flex items-center gap-2 mb-1">
               <Eye className="w-4 h-4 text-text-secondary" />
               <span className="text-xs text-text-secondary">Bekend voor scan</span>

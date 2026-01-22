@@ -93,7 +93,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
                   setSearchTerm(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="pl-10 pr-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-48 bg-card text-foreground placeholder-[#888888]"
+                className="pl-10 pr-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green w-48 bg-card text-foreground placeholder-[#888888]"
               />
             </div>
 
@@ -104,7 +104,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
                 setUrgencyFilter(e.target.value as DebtUrgency | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-card text-foreground"
+              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green bg-card text-foreground"
             >
               <option value="Alle">Alle Urgentie</option>
               <option value="Hoog">Hoog</option>
@@ -119,7 +119,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
                 setTypeFilter(e.target.value as DebtType | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-card text-foreground"
+              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green bg-card text-foreground"
             >
               <option value="Alle">Alle Types</option>
               <option value="Telefoon">Telefoon</option>
@@ -137,7 +137,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
                 setStatusFilter(e.target.value as DebtStatus | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-card text-foreground"
+              className="px-4 py-2 border border-border-subtle rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-konsensi-green/20 focus:border-konsensi-green bg-card text-foreground"
             >
               <option value="Alle">Alle Status</option>
               <option value="Actief">Actief</option>
@@ -181,7 +181,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
               const urgencyStyle = urgencyColors[debt.urgentie];
               const statusStyle = statusColors[debt.status];
               return (
-                <tr key={debt.id} className="border-b border-border-subtle hover:bg-[#2a2a2a]/50 transition-colors">
+                <tr key={debt.id} className="border-b border-border-subtle hover:bg-border-subtle/50 transition-colors">
                   <td className="py-4 px-6">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center text-foreground text-xs font-medium">
@@ -239,7 +239,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="p-2 rounded-full hover:bg-[#2a2a2a] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-2 rounded-full hover:bg-border-subtle disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="w-5 h-5 text-text-secondary" />
           </button>
@@ -249,8 +249,8 @@ export function DebtsTable({ debts }: DebtsTableProps) {
               onClick={() => setCurrentPage(page)}
               className={`w-8 h-8 rounded-full text-sm font-medium transition-colors ${
                 currentPage === page
-                  ? 'bg-[#3D7B4C] text-foreground'
-                  : 'text-text-secondary hover:bg-[#2a2a2a]'
+                  ? 'bg-konsensi-green text-foreground'
+                  : 'text-text-secondary hover:bg-border-subtle'
               }`}
             >
               {page}
@@ -259,7 +259,7 @@ export function DebtsTable({ debts }: DebtsTableProps) {
           <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
-            className="p-2 rounded-full hover:bg-[#2a2a2a] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-2 rounded-full hover:bg-border-subtle disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ChevronRight className="w-5 h-5 text-text-secondary" />
           </button>

@@ -122,7 +122,7 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/overview" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-[#3D7B4C] rounded-full flex items-center justify-center">
+          <div className="w-10 h-10 bg-konsensi-green rounded-full flex items-center justify-center">
             <TreePine className="w-5 h-5 text-foreground" />
           </div>
           <span className="font-bold text-foreground text-lg tracking-tight hidden sm:block">
@@ -137,7 +137,7 @@ export function Navbar() {
             href="/overview"
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
               pathname === '/overview'
-                ? 'bg-[#3D7B4C] text-foreground shadow-md'
+                ? 'bg-konsensi-green text-foreground shadow-md'
                 : 'text-text-secondary hover:text-foreground hover:bg-card-hover'
             }`}
           >
@@ -151,7 +151,7 @@ export function Navbar() {
               onClick={() => setIsAppsMenuOpen(!isAppsMenuOpen)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
                 isAnyAppActive && pathname !== '/overview'
-                  ? 'bg-[#3D7B4C] text-foreground shadow-md'
+                  ? 'bg-konsensi-green text-foreground shadow-md'
                   : 'text-text-secondary hover:text-foreground hover:bg-card-hover'
               }`}
             >
@@ -177,13 +177,13 @@ export function Navbar() {
                     onClick={() => setIsAppsMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 transition-colors ${
                       isActive(app.href)
-                        ? 'bg-[#3D7B4C]/10 text-[#3D7B4C]'
+                        ? 'bg-konsensi-green/10 text-konsensi-green'
                         : 'text-foreground hover:bg-card-hover'
                     }`}
                   >
                     <div
                       className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                        isActive(app.href) ? 'bg-[#3D7B4C]/20' : 'bg-card-hover'
+                        isActive(app.href) ? 'bg-konsensi-green/20' : 'bg-card-hover'
                       }`}
                     >
                       {app.icon}
@@ -195,7 +195,7 @@ export function Navbar() {
                       )}
                     </div>
                     {isActive(app.href) && (
-                      <div className="ml-auto w-2 h-2 bg-[#3D7B4C] rounded-full" />
+                      <div className="ml-auto w-2 h-2 bg-konsensi-green rounded-full" />
                     )}
                   </Link>
                 ))}
@@ -208,7 +208,7 @@ export function Navbar() {
             href="/audit-log"
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
               isActive('/audit-log')
-                ? 'bg-[#3D7B4C] text-foreground shadow-md'
+                ? 'bg-konsensi-green text-foreground shadow-md'
                 : 'text-text-secondary hover:text-foreground hover:bg-card-hover'
             }`}
           >

@@ -195,11 +195,11 @@ export function ChartDrillDown({ isOpen, onClose, data }: ChartDrillDownProps) {
                           {/* Progress bar */}
                           <div className="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                             <div
-                              className="h-full rounded-full bg-[#3D7B4C]"
+                              className="h-full rounded-full bg-konsensi-green"
                               style={{ width: `${item.percentage}%` }}
                             />
                           </div>
-                          <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-[#3D7B4C] transition-colors" />
+                          <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-konsensi-green transition-colors" />
                         </div>
                       </button>
                     ))}
@@ -212,8 +212,8 @@ export function ChartDrillDown({ isOpen, onClose, data }: ChartDrillDownProps) {
             <div>
               <div className="bg-gradient-to-br from-[#3D7B4C]/10 to-[#8FD14F]/10 rounded-xl p-6 mb-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#3D7B4C]/20 rounded-xl flex items-center justify-center">
-                    <Users className="w-6 h-6 text-[#3D7B4C]" />
+                  <div className="w-12 h-12 bg-konsensi-green/20 rounded-xl flex items-center justify-center">
+                    <Users className="w-6 h-6 text-konsensi-green" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Categorie</p>

@@ -53,7 +53,7 @@ export function DebtDistributionChart({ data }: DebtDistributionChartProps) {
               interval={0}
             />
             <YAxis tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} axisLine={false} tickLine={false} />
-            <Tooltip content={<CustomTooltip />} cursor={{ fill: '#2a2a2a' }} />
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'var(--border-subtle)' }} />
             <Bar dataKey="count" radius={[6, 6, 0, 0]} barSize={35}>
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={getColor(index)} />

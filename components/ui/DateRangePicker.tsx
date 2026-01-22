@@ -228,9 +228,9 @@ export function DateRangePicker({ value, onChange, placeholder = 'Selecteer peri
                       onClick={() => handleDateClick(day)}
                       className={`w-9 h-9 flex items-center justify-center text-sm rounded-lg transition-colors ${
                         isSelected(day)
-                          ? 'bg-[#3D7B4C] text-foreground'
+                          ? 'bg-konsensi-green text-foreground'
                           : isInRange(day)
-                          ? 'bg-[#3D7B4C]/20 text-[#4a9d5c]'
+                          ? 'bg-konsensi-green/20 text-konsensi-green-light'
                           : 'hover:bg-card-hover text-foreground'
                       }`}
                     >

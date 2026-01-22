@@ -74,7 +74,7 @@ export function NotificationSettings() {
                   <button
                     onClick={() => toggleSetting(groupIndex, setting.id)}
                     className={`relative w-11 h-6 rounded-full transition-colors ${
-                      setting.enabled ? 'bg-[#3D7B4C]' : 'bg-[#444444]'
+                      setting.enabled ? 'bg-konsensi-green' : 'bg-[#444444]'
                     }`}
                   >
                     <span
@@ -95,7 +95,7 @@ export function NotificationSettings() {
         <button
           onClick={handleSave}
           disabled={isSaving}
-          className="flex items-center gap-2 px-6 py-3 bg-[#3D7B4C] text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
+          className="flex items-center gap-2 px-6 py-3 bg-konsensi-green text-foreground rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50"
         >
           {isSaving ? (
             <>

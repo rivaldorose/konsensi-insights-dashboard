@@ -60,7 +60,7 @@ export function TrendsCard({ trends }: TrendsCardProps) {
         {trends.map((trend) => (
           <div
             key={trend.id}
-            className="flex items-center justify-between p-3 bg-[#2a2a2a] rounded-xl"
+            className="flex items-center justify-between p-3 bg-border-subtle rounded-xl"
           >
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-card rounded-full flex items-center justify-center border border-border-subtle">
