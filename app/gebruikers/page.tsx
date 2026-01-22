@@ -2,19 +2,20 @@
 
 import { useState } from 'react';
 import { Navbar } from '@/components/dashboard/Navbar';
+import { InlineEdit, EditableStatusBadge } from '@/components/ui/InlineEdit';
+import { BulkActions, SelectCheckbox } from '@/components/ui/BulkActions';
+import { useToast } from '@/components/ui/Toast';
 import {
   Search,
   Plus,
   ChevronDown,
   MoreHorizontal,
-  Edit,
   Trash2,
   Eye,
-  Mail,
   Shield,
-  Check,
   X,
-  Download
+  UserCog,
+  Edit
 } from 'lucide-react';
 
 type RoleType = 'Admin' | 'Bewindvoerder' | 'Budgetcoach' | 'Gebruiker' | 'Viewer';
@@ -120,21 +121,24 @@ const roleColors: Record<RoleType, string> = {
   Viewer: 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300',
 };
 
-const statusColors: Record<StatusType, string> = {
-  Actief: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
-  Inactief: 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400',
-  Geblokkeerd: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400',
-};
+
+const statusOptions = [
+  { value: 'Actief', label: 'Actief', color: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' },
+  { value: 'Inactief', label: 'Inactief', color: 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400' },
+  { value: 'Geblokkeerd', label: 'Geblokkeerd', color: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' },
+];
 
 export default function GebruikersPage() {
+  const [users, setUsers] = useState<UserData[]>(usersData);
   const [searchQuery, setSearchQuery] = useState('');
   const [roleFilter, setRoleFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<string>('all');
-  const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
+  const [selectedUsers, setSelectedUsers] = useState<Set<string>>(new Set());
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { addToast } = useToast();
 
-  const filteredUsers = usersData.filter((user) => {
+  const filteredUsers = users.filter((user) => {
     const matchesSearch =
       user.naam.toLowerCase().includes(searchQuery.toLowerCase()) ||
       user.email.toLowerCase().includes(searchQuery.toLowerCase());
@@ -144,17 +148,62 @@ export default function GebruikersPage() {
   });
 
   const toggleSelectAll = () => {
-    if (selectedUsers.length === filteredUsers.length) {
-      setSelectedUsers([]);
+    if (selectedUsers.size === filteredUsers.length) {
+      setSelectedUsers(new Set());
     } else {
-      setSelectedUsers(filteredUsers.map((u) => u.id));
+      setSelectedUsers(new Set(filteredUsers.map((u) => u.id)));
     }
   };
 
   const toggleSelectUser = (id: string) => {
-    setSelectedUsers((prev) =>
-      prev.includes(id) ? prev.filter((uid) => uid !== id) : [...prev, id]
+    setSelectedUsers((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
+
+  const clearSelection = () => {
+    setSelectedUsers(new Set());
+  };
+
+  // Inline edit handlers
+  const handleUpdateUser = (userId: string, field: keyof UserData, value: string) => {
+    setUsers((prev) =>
+      prev.map((user) =>
+        user.id === userId ? { ...user, [field]: value } : user
+      )
     );
+    addToast(`${field === 'naam' ? 'Naam' : field === 'email' ? 'Email' : 'Status'} bijgewerkt`, 'success');
+  };
+
+  // Bulk action handlers
+  const handleBulkDelete = () => {
+    setUsers((prev) => prev.filter((user) => !selectedUsers.has(user.id)));
+    addToast(`${selectedUsers.size} gebruiker(s) verwijderd`, 'success');
+    clearSelection();
+  };
+
+  const handleBulkStatusChange = (status: string) => {
+    setUsers((prev) =>
+      prev.map((user) =>
+        selectedUsers.has(user.id) ? { ...user, status: status as StatusType } : user
+      )
+    );
+    addToast(`Status bijgewerkt voor ${selectedUsers.size} gebruiker(s)`, 'success');
+    clearSelection();
+  };
+
+  const handleBulkExport = () => {
+    addToast(`${selectedUsers.size} gebruiker(s) geëxporteerd`, 'success');
+  };
+
+  const handleBulkEmail = () => {
+    addToast(`Email verzonden naar ${selectedUsers.size} gebruiker(s)`, 'success');
   };
 
   return (
@@ -259,21 +308,17 @@ export default function GebruikersPage() {
               </div>
             </div>
 
-            {/* Bulk Actions */}
-            {selectedUsers.length > 0 && (
+            {/* Selection indicator */}
+            {selectedUsers.size > 0 && (
               <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-500">{selectedUsers.length} geselecteerd</span>
-                <button className="flex items-center gap-1.5 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
-                  <Mail className="w-4 h-4" />
-                  Email
-                </button>
-                <button className="flex items-center gap-1.5 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
-                  <Download className="w-4 h-4" />
-                  Export
-                </button>
-                <button className="flex items-center gap-1.5 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors">
-                  <Trash2 className="w-4 h-4" />
-                  Verwijderen
+                <span className="text-sm text-gray-500 dark:text-gray-400">
+                  {selectedUsers.size} geselecteerd
+                </span>
+                <button
+                  onClick={clearSelection}
+                  className="text-sm text-[#3D7B4C] hover:underline"
+                >
+                  Wissen
                 </button>
               </div>
             )}
@@ -285,11 +330,10 @@ export default function GebruikersPage() {
               <thead>
                 <tr className="border-b border-gray-100 dark:border-gray-800">
                   <th className="text-left py-3 px-4">
-                    <input
-                      type="checkbox"
-                      checked={selectedUsers.length === filteredUsers.length && filteredUsers.length > 0}
+                    <SelectCheckbox
+                      checked={selectedUsers.size === filteredUsers.length && filteredUsers.length > 0}
                       onChange={toggleSelectAll}
-                      className="w-4 h-4 rounded border-gray-300 text-[#3D7B4C] focus:ring-[#3D7B4C]"
+                      indeterminate={selectedUsers.size > 0 && selectedUsers.size < filteredUsers.length}
                     />
                   </th>
                   <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
@@ -316,14 +360,16 @@ export default function GebruikersPage() {
                 {filteredUsers.map((user) => (
                   <tr
                     key={user.id}
-                    className="border-b border-gray-50 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                    className={`border-b border-gray-50 dark:border-gray-800 transition-colors ${
+                      selectedUsers.has(user.id)
+                        ? 'bg-[#3D7B4C]/5'
+                        : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                    }`}
                   >
                     <td className="py-3 px-4">
-                      <input
-                        type="checkbox"
-                        checked={selectedUsers.includes(user.id)}
+                      <SelectCheckbox
+                        checked={selectedUsers.has(user.id)}
                         onChange={() => toggleSelectUser(user.id)}
-                        className="w-4 h-4 rounded border-gray-300 text-[#3D7B4C] focus:ring-[#3D7B4C]"
                       />
                     </td>
                     <td className="py-3 px-4">
@@ -332,8 +378,17 @@ export default function GebruikersPage() {
                           <span className="text-white text-sm font-medium">{user.avatar}</span>
                         </div>
                         <div>
-                          <p className="font-medium text-gray-900 dark:text-white">{user.naam}</p>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">{user.email}</p>
+                          <InlineEdit
+                            value={user.naam}
+                            onSave={(newValue) => handleUpdateUser(user.id, 'naam', newValue)}
+                            displayClassName="font-medium text-gray-900 dark:text-white"
+                          />
+                          <InlineEdit
+                            value={user.email}
+                            onSave={(newValue) => handleUpdateUser(user.id, 'email', newValue)}
+                            type="email"
+                            displayClassName="text-sm text-gray-500 dark:text-gray-400"
+                          />
                         </div>
                       </div>
                     </td>
@@ -343,11 +398,11 @@ export default function GebruikersPage() {
                       </span>
                     </td>
                     <td className="py-3 px-4">
-                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${statusColors[user.status]}`}>
-                        {user.status === 'Actief' && <Check className="w-3 h-3" />}
-                        {user.status === 'Geblokkeerd' && <X className="w-3 h-3" />}
-                        {user.status}
-                      </span>
+                      <EditableStatusBadge
+                        value={user.status}
+                        onSave={(newValue) => handleUpdateUser(user.id, 'status', newValue)}
+                        statusOptions={statusOptions}
+                      />
                     </td>
                     <td className="py-3 px-4">
                       <div className="flex flex-wrap gap-1">
@@ -500,6 +555,33 @@ export default function GebruikersPage() {
           </div>
         </>
       )}
+
+      {/* Bulk Actions Bar */}
+      <BulkActions
+        selectedCount={selectedUsers.size}
+        onClearSelection={clearSelection}
+        onDelete={handleBulkDelete}
+        onExport={handleBulkExport}
+        onEmail={handleBulkEmail}
+        onStatusChange={handleBulkStatusChange}
+        statusOptions={[
+          { value: 'Actief', label: 'Actief' },
+          { value: 'Inactief', label: 'Inactief' },
+          { value: 'Geblokkeerd', label: 'Geblokkeerd' },
+        ]}
+        customActions={[
+          { id: 'reset-password', label: 'Wachtwoord resetten', icon: <Shield className="w-4 h-4" /> },
+          { id: 'change-role', label: 'Rol wijzigen', icon: <UserCog className="w-4 h-4" /> },
+        ]}
+        onCustomAction={(action) => {
+          if (action === 'reset-password') {
+            addToast(`Wachtwoord reset email verzonden naar ${selectedUsers.size} gebruiker(s)`, 'success');
+          } else if (action === 'change-role') {
+            addToast('Rol wijzigen is nog niet geïmplementeerd', 'info');
+          }
+          clearSelection();
+        }}
+      />
     </div>
   );
 }
