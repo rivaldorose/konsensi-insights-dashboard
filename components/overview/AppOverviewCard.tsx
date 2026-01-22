@@ -1,0 +1,73 @@
+'use client';
+
+import Link from 'next/link';
+import { ArrowUpRight, TrendingUp, TrendingDown, Minus } from 'lucide-react';
+
+interface AppStat {
+  label: string;
+  value: string;
+  trend?: 'up' | 'down' | 'neutral';
+}
+
+interface AppOverviewCardProps {
+  name: string;
+  description: string;
+  href: string;
+  icon: React.ReactNode;
+  color: string;
+  bgColor: string;
+  stats: AppStat[];
+}
+
+export function AppOverviewCard({
+  name,
+  description,
+  href,
+  icon,
+  color,
+  bgColor,
+  stats,
+}: AppOverviewCardProps) {
+  const getTrendIcon = (trend?: 'up' | 'down' | 'neutral') => {
+    if (trend === 'up') return <TrendingUp className="w-3 h-3 text-green-500" />;
+    if (trend === 'down') return <TrendingDown className="w-3 h-3 text-red-500" />;
+    if (trend === 'neutral') return <Minus className="w-3 h-3 text-gray-400" />;
+    return null;
+  };
+
+  return (
+    <Link href={href}>
+      <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all cursor-pointer group h-full">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div
+              className="w-12 h-12 rounded-xl flex items-center justify-center"
+              style={{ backgroundColor: bgColor }}
+            >
+              <div style={{ color }}>{icon}</div>
+            </div>
+            <div>
+              <h3 className="font-semibold text-[#111827] group-hover:text-[#3D7B4C] transition-colors">
+                {name}
+              </h3>
+              <p className="text-xs text-gray-500">{description}</p>
+            </div>
+          </div>
+          <ArrowUpRight className="w-5 h-5 text-gray-300 group-hover:text-[#3D7B4C] transition-colors" />
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          {stats.map((stat, index) => (
+            <div key={index} className="bg-gray-50 rounded-xl p-3">
+              <div className="flex items-center gap-1 mb-1">
+                <span className="text-lg font-bold text-[#111827]">{stat.value}</span>
+                {getTrendIcon(stat.trend)}
+              </div>
+              <p className="text-xs text-gray-500">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Link>
+  );
+}
