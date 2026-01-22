@@ -3,14 +3,39 @@
 interface SkeletonProps {
   className?: string;
   style?: React.CSSProperties;
+  variant?: 'default' | 'text' | 'card' | 'chart' | 'table' | 'stat' | 'circular';
 }
 
-export function Skeleton({ className = '', style }: SkeletonProps) {
+export function Skeleton({ className = '', style, variant = 'default' }: SkeletonProps) {
+  const variants = {
+    default: '',
+    text: 'h-4 w-full',
+    card: 'h-32 w-full rounded-xl',
+    chart: 'h-64 w-full rounded-xl',
+    table: 'h-12 w-full',
+    stat: 'h-24 w-full rounded-xl',
+    circular: 'rounded-full',
+  };
+
   return (
     <div
-      className={`animate-pulse bg-border-subtle rounded ${className}`}
+      className={`animate-pulse bg-border-subtle rounded ${variants[variant]} ${className}`}
       style={style}
     />
+  );
+}
+
+// Stat Card Skeleton (compact)
+export function StatCardSkeleton() {
+  return (
+    <div className="bg-card border border-border-subtle rounded-2xl p-6">
+      <div className="flex items-center gap-3 mb-4">
+        <Skeleton className="h-10 w-10 rounded-lg" />
+        <Skeleton className="h-4 w-24" />
+      </div>
+      <Skeleton className="h-8 w-20 mb-2" />
+      <Skeleton className="h-3 w-16" />
+    </div>
   );
 }
 
@@ -101,6 +126,80 @@ export function PageSkeleton() {
 
       {/* Table */}
       <TableSkeleton />
+    </div>
+  );
+}
+
+// Page Loading Skeleton (alternative layout)
+export function PageLoadingSkeleton() {
+  return (
+    <div className="space-y-6">
+      {/* Stats Row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <StatCardSkeleton key={i} />
+        ))}
+      </div>
+
+      {/* Charts Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <ChartSkeleton />
+        <ChartSkeleton />
+      </div>
+
+      {/* Table */}
+      <TableSkeleton rows={5} />
+    </div>
+  );
+}
+
+// Donut/Pie Chart Skeleton
+export function DonutChartSkeleton() {
+  return (
+    <div className="bg-card rounded-[20px] p-6 border border-border-subtle">
+      <Skeleton className="h-6 w-32 mb-6" />
+      <div className="flex items-center justify-center">
+        <Skeleton className="h-48 w-48 rounded-full" />
+      </div>
+      <div className="mt-6 space-y-2">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div key={i} className="flex items-center gap-2">
+            <Skeleton className="h-3 w-3 rounded-full" />
+            <Skeleton className="h-3 w-20" />
+            <Skeleton className="h-3 w-12 ml-auto" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// List Item Skeleton
+export function ListItemSkeleton() {
+  return (
+    <div className="flex items-center gap-4 p-4 border-b border-border-subtle">
+      <Skeleton className="h-10 w-10 rounded-full" />
+      <div className="flex-1">
+        <Skeleton className="h-4 w-32 mb-2" />
+        <Skeleton className="h-3 w-48" />
+      </div>
+      <Skeleton className="h-6 w-16 rounded-full" />
+    </div>
+  );
+}
+
+// Card Grid Skeleton
+export function CardGridSkeleton({ count = 6 }: { count?: number }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {Array.from({ length: count }).map((_, i) => (
+        <div key={i} className="bg-card border border-border-subtle rounded-2xl p-6">
+          <Skeleton className="h-5 w-24 mb-4" />
+          <Skeleton className="h-8 w-16 mb-2" />
+          <Skeleton className="h-3 w-full mb-1" />
+          <Skeleton className="h-3 w-3/4" />
+        </div>
+      ))}
     </div>
   );
 }
