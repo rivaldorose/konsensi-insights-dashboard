@@ -24,9 +24,9 @@ export function ProblemCategoriesChart({ data }: ProblemCategoriesChartProps) {
     if (active && payload && payload.length) {
       const item = payload[0].payload;
       return (
-        <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-100">
-          <p className="font-medium text-gray-900">{item.categorie}</p>
-          <p className="text-sm text-gray-600">
+        <div className="p-3 rounded-lg shadow-lg" style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a' }}>
+          <p className="font-medium text-white">{item.categorie}</p>
+          <p className="text-sm text-[#888888]">
             {item.aantal.toLocaleString('nl-NL')} meldingen
           </p>
         </div>
@@ -36,8 +36,8 @@ export function ProblemCategoriesChart({ data }: ProblemCategoriesChartProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100 h-full">
-      <h3 className="text-lg font-semibold text-[#111827] mb-4">Probleem Categorieën</h3>
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
+      <h3 className="text-lg font-semibold text-white mb-4">Probleem Categorieën</h3>
       <div className="h-[250px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
@@ -45,19 +45,19 @@ export function ProblemCategoriesChart({ data }: ProblemCategoriesChartProps) {
             layout="vertical"
             margin={{ top: 0, right: 20, left: 0, bottom: 0 }}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" horizontal={true} vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" horizontal={true} vertical={false} />
             <XAxis
               type="number"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6B7280', fontSize: 12 }}
+              tick={{ fill: '#888888', fontSize: 12 }}
             />
             <YAxis
               type="category"
               dataKey="categorie"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6B7280', fontSize: 12 }}
+              tick={{ fill: '#888888', fontSize: 12 }}
               width={110}
             />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.04)' }} />

@@ -55,51 +55,51 @@ export function MobileMenu() {
       {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        className="lg:hidden p-2 rounded-full hover:bg-[#1a1a1a] transition-colors"
         aria-label="Open menu"
       >
-        <Menu className="w-6 h-6 text-gray-600 dark:text-gray-400" />
+        <Menu className="w-6 h-6 text-[#888888]" />
       </button>
 
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-50 lg:hidden"
+          className="fixed inset-0 bg-black/80 z-50 lg:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
 
       {/* Slide-out Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-72 bg-white dark:bg-gray-900 z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 left-0 h-full w-72 bg-[#111111] border-r border-[#2a2a2a] z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between p-4 border-b border-[#2a2a2a]">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-[#3D7B4C] rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-sm">K</span>
             </div>
-            <span className="font-bold text-[#111827] dark:text-white text-lg">KONSENSI</span>
+            <span className="font-bold text-white text-lg">KONSENSI</span>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-2 rounded-full hover:bg-[#1a1a1a] transition-colors"
           >
-            <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+            <X className="w-5 h-5 text-[#888888]" />
           </button>
         </div>
 
         {/* User Info */}
-        <div className="p-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="p-4 border-b border-[#2a2a2a]">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] rounded-full flex items-center justify-center">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#3D7B4C] to-[#4a9d5c] rounded-full flex items-center justify-center">
               <span className="text-white font-medium">RR</span>
             </div>
             <div>
-              <p className="font-medium text-gray-900 dark:text-white">Rivaldo Rose</p>
-              <p className="text-sm text-gray-500">rivaldo@konsensi.nl</p>
+              <p className="font-medium text-white">Rivaldo Rose</p>
+              <p className="text-sm text-[#888888]">rivaldo@konsensi.nl</p>
             </div>
           </div>
         </div>
@@ -112,8 +112,8 @@ export function MobileMenu() {
               href={item.href}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
                 isActive(item.href)
-                  ? 'bg-[#3D7B4C]/10 text-[#3D7B4C]'
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  ? 'bg-[#3D7B4C]/20 text-[#3D7B4C]'
+                  : 'text-white hover:bg-[#1a1a1a]'
               }`}
             >
               {item.icon}
@@ -126,8 +126,8 @@ export function MobileMenu() {
         </nav>
 
         {/* Logout */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100 dark:border-gray-800">
-          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-[#2a2a2a]">
+          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-500/10 transition-colors">
             <LogOut className="w-5 h-5" />
             <span className="font-medium">Uitloggen</span>
           </button>

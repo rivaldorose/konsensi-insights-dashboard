@@ -21,10 +21,10 @@ interface UsersByCityChartProps {
 
 export function UsersByCityChart({ data }: UsersByCityChartProps) {
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100 h-full">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-[#111827]">Gebruikers per Stad</h3>
-        <p className="text-sm text-gray-500">Top 5 steden met meeste gebruikers</p>
+        <h3 className="text-lg font-bold text-white">Gebruikers per Stad</h3>
+        <p className="text-sm text-[#888888]">Top 5 steden met meeste gebruikers</p>
       </div>
 
       <div className="h-[280px]">
@@ -38,26 +38,27 @@ export function UsersByCityChart({ data }: UsersByCityChartProps) {
               type="number"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6b7280', fontSize: 12 }}
+              tick={{ fill: '#888888', fontSize: 12 }}
             />
             <YAxis
               type="category"
               dataKey="city"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#111827', fontSize: 13, fontWeight: 500 }}
+              tick={{ fill: '#ffffff', fontSize: 13, fontWeight: 500 }}
               width={90}
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#fff',
-                border: 'none',
+                backgroundColor: '#1a1a1a',
+                border: '1px solid #2a2a2a',
                 borderRadius: '12px',
-                boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
                 padding: '12px 16px',
+                color: '#ffffff',
               }}
               formatter={(value) => [`${value} gebruikers`, '']}
-              labelStyle={{ color: '#111827', fontWeight: 600 }}
+              labelStyle={{ color: '#ffffff', fontWeight: 600 }}
             />
             <Bar
               dataKey="users"
@@ -67,7 +68,7 @@ export function UsersByCityChart({ data }: UsersByCityChartProps) {
               {data.map((_, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={index === 0 ? '#3D7B4C' : '#8FD14F'}
+                  fill={index === 0 ? '#3D7B4C' : '#4a9d5c'}
                 />
               ))}
             </Bar>

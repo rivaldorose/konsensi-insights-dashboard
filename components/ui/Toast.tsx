@@ -28,10 +28,10 @@ const icons: Record<ToastType, ReactNode> = {
 };
 
 const backgrounds: Record<ToastType, string> = {
-  success: 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800',
-  error: 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800',
-  warning: 'bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800',
-  info: 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800',
+  success: 'bg-[#3D7B4C]/20 border-[#3D7B4C]',
+  error: 'bg-red-900/20 border-red-800',
+  warning: 'bg-amber-900/20 border-amber-800',
+  info: 'bg-blue-900/20 border-blue-800',
 };
 
 export function ToastProvider({ children }: { children: ReactNode }) {
@@ -72,12 +72,12 @@ function ToastContainer({ toasts, removeToast }: { toasts: Toast[]; removeToast:
           role="alert"
         >
           {icons[toast.type]}
-          <p className="text-sm font-medium text-gray-900 dark:text-white">{toast.message}</p>
+          <p className="text-sm font-medium text-white">{toast.message}</p>
           <button
             onClick={() => removeToast(toast.id)}
-            className="ml-2 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className="ml-2 p-1 rounded-full hover:bg-[#333333] transition-colors"
           >
-            <X className="w-4 h-4 text-gray-500" />
+            <X className="w-4 h-4 text-[#888888]" />
           </button>
         </div>
       ))}

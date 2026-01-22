@@ -114,7 +114,7 @@ export function Navbar() {
 
   return (
     <nav className="mx-4 md:mx-6 mt-4 md:mt-6">
-      <div className="bg-white dark:bg-gray-900 rounded-[50px] shadow-lg shadow-gray-200/50 dark:shadow-gray-900/50 px-4 md:px-6 py-3 flex items-center justify-between">
+      <div className="bg-[#111111] border border-[#2a2a2a] rounded-[50px] px-4 md:px-6 py-3 flex items-center justify-between">
         {/* Mobile Menu */}
         <div className="lg:hidden">
           <MobileMenu />
@@ -125,20 +125,20 @@ export function Navbar() {
           <div className="w-10 h-10 bg-[#3D7B4C] rounded-full flex items-center justify-center">
             <TreePine className="w-5 h-5 text-white" />
           </div>
-          <span className="font-bold text-[#111827] dark:text-white text-lg tracking-tight hidden sm:block">
+          <span className="font-bold text-white text-lg tracking-tight hidden sm:block">
             KONSENSI
           </span>
         </Link>
 
         {/* Center Navigation - Hidden on mobile */}
-        <div className="hidden lg:flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-full p-1">
+        <div className="hidden lg:flex items-center gap-1 bg-[#1a1a1a] rounded-full p-1">
           {/* Dashboard Overview */}
           <Link
             href="/overview"
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
               pathname === '/overview'
                 ? 'bg-[#3D7B4C] text-white shadow-md'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'text-[#888888] hover:text-white hover:bg-[#222222]'
             }`}
           >
             <LayoutDashboard className="w-4 h-4" />
@@ -152,7 +152,7 @@ export function Navbar() {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
                 isAnyAppActive && pathname !== '/overview'
                   ? 'bg-[#3D7B4C] text-white shadow-md'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : 'text-[#888888] hover:text-white hover:bg-[#222222]'
               }`}
             >
               {getActiveApp().icon}
@@ -164,9 +164,9 @@ export function Navbar() {
 
             {/* Apps Dropdown Menu */}
             {isAppsMenuOpen && (
-              <div className="absolute left-0 top-full mt-2 w-64 bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 py-2 z-50">
-                <div className="px-3 py-2 border-b border-gray-100 dark:border-gray-800">
-                  <p className="text-xs font-medium text-gray-400 uppercase tracking-wider">
+              <div className="absolute left-0 top-full mt-2 w-64 bg-[#1a1a1a] rounded-xl shadow-lg border border-[#2a2a2a] py-2 z-50">
+                <div className="px-3 py-2 border-b border-[#2a2a2a]">
+                  <p className="text-xs font-medium text-[#666666] uppercase tracking-wider">
                     Apps
                   </p>
                 </div>
@@ -178,12 +178,12 @@ export function Navbar() {
                     className={`flex items-center gap-3 px-4 py-3 transition-colors ${
                       isActive(app.href)
                         ? 'bg-[#3D7B4C]/10 text-[#3D7B4C]'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                        : 'text-white hover:bg-[#222222]'
                     }`}
                   >
                     <div
                       className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                        isActive(app.href) ? 'bg-[#3D7B4C]/20' : 'bg-gray-100 dark:bg-gray-800'
+                        isActive(app.href) ? 'bg-[#3D7B4C]/20' : 'bg-[#222222]'
                       }`}
                     >
                       {app.icon}
@@ -191,7 +191,7 @@ export function Navbar() {
                     <div>
                       <p className="text-sm font-medium">{app.label}</p>
                       {app.description && (
-                        <p className="text-xs text-gray-500 dark:text-gray-400">{app.description}</p>
+                        <p className="text-xs text-[#888888]">{app.description}</p>
                       )}
                     </div>
                     {isActive(app.href) && (
@@ -209,7 +209,7 @@ export function Navbar() {
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
               isActive('/audit-log')
                 ? 'bg-[#3D7B4C] text-white shadow-md'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
+                : 'text-[#888888] hover:text-white hover:bg-[#222222]'
             }`}
           >
             <FileText className="w-4 h-4" />
@@ -227,19 +227,19 @@ export function Navbar() {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-2 rounded-full hover:bg-[#1a1a1a] transition-colors"
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+              <Sun className="w-5 h-5 text-[#888888]" />
             ) : (
-              <Moon className="w-5 h-5 text-gray-600" />
+              <Moon className="w-5 h-5 text-[#888888]" />
             )}
           </button>
 
           {/* Notification Bell */}
-          <button className="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-            <Bell className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+          <button className="relative p-2 rounded-full hover:bg-[#1a1a1a] transition-colors">
+            <Bell className="w-5 h-5 text-[#888888]" />
             <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
           </button>
 
@@ -247,23 +247,23 @@ export function Navbar() {
           <div className="relative" ref={userMenuRef}>
             <button
               onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-              className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full pl-1 pr-3 py-1 transition-colors"
+              className="flex items-center gap-2 hover:bg-[#1a1a1a] rounded-full pl-1 pr-3 py-1 transition-colors"
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-[#3D7B4C] to-[#4a9d5c] rounded-full flex items-center justify-center">
                 <span className="text-white text-sm font-medium">RR</span>
               </div>
               <ChevronDown
-                className={`w-4 h-4 text-gray-500 dark:text-gray-400 transition-transform hidden sm:block ${isUserMenuOpen ? 'rotate-180' : ''}`}
+                className={`w-4 h-4 text-[#888888] transition-transform hidden sm:block ${isUserMenuOpen ? 'rotate-180' : ''}`}
               />
             </button>
 
             {/* User Dropdown Menu */}
             {isUserMenuOpen && (
-              <div className="absolute right-0 top-full mt-2 w-56 bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 py-2 z-50">
+              <div className="absolute right-0 top-full mt-2 w-56 bg-[#1a1a1a] rounded-xl shadow-lg border border-[#2a2a2a] py-2 z-50">
                 {/* User Info */}
-                <div className="px-4 py-3 border-b border-gray-100 dark:border-gray-800">
-                  <p className="font-medium text-gray-900 dark:text-white">Rivaldo Rose</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">rivaldo@konsensi.nl</p>
+                <div className="px-4 py-3 border-b border-[#2a2a2a]">
+                  <p className="font-medium text-white">Rivaldo Rose</p>
+                  <p className="text-sm text-[#888888]">rivaldo@konsensi.nl</p>
                 </div>
 
                 {/* Menu Items */}
@@ -271,24 +271,24 @@ export function Navbar() {
                   <Link
                     href="/settings"
                     onClick={() => setIsUserMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-white hover:bg-[#222222] transition-colors"
                   >
-                    <User className="w-4 h-4 text-gray-400" />
+                    <User className="w-4 h-4 text-[#888888]" />
                     Mijn Profiel
                   </Link>
                   <Link
                     href="/settings"
                     onClick={() => setIsUserMenuOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-white hover:bg-[#222222] transition-colors"
                   >
-                    <Settings className="w-4 h-4 text-gray-400" />
+                    <Settings className="w-4 h-4 text-[#888888]" />
                     Instellingen
                   </Link>
                 </div>
 
                 {/* Logout */}
-                <div className="border-t border-gray-100 dark:border-gray-800 pt-1">
-                  <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                <div className="border-t border-[#2a2a2a] pt-1">
+                  <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-500/10 transition-colors">
                     <LogOut className="w-4 h-4" />
                     Uitloggen
                   </button>

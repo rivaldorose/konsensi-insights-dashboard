@@ -26,10 +26,10 @@ export function DebtDonutChart({ data }: DebtDonutChartProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-[#111827]">Schulden per Type</h3>
-        <p className="text-sm text-gray-500">Verdeling van schulden per categorie</p>
+        <h3 className="text-lg font-bold text-white">Schulden per Type</h3>
+        <p className="text-sm text-[#888888]">Verdeling van schulden per categorie</p>
       </div>
 
       <div className="flex items-center gap-8">
@@ -53,11 +53,12 @@ export function DebtDonutChart({ data }: DebtDonutChartProps) {
               </Pie>
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#fff',
-                  border: 'none',
+                  backgroundColor: '#1a1a1a',
+                  border: '1px solid #2a2a2a',
                   borderRadius: '12px',
-                  boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                  boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
                   padding: '12px 16px',
+                  color: '#ffffff',
                 }}
                 formatter={(value) => [formatCurrency(Number(value)), '']}
               />
@@ -65,8 +66,8 @@ export function DebtDonutChart({ data }: DebtDonutChartProps) {
           </ResponsiveContainer>
           {/* Center text */}
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <p className="text-xs text-gray-500">Totaal</p>
-            <p className="text-lg font-bold text-[#111827]">{formatCurrency(total)}</p>
+            <p className="text-xs text-[#888888]">Totaal</p>
+            <p className="text-lg font-bold text-white">{formatCurrency(total)}</p>
           </div>
         </div>
 
@@ -79,9 +80,9 @@ export function DebtDonutChart({ data }: DebtDonutChartProps) {
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: item.color }}
                 />
-                <span className="text-sm text-gray-600">{item.name}</span>
+                <span className="text-sm text-[#888888]">{item.name}</span>
               </div>
-              <span className="text-sm font-medium text-[#111827]">
+              <span className="text-sm font-medium text-white">
                 {formatCurrency(item.value)}
               </span>
             </div>

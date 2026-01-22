@@ -27,47 +27,47 @@ export function AlertSettings({ initialSettings }: AlertSettingsProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] shadow-sm shadow-gray-100 border border-gray-100 overflow-hidden">
+    <div className="bg-[#1a1a1a] rounded-[20px] border border-[#2a2a2a] overflow-hidden">
       {/* Header - Clickable */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between p-6 hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center justify-between p-6 hover:bg-[#2a2a2a] transition-colors"
       >
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-[#3D7B4C]/10 rounded-full flex items-center justify-center">
             <Bell className="w-5 h-5 text-[#3D7B4C]" />
           </div>
           <div className="text-left">
-            <h3 className="text-lg font-bold text-[#111827]">Notificatie Instellingen</h3>
-            <p className="text-sm text-gray-500">Beheer uw meldingen en alerts</p>
+            <h3 className="text-lg font-bold text-white">Notificatie Instellingen</h3>
+            <p className="text-sm text-[#888888]">Beheer uw meldingen en alerts</p>
           </div>
         </div>
         {isExpanded ? (
-          <ChevronUp className="w-5 h-5 text-gray-400" />
+          <ChevronUp className="w-5 h-5 text-[#888888]" />
         ) : (
-          <ChevronDown className="w-5 h-5 text-gray-400" />
+          <ChevronDown className="w-5 h-5 text-[#888888]" />
         )}
       </button>
 
       {/* Collapsible Content */}
       {isExpanded && (
-        <div className="px-6 pb-6 border-t border-gray-100">
+        <div className="px-6 pb-6 border-t border-[#2a2a2a]">
           <div className="pt-4 space-y-4">
             {settings.map((setting) => (
               <div
                 key={setting.id}
-                className="flex items-center justify-between p-4 bg-gray-50 rounded-xl"
+                className="flex items-center justify-between p-4 bg-[#2a2a2a] rounded-xl"
               >
                 <div className="flex-1">
-                  <p className="font-medium text-[#111827] text-sm">{setting.label}</p>
-                  <p className="text-xs text-gray-500">{setting.description}</p>
+                  <p className="font-medium text-white text-sm">{setting.label}</p>
+                  <p className="text-xs text-[#888888]">{setting.description}</p>
                 </div>
 
                 {/* Toggle Switch */}
                 <button
                   onClick={() => toggleSetting(setting.id)}
                   className={`relative w-12 h-6 rounded-full transition-colors ${
-                    setting.enabled ? 'bg-[#3D7B4C]' : 'bg-gray-300'
+                    setting.enabled ? 'bg-[#3D7B4C]' : 'bg-[#555555]'
                   }`}
                 >
                   <div

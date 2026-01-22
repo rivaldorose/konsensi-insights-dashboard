@@ -19,14 +19,14 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  default: 'bg-gray-100 text-gray-700',
-  success: 'bg-green-500 text-white',
-  warning: 'bg-yellow-500 text-white',
-  danger: 'bg-red-500 text-white',
-  info: 'bg-blue-500 text-white',
-  purple: 'bg-purple-500 text-white',
-  orange: 'bg-orange-500 text-white',
-  teal: 'bg-teal-500 text-white',
+  default: 'bg-[#2a2a2a] text-[#888888] border border-[#333333]',
+  success: 'bg-[#3D7B4C]/20 text-[#4a9d5c] border border-[#3D7B4C]',
+  warning: 'bg-[#f59e0b]/20 text-[#f59e0b] border border-[#f59e0b]',
+  danger: 'bg-[#ef4444]/20 text-[#ef4444] border border-[#ef4444]',
+  info: 'bg-[#3b82f6]/20 text-[#3b82f6] border border-[#3b82f6]',
+  purple: 'bg-[#8b5cf6]/20 text-[#8b5cf6] border border-[#8b5cf6]',
+  orange: 'bg-[#f59e0b]/20 text-[#f59e0b] border border-[#f59e0b]',
+  teal: 'bg-[#14b8a6]/20 text-[#14b8a6] border border-[#14b8a6]',
 };
 
 export function Badge({ children, variant = 'default', className }: BadgeProps) {

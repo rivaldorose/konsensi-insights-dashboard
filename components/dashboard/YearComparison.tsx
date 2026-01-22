@@ -39,20 +39,20 @@ export function YearComparison({ items }: YearComparisonProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-[#111827]">Vergelijking met Vorig Jaar</h3>
-        <p className="text-sm text-gray-500">2025 vs 2024</p>
+        <h3 className="text-lg font-bold text-white">Vergelijking met Vorig Jaar</h3>
+        <p className="text-sm text-[#888888]">2025 vs 2024</p>
       </div>
 
       <div className="flex items-center gap-4 mb-4 text-xs">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-[#3D7B4C]" />
-          <span className="text-gray-600">Dit jaar</span>
+          <span className="text-[#888888]">Dit jaar</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-gray-300" />
-          <span className="text-gray-600">Vorig jaar</span>
+          <div className="w-3 h-3 rounded-full bg-[#555555]" />
+          <span className="text-[#888888]">Vorig jaar</span>
         </div>
       </div>
 
@@ -62,13 +62,13 @@ export function YearComparison({ items }: YearComparisonProps) {
           return (
             <div key={item.id}>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-[#111827]">{item.label}</span>
+                <span className="text-sm font-medium text-white">{item.label}</span>
               </div>
 
               <div className="space-y-2">
                 {/* This year bar */}
                 <div className="flex items-center gap-3">
-                  <div className="flex-1 h-6 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="flex-1 h-6 bg-[#2a2a2a] rounded-full overflow-hidden">
                     <div
                       className="h-full bg-[#3D7B4C] rounded-full transition-all duration-500"
                       style={{ width: `${getBarWidth(item.thisYear, maxVal)}%` }}
@@ -81,13 +81,13 @@ export function YearComparison({ items }: YearComparisonProps) {
 
                 {/* Last year bar */}
                 <div className="flex items-center gap-3">
-                  <div className="flex-1 h-6 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="flex-1 h-6 bg-[#2a2a2a] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gray-300 rounded-full transition-all duration-500"
+                      className="h-full bg-[#555555] rounded-full transition-all duration-500"
                       style={{ width: `${getBarWidth(item.lastYear, maxVal)}%` }}
                     />
                   </div>
-                  <span className="text-sm font-medium text-gray-500 w-24 text-right">
+                  <span className="text-sm font-medium text-[#888888] w-24 text-right">
                     {formatValue(item.lastYear, item.format)}
                   </span>
                 </div>

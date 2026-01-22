@@ -21,10 +21,10 @@ interface UserGrowthChartProps {
 
 export function UserGrowthChart({ data }: UserGrowthChartProps) {
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-[#111827]">Gebruikersgroei</h3>
-        <p className="text-sm text-gray-500">Nieuwe gebruikers per maand</p>
+        <h3 className="text-lg font-bold text-white">Gebruikersgroei</h3>
+        <p className="text-sm text-[#888888]">Nieuwe gebruikers per maand</p>
       </div>
 
       <div className="h-[300px]">
@@ -39,30 +39,30 @@ export function UserGrowthChart({ data }: UserGrowthChartProps) {
                 <stop offset="95%" stopColor="#3D7B4C" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
             <XAxis
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6b7280', fontSize: 12 }}
+              tick={{ fill: '#888888', fontSize: 12 }}
               dy={10}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6b7280', fontSize: 12 }}
+              tick={{ fill: '#888888', fontSize: 12 }}
               dx={-10}
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#fff',
-                border: 'none',
+                backgroundColor: '#1a1a1a',
+                border: '1px solid #2a2a2a',
                 borderRadius: '12px',
-                boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
                 padding: '12px 16px',
               }}
-              labelStyle={{ color: '#111827', fontWeight: 600, marginBottom: '4px' }}
-              itemStyle={{ color: '#3D7B4C' }}
+              labelStyle={{ color: '#ffffff', fontWeight: 600, marginBottom: '4px' }}
+              itemStyle={{ color: '#4a9d5c' }}
               formatter={(value) => [`${value} gebruikers`, '']}
               labelFormatter={(label) => `${label}`}
             />
@@ -74,7 +74,7 @@ export function UserGrowthChart({ data }: UserGrowthChartProps) {
               fillOpacity={1}
               fill="url(#colorUsers)"
               dot={{ fill: '#3D7B4C', strokeWidth: 0, r: 4 }}
-              activeDot={{ fill: '#3D7B4C', strokeWidth: 0, r: 6 }}
+              activeDot={{ fill: '#4a9d5c', strokeWidth: 0, r: 6 }}
             />
           </AreaChart>
         </ResponsiveContainer>

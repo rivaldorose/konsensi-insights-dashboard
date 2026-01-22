@@ -103,11 +103,11 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
   };
 
   return (
-    <div className="bg-white rounded-[20px] shadow-sm shadow-gray-100 border border-gray-100 overflow-hidden">
+    <div className="bg-[#1a1a1a] rounded-[20px] border border-[#2a2a2a] overflow-hidden">
       {/* Header with filters */}
-      <div className="p-6 border-b border-gray-100">
+      <div className="p-6 border-b border-[#2a2a2a]">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <h3 className="text-lg font-bold text-[#111827]">Alle Gebruikers</h3>
+          <h3 className="text-lg font-bold text-white">Alle Gebruikers</h3>
 
           <div className="flex flex-wrap items-center gap-3">
             {/* Status Filter */}
@@ -115,7 +115,7 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="appearance-none bg-gray-50 border border-gray-200 rounded-full px-4 py-2 pr-10 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[130px]"
+                className="appearance-none bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2 pr-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[130px]"
               >
                 <option value="">Alle statussen</option>
                 {statusOptions.map((status) => (
@@ -124,7 +124,7 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
                   </option>
                 ))}
               </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666] pointer-events-none" />
             </div>
 
             {/* City Filter */}
@@ -132,7 +132,7 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
               <select
                 value={cityFilter}
                 onChange={(e) => setCityFilter(e.target.value)}
-                className="appearance-none bg-gray-50 border border-gray-200 rounded-full px-4 py-2 pr-10 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[130px]"
+                className="appearance-none bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2 pr-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[130px]"
               >
                 <option value="">Alle steden</option>
                 {cities.map((city) => (
@@ -141,7 +141,7 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
                   </option>
                 ))}
               </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666] pointer-events-none" />
             </div>
 
             {/* Search */}
@@ -151,9 +151,9 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Zoeken..."
-                className="bg-gray-50 border border-gray-200 rounded-full px-4 py-2 pl-10 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[200px]"
+                className="bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2 pl-10 text-sm text-white placeholder-[#666666] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[200px]"
               />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666]" />
             </div>
           </div>
         </div>
@@ -163,29 +163,29 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-100 bg-gray-50/50">
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <tr className="border-b border-[#2a2a2a] bg-[#111111]">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Naam
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Email
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Stad
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Status
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Totale Schuld
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Inkomen
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Aangemeld
               </th>
-              <th className="text-right py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-right py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Acties
               </th>
             </tr>
@@ -194,8 +194,8 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
             {currentUsers.map((user, index) => (
               <tr
                 key={user.id}
-                className={`hover:bg-gray-50 transition-colors group ${
-                  index !== currentUsers.length - 1 ? 'border-b border-gray-50' : ''
+                className={`hover:bg-[#222222] transition-colors group ${
+                  index !== currentUsers.length - 1 ? 'border-b border-[#1e1e1e]' : ''
                 }`}
               >
                 <td className="py-4 px-6">
@@ -209,30 +209,30 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
                         {getInitials(user.naam)}
                       </span>
                     </div>
-                    <span className="font-medium text-[#111827]">{user.naam}</span>
+                    <span className="font-medium text-white">{user.naam}</span>
                   </div>
                 </td>
-                <td className="py-4 px-6 text-gray-600 text-sm">{user.email}</td>
-                <td className="py-4 px-6 text-gray-600 text-sm">{user.stad}</td>
+                <td className="py-4 px-6 text-[#888888] text-sm">{user.email}</td>
+                <td className="py-4 px-6 text-[#888888] text-sm">{user.stad}</td>
                 <td className="py-4 px-6">
                   <Badge variant={statusVariants[user.status]}>{user.status}</Badge>
                 </td>
-                <td className="py-4 px-6 font-medium text-[#111827] text-sm">
+                <td className="py-4 px-6 font-medium text-white text-sm">
                   {formatCurrency(user.totaleSchuld)}
                 </td>
-                <td className="py-4 px-6 text-gray-600 text-sm">
+                <td className="py-4 px-6 text-[#888888] text-sm">
                   {formatCurrency(user.inkomen)}
                 </td>
-                <td className="py-4 px-6 text-gray-500 text-sm">
+                <td className="py-4 px-6 text-[#666666] text-sm">
                   {formatDate(user.aangemeld)}
                 </td>
                 <td className="py-4 px-6">
                   <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                      <Eye className="w-4 h-4 text-gray-500" />
+                    <button className="p-2 rounded-full hover:bg-[#333333] transition-colors">
+                      <Eye className="w-4 h-4 text-[#888888]" />
                     </button>
-                    <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                      <Pencil className="w-4 h-4 text-gray-500" />
+                    <button className="p-2 rounded-full hover:bg-[#333333] transition-colors">
+                      <Pencil className="w-4 h-4 text-[#888888]" />
                     </button>
                   </div>
                 </td>
@@ -243,8 +243,8 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100">
-        <p className="text-sm text-gray-500">
+      <div className="flex items-center justify-between px-6 py-4 border-t border-[#2a2a2a]">
+        <p className="text-sm text-[#888888]">
           {filteredUsers.length > 0
             ? `${startIndex + 1}-${Math.min(endIndex, filteredUsers.length)} van ${filteredUsers.length}`
             : 'Geen resultaten'}
@@ -255,9 +255,9 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
             <button
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="p-2 rounded-full hover:bg-[#222222] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              <ChevronLeft className="w-5 h-5 text-gray-600" />
+              <ChevronLeft className="w-5 h-5 text-[#888888]" />
             </button>
 
             <div className="flex items-center gap-1">
@@ -280,7 +280,7 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
                     className={`w-8 h-8 rounded-full text-sm font-medium transition-colors ${
                       currentPage === pageNum
                         ? 'bg-[#3D7B4C] text-white'
-                        : 'text-gray-600 hover:bg-gray-100'
+                        : 'text-[#888888] hover:bg-[#222222]'
                     }`}
                   >
                     {pageNum}
@@ -292,9 +292,9 @@ export function AllUsersTable({ users, itemsPerPage = 10 }: AllUsersTableProps) 
             <button
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="p-2 rounded-full hover:bg-[#222222] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              <ChevronRight className="w-5 h-5 text-gray-600" />
+              <ChevronRight className="w-5 h-5 text-[#888888]" />
             </button>
           </div>
         )}

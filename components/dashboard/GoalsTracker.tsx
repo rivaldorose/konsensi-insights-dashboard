@@ -46,11 +46,11 @@ export function GoalsTracker({ goals }: GoalsTrackerProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-bold text-[#111827]">Doelen & Targets</h3>
-          <p className="text-sm text-gray-500">Voortgang naar uw doelstellingen</p>
+          <h3 className="text-lg font-bold text-white">Doelen & Targets</h3>
+          <p className="text-sm text-[#888888]">Voortgang naar uw doelstellingen</p>
         </div>
         <button className="flex items-center gap-2 px-4 py-2 bg-[#3D7B4C] text-white rounded-full text-sm font-medium hover:bg-[#346a41] transition-colors">
           <Plus className="w-4 h-4" />
@@ -62,13 +62,13 @@ export function GoalsTracker({ goals }: GoalsTrackerProps) {
         {goals.map((goal) => {
           const progress = getProgress(goal.current, goal.target);
           return (
-            <div key={goal.id} className="p-4 bg-gray-50 rounded-xl">
+            <div key={goal.id} className="p-4 bg-[#2a2a2a] rounded-xl">
               <div className="flex items-center justify-between mb-2">
-                <h4 className="font-semibold text-[#111827] text-sm">{goal.title}</h4>
+                <h4 className="font-semibold text-white text-sm">{goal.title}</h4>
                 <span className="text-sm font-bold text-[#3D7B4C]">{Math.round(progress)}%</span>
               </div>
 
-              <div className="w-full h-3 bg-gray-200 rounded-full mb-2 overflow-hidden">
+              <div className="w-full h-3 bg-[#1a1a1a] rounded-full mb-2 overflow-hidden">
                 <div
                   className={`h-full rounded-full transition-all duration-500 ${getProgressColor(progress)}`}
                   style={{ width: `${progress}%` }}
@@ -76,10 +76,10 @@ export function GoalsTracker({ goals }: GoalsTrackerProps) {
               </div>
 
               <div className="flex items-center justify-between text-xs">
-                <span className="text-gray-500">
+                <span className="text-[#888888]">
                   {formatValue(goal.current, goal.format)} / {formatValue(goal.target, goal.format)}
                 </span>
-                <span className="text-gray-500">
+                <span className="text-[#888888]">
                   {getRemaining(goal.current, goal.target, goal.format)}
                 </span>
               </div>

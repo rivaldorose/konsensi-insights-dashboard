@@ -71,15 +71,15 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
       />
 
       {/* Modal */}
-      <div className="relative bg-white rounded-[20px] w-full max-w-[500px] mx-4 shadow-2xl">
+      <div className="relative bg-[#1a1a1a] rounded-[20px] w-full max-w-[500px] mx-4 shadow-2xl border border-[#2a2a2a]">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-100">
-          <h2 className="text-xl font-semibold text-[#111827]">Data Exporteren</h2>
+        <div className="flex items-center justify-between p-6 border-b border-[#2a2a2a]">
+          <h2 className="text-xl font-semibold text-white">Data Exporteren</h2>
           <button
             onClick={handleClose}
-            className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-full bg-[#2a2a2a] hover:bg-[#333333] flex items-center justify-center transition-colors"
           >
-            <X className="w-4 h-4 text-gray-500" />
+            <X className="w-4 h-4 text-[#888888]" />
           </button>
         </div>
 
@@ -88,14 +88,14 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
           {exportComplete ? (
             // Success State
             <div className="text-center py-8">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Check className="w-8 h-8 text-green-600" />
+              <div className="w-16 h-16 bg-[#3D7B4C]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Check className="w-8 h-8 text-[#4a9d5c]" />
               </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-2">Export voltooid!</h3>
-              <p className="text-gray-500 mb-6">Je bestand wordt gedownload</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Export voltooid!</h3>
+              <p className="text-[#888888] mb-6">Je bestand wordt gedownload</p>
               <button
                 onClick={handleNewExport}
-                className="px-6 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors"
+                className="px-6 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#4a9d5c] transition-colors"
               >
                 Nog een export
               </button>
@@ -104,7 +104,7 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
             <>
               {/* Export Format Selection */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-white mb-3">
                   Exporteer formaat
                 </label>
                 <div className="grid grid-cols-2 gap-3">
@@ -112,73 +112,73 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
                     onClick={() => setFormat('csv')}
                     className={`p-4 rounded-xl border-2 transition-all ${
                       format === 'csv'
-                        ? 'border-[#3D7B4C] bg-[#3D7B4C]/5'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-[#3D7B4C] bg-[#3D7B4C]/10'
+                        : 'border-[#2a2a2a] hover:border-[#333333] bg-[#222222]'
                     }`}
                   >
                     <FileSpreadsheet
                       className={`w-8 h-8 mx-auto mb-2 ${
-                        format === 'csv' ? 'text-[#3D7B4C]' : 'text-gray-400'
+                        format === 'csv' ? 'text-[#3D7B4C]' : 'text-[#888888]'
                       }`}
                     />
                     <p
                       className={`font-medium ${
-                        format === 'csv' ? 'text-[#3D7B4C]' : 'text-gray-700'
+                        format === 'csv' ? 'text-[#3D7B4C]' : 'text-white'
                       }`}
                     >
                       CSV
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">Voor Excel en data analyse</p>
+                    <p className="text-xs text-[#888888] mt-1">Voor Excel en data analyse</p>
                   </button>
                   <button
                     onClick={() => setFormat('pdf')}
                     className={`p-4 rounded-xl border-2 transition-all ${
                       format === 'pdf'
-                        ? 'border-[#3D7B4C] bg-[#3D7B4C]/5'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-[#3D7B4C] bg-[#3D7B4C]/10'
+                        : 'border-[#2a2a2a] hover:border-[#333333] bg-[#222222]'
                     }`}
                   >
                     <FileText
                       className={`w-8 h-8 mx-auto mb-2 ${
-                        format === 'pdf' ? 'text-[#3D7B4C]' : 'text-gray-400'
+                        format === 'pdf' ? 'text-[#3D7B4C]' : 'text-[#888888]'
                       }`}
                     />
                     <p
                       className={`font-medium ${
-                        format === 'pdf' ? 'text-[#3D7B4C]' : 'text-gray-700'
+                        format === 'pdf' ? 'text-[#3D7B4C]' : 'text-white'
                       }`}
                     >
                       PDF
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">Voor rapportages en presentaties</p>
+                    <p className="text-xs text-[#888888] mt-1">Voor rapportages en presentaties</p>
                   </button>
                 </div>
               </div>
 
               {/* Data Selection */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-white mb-3">
                   Selecteer data om te exporteren
                 </label>
                 <div className="space-y-2">
                   {dataOptions.map((option) => (
                     <label
                       key={option.id}
-                      className="flex items-center justify-between p-3 rounded-xl border border-gray-200 hover:border-gray-300 cursor-pointer transition-colors"
+                      className="flex items-center justify-between p-3 rounded-xl border border-[#2a2a2a] hover:border-[#333333] bg-[#222222] cursor-pointer transition-colors"
                     >
                       <div className="flex items-center gap-3">
                         <div
                           className={`w-5 h-5 rounded-md flex items-center justify-center transition-colors ${
                             option.checked
                               ? 'bg-[#3D7B4C]'
-                              : 'border-2 border-gray-300'
+                              : 'border-2 border-[#555555]'
                           }`}
                         >
                           {option.checked && <Check className="w-3 h-3 text-white" />}
                         </div>
-                        <span className="text-sm text-gray-700">{option.label}</span>
+                        <span className="text-sm text-white">{option.label}</span>
                       </div>
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-[#888888]">
                         {option.count.toLocaleString('nl-NL')} records
                       </span>
                       <input
@@ -194,7 +194,7 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
 
               {/* Date Range */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-white mb-3">
                   Periode
                 </label>
                 <div className="flex flex-wrap gap-2 mb-3">
@@ -211,7 +211,7 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
                       className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                         dateRange === range.id
                           ? 'bg-[#3D7B4C] text-white'
-                          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                          : 'bg-[#2a2a2a] text-[#888888] hover:bg-[#333333] hover:text-white'
                       }`}
                     >
                       {range.label}
@@ -221,21 +221,21 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
                 {dateRange === 'custom' && (
                   <div className="flex gap-3">
                     <div className="flex-1">
-                      <label className="block text-xs text-gray-500 mb-1">Van</label>
+                      <label className="block text-xs text-[#888888] mb-1">Van</label>
                       <input
                         type="date"
                         value={customFrom}
                         onChange={(e) => setCustomFrom(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                        className="w-full px-3 py-2 border border-[#2a2a2a] bg-[#1e1e1e] rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
                       />
                     </div>
                     <div className="flex-1">
-                      <label className="block text-xs text-gray-500 mb-1">Tot</label>
+                      <label className="block text-xs text-[#888888] mb-1">Tot</label>
                       <input
                         type="date"
                         value={customTo}
                         onChange={(e) => setCustomTo(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+                        className="w-full px-3 py-2 border border-[#2a2a2a] bg-[#1e1e1e] rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
                       />
                     </div>
                   </div>
@@ -247,17 +247,17 @@ export function ExportModal({ isOpen, onClose }: ExportModalProps) {
 
         {/* Footer */}
         {!exportComplete && (
-          <div className="flex items-center justify-between p-6 border-t border-gray-100">
+          <div className="flex items-center justify-between p-6 border-t border-[#2a2a2a]">
             <button
               onClick={handleClose}
-              className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-full font-medium text-sm hover:bg-gray-50 transition-colors"
+              className="px-6 py-2.5 border border-[#333333] text-[#888888] rounded-full font-medium text-sm hover:bg-[#1e1e1e] hover:text-white transition-colors"
             >
               Annuleren
             </button>
             <button
               onClick={handleExport}
               disabled={isExporting || selectedCount === 0}
-              className="flex items-center gap-2 px-6 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-6 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#4a9d5c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isExporting ? (
                 <>

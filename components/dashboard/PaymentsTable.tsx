@@ -25,27 +25,27 @@ interface PaymentsTableProps {
 
 const statusConfig: Record<PaymentStatus, { bg: string; text: string; icon: React.ReactNode }> = {
   Geslaagd: {
-    bg: 'bg-green-50',
-    text: 'text-green-700',
+    bg: 'bg-green-900/30',
+    text: 'text-green-400',
     icon: <Check className="w-3.5 h-3.5" />,
   },
   'In behandeling': {
-    bg: 'bg-yellow-50',
-    text: 'text-yellow-700',
+    bg: 'bg-yellow-900/30',
+    text: 'text-yellow-400',
     icon: <Clock className="w-3.5 h-3.5" />,
   },
   Mislukt: {
-    bg: 'bg-red-50',
-    text: 'text-red-700',
+    bg: 'bg-red-900/30',
+    text: 'text-red-400',
     icon: <X className="w-3.5 h-3.5" />,
   },
 };
 
 const methodColors: Record<PaymentMethod, string> = {
-  iDEAL: 'bg-purple-50 text-purple-700',
-  'Automatische incasso': 'bg-blue-50 text-blue-700',
-  Handmatig: 'bg-gray-100 text-gray-700',
-  Overig: 'bg-orange-50 text-orange-700',
+  iDEAL: 'bg-purple-900/30 text-purple-400',
+  'Automatische incasso': 'bg-blue-900/30 text-blue-400',
+  Handmatig: 'bg-[#2a2a2a] text-[#888888]',
+  Overig: 'bg-orange-900/30 text-orange-400',
 };
 
 export function PaymentsTable({ payments }: PaymentsTableProps) {
@@ -78,16 +78,16 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] shadow-sm shadow-gray-100 border border-gray-100 overflow-hidden">
+    <div className="bg-[#1a1a1a] rounded-[20px] border border-[#2a2a2a] overflow-hidden">
       {/* Header */}
-      <div className="p-6 border-b border-gray-100">
+      <div className="p-6 border-b border-[#2a2a2a]">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <h3 className="text-lg font-semibold text-[#111827]">Recente Betalingen</h3>
+          <h3 className="text-lg font-semibold text-white">Recente Betalingen</h3>
 
           <div className="flex flex-wrap items-center gap-3">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
               <input
                 type="text"
                 placeholder="Zoeken..."
@@ -96,7 +96,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
                   setSearchTerm(e.target.value);
                   setCurrentPage(1);
                 }}
-                className="pl-10 pr-4 py-2 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-48"
+                className="pl-10 pr-4 py-2 border border-[#2a2a2a] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-48 bg-[#1a1a1a] text-white placeholder-[#888888]"
               />
             </div>
 
@@ -107,7 +107,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
                 setStatusFilter(e.target.value as PaymentStatus | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-white"
+              className="px-4 py-2 border border-[#2a2a2a] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-[#1a1a1a] text-white"
             >
               <option value="Alle">Alle Status</option>
               <option value="Geslaagd">Geslaagd</option>
@@ -122,7 +122,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
                 setMethodFilter(e.target.value as PaymentMethod | 'Alle');
                 setCurrentPage(1);
               }}
-              className="px-4 py-2 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-white"
+              className="px-4 py-2 border border-[#2a2a2a] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] bg-[#1a1a1a] text-white"
             >
               <option value="Alle">Alle Methodes</option>
               <option value="iDEAL">iDEAL</option>
@@ -138,26 +138,26 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-100">
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <tr className="border-b border-[#2a2a2a]">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Datum
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Gebruiker
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Schuld
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Bedrag
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Methode
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Status
               </th>
-              <th className="text-left py-4 px-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-4 px-6 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Referentie
               </th>
             </tr>
@@ -166,11 +166,11 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
             {paginatedPayments.map((payment) => {
               const statusStyle = statusConfig[payment.status];
               return (
-                <tr key={payment.id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                <tr key={payment.id} className="border-b border-[#2a2a2a] hover:bg-[#2a2a2a]/50 transition-colors">
                   <td className="py-4 px-6">
                     <div>
-                      <p className="text-sm font-medium text-[#111827]">{payment.datum}</p>
-                      <p className="text-xs text-gray-500">{payment.tijd}</p>
+                      <p className="text-sm font-medium text-white">{payment.datum}</p>
+                      <p className="text-xs text-[#888888]">{payment.tijd}</p>
                     </div>
                   </td>
                   <td className="py-4 px-6">
@@ -178,11 +178,11 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center text-white text-xs font-medium">
                         {payment.avatar}
                       </div>
-                      <span className="text-sm text-[#111827]">{payment.gebruiker}</span>
+                      <span className="text-sm text-white">{payment.gebruiker}</span>
                     </div>
                   </td>
                   <td className="py-4 px-6">
-                    <span className="text-sm text-gray-600">{payment.schuld}</span>
+                    <span className="text-sm text-[#888888]">{payment.schuld}</span>
                   </td>
                   <td className="py-4 px-6">
                     <span className="text-sm font-medium text-[#3D7B4C]">
@@ -205,7 +205,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
                     </span>
                   </td>
                   <td className="py-4 px-6">
-                    <span className="text-xs font-mono text-gray-500">{payment.referentie}</span>
+                    <span className="text-xs font-mono text-[#888888]">{payment.referentie}</span>
                   </td>
                 </tr>
               );
@@ -215,8 +215,8 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
       </div>
 
       {/* Pagination */}
-      <div className="p-4 border-t border-gray-100 flex items-center justify-between">
-        <p className="text-sm text-gray-500">
+      <div className="p-4 border-t border-[#2a2a2a] flex items-center justify-between">
+        <p className="text-sm text-[#888888]">
           Toont {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredPayments.length)} van{' '}
           {filteredPayments.length} betalingen
         </p>
@@ -224,9 +224,9 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-2 rounded-full hover:bg-[#2a2a2a] disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-600" />
+            <ChevronLeft className="w-5 h-5 text-[#888888]" />
           </button>
           {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => i + 1).map((page) => (
             <button
@@ -235,7 +235,7 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
               className={`w-8 h-8 rounded-full text-sm font-medium transition-colors ${
                 currentPage === page
                   ? 'bg-[#3D7B4C] text-white'
-                  : 'text-gray-600 hover:bg-gray-100'
+                  : 'text-[#888888] hover:bg-[#2a2a2a]'
               }`}
             >
               {page}
@@ -244,9 +244,9 @@ export function PaymentsTable({ payments }: PaymentsTableProps) {
           <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
-            className="p-2 rounded-full hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-2 rounded-full hover:bg-[#2a2a2a] disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <ChevronRight className="w-5 h-5 text-gray-600" />
+            <ChevronRight className="w-5 h-5 text-[#888888]" />
           </button>
         </div>
       </div>

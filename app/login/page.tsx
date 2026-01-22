@@ -19,7 +19,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-[#0a0a0a]">
       <div className="absolute top-4 right-4">
         <ThemeToggle />
       </div>
@@ -28,14 +28,14 @@ export default function LoginPage() {
         {/* Logo and Title */}
         <div className="text-center">
           <div className="flex justify-center mb-4">
-            <div className="p-3 rounded-xl bg-konsensi-green dark:bg-konsensi-mint/20">
-              <BarChart3 className="h-10 w-10 text-white dark:text-konsensi-mint" />
+            <div className="p-3 rounded-xl bg-[#3D7B4C]">
+              <BarChart3 className="h-10 w-10 text-white" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-3xl font-bold text-white">
             Konsensi Insights
           </h1>
-          <p className="mt-2 text-gray-600 dark:text-gray-400">
+          <p className="mt-2 text-[#888888]">
             Centraal dashboard voor schuldhulpverlening
           </p>
         </div>
@@ -46,13 +46,13 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                className="block text-sm font-medium text-[#888888] mb-1"
               >
                 E-mailadres
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-400" />
+                  <Mail className="h-5 w-5 text-[#888888]" />
                 </div>
                 <input
                   id="email"
@@ -62,7 +62,7 @@ export default function LoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-konsensi-green dark:focus:ring-konsensi-mint focus:border-transparent transition-colors"
+                  className="block w-full pl-10 pr-3 py-3 border border-[#2a2a2a] rounded-lg bg-[#1e1e1e] text-white placeholder-[#666666] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] transition-colors"
                   placeholder="uw@email.nl"
                 />
               </div>
@@ -71,13 +71,13 @@ export default function LoginPage() {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                className="block text-sm font-medium text-[#888888] mb-1"
               >
                 Wachtwoord
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-400" />
+                  <Lock className="h-5 w-5 text-[#888888]" />
                 </div>
                 <input
                   id="password"
@@ -87,7 +87,7 @@ export default function LoginPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full pl-10 pr-10 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-konsensi-green dark:focus:ring-konsensi-mint focus:border-transparent transition-colors"
+                  className="block w-full pl-10 pr-10 py-3 border border-[#2a2a2a] rounded-lg bg-[#1e1e1e] text-white placeholder-[#666666] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] transition-colors"
                   placeholder="Voer uw wachtwoord in"
                 />
                 <button
@@ -96,9 +96,9 @@ export default function LoginPage() {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
                 >
                   {showPassword ? (
-                    <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300" />
+                    <EyeOff className="h-5 w-5 text-[#888888] hover:text-white" />
                   ) : (
-                    <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300" />
+                    <Eye className="h-5 w-5 text-[#888888] hover:text-white" />
                   )}
                 </button>
               </div>
@@ -111,11 +111,11 @@ export default function LoginPage() {
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
-                className="h-4 w-4 text-konsensi-green dark:text-konsensi-mint focus:ring-konsensi-green dark:focus:ring-konsensi-mint border-gray-300 dark:border-gray-600 rounded"
+                className="h-4 w-4 text-[#3D7B4C] focus:ring-[#3D7B4C] border-[#2a2a2a] rounded bg-[#1e1e1e]"
               />
               <label
                 htmlFor="remember-me"
-                className="ml-2 block text-sm text-gray-700 dark:text-gray-300"
+                className="ml-2 block text-sm text-[#888888]"
               >
                 Onthoud mij
               </label>
@@ -123,7 +123,7 @@ export default function LoginPage() {
 
             <a
               href="#"
-              className="text-sm font-medium text-konsensi-green dark:text-konsensi-mint hover:underline"
+              className="text-sm font-medium text-[#3D7B4C] hover:text-[#4a9d5c]"
             >
               Wachtwoord vergeten?
             </a>
@@ -132,18 +132,18 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-konsensi-green hover:bg-konsensi-green-dark dark:bg-konsensi-mint dark:text-konsensi-dark dark:hover:bg-konsensi-mint/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-konsensi-green dark:focus:ring-konsensi-mint disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg text-sm font-medium text-white bg-[#3D7B4C] hover:bg-[#4a9d5c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3D7B4C] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {isLoading ? 'Bezig met inloggen...' : 'Inloggen'}
           </button>
         </form>
 
         {/* App Sources Info */}
-        <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-center text-sm text-gray-500 dark:text-gray-400">
+        <div className="mt-8 pt-6 border-t border-[#2a2a2a]">
+          <p className="text-center text-sm text-[#888888]">
             Gekoppelde applicaties
           </p>
-          <div className="mt-3 flex justify-center gap-4 text-xs text-gray-400 dark:text-gray-500">
+          <div className="mt-3 flex justify-center gap-4 text-xs text-[#666666]">
             <span>Jongeren App</span>
             <span>|</span>
             <span>Bewind</span>

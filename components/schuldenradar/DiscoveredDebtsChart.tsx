@@ -43,8 +43,8 @@ export function DiscoveredDebtsChart({ data }: DiscoveredDebtsChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-100">
-          <p className="font-medium text-gray-900 mb-2">{label}</p>
+        <div className="bg-[#1a1a1a] p-3 rounded-lg shadow-lg border border-[#2a2a2a]">
+          <p className="font-medium text-white mb-2">{label}</p>
           {payload.map((entry, index) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
               {entry.name}:{' '}
@@ -60,41 +60,41 @@ export function DiscoveredDebtsChart({ data }: DiscoveredDebtsChartProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-[#111827]">Ontdekte Schulden Over Tijd</h3>
+        <h3 className="text-lg font-semibold text-white">Ontdekte Schulden Over Tijd</h3>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
             <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
-            <span className="text-xs text-gray-500">Aantal schulden</span>
+            <span className="text-xs text-[#888888]">Aantal schulden</span>
           </div>
           <div className="flex items-center gap-1.5">
             <div className="w-3 h-3 rounded bg-[#8B5CF6]" />
-            <span className="text-xs text-gray-500">Totaal bedrag</span>
+            <span className="text-xs text-[#888888]">Totaal bedrag</span>
           </div>
         </div>
       </div>
       <div className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
             <XAxis
               dataKey="maand"
-              tick={{ fill: '#6B7280', fontSize: 12 }}
-              axisLine={{ stroke: '#E5E7EB' }}
+              tick={{ fill: '#888888', fontSize: 12 }}
+              axisLine={{ stroke: '#2a2a2a' }}
               tickLine={false}
             />
             <YAxis
               yAxisId="left"
-              tick={{ fill: '#6B7280', fontSize: 12 }}
-              axisLine={{ stroke: '#E5E7EB' }}
+              tick={{ fill: '#888888', fontSize: 12 }}
+              axisLine={{ stroke: '#2a2a2a' }}
               tickLine={false}
             />
             <YAxis
               yAxisId="right"
               orientation="right"
-              tick={{ fill: '#6B7280', fontSize: 12 }}
-              axisLine={{ stroke: '#E5E7EB' }}
+              tick={{ fill: '#888888', fontSize: 12 }}
+              axisLine={{ stroke: '#2a2a2a' }}
               tickLine={false}
               tickFormatter={formatCurrency}
             />

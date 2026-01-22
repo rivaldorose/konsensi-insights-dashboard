@@ -35,7 +35,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa]">
+    <div className="min-h-screen bg-[#0a0a0a]">
       {/* Floating Navbar */}
       <Navbar />
 
@@ -43,8 +43,8 @@ export default function SettingsPage() {
       <main className="px-8 py-8">
         {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-[#111827]">Instellingen</h1>
-          <p className="text-gray-500 mt-1">Beheer je account en voorkeuren</p>
+          <h1 className="text-3xl font-bold text-white">Instellingen</h1>
+          <p className="text-[#888888] mt-1">Beheer je account en voorkeuren</p>
         </div>
 
         {/* Settings Layout */}

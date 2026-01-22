@@ -104,11 +104,11 @@ export function GlobalSearch() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-500 bg-gray-100 dark:bg-gray-800 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+        className="flex items-center gap-2 px-3 py-2 text-sm text-[#888888] bg-[#1a1a1a] rounded-xl hover:bg-[#222222] transition-colors border border-[#2a2a2a]"
       >
         <Search className="w-4 h-4" />
         <span className="hidden md:inline">Zoeken...</span>
-        <kbd className="hidden md:flex items-center gap-1 px-1.5 py-0.5 text-xs bg-white dark:bg-gray-700 rounded border border-gray-200 dark:border-gray-600">
+        <kbd className="hidden md:flex items-center gap-1 px-1.5 py-0.5 text-xs bg-[#222222] rounded border border-[#333333]">
           <Command className="w-3 h-3" />K
         </kbd>
       </button>
@@ -128,10 +128,10 @@ export function GlobalSearch() {
 
       {/* Search Modal */}
       <div className="fixed inset-x-4 top-24 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-xl z-50">
-        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <div className="bg-[#1a1a1a] rounded-2xl shadow-2xl border border-[#2a2a2a] overflow-hidden">
           {/* Search Input */}
-          <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-            <Search className="w-5 h-5 text-gray-400" />
+          <div className="flex items-center gap-3 px-4 py-3 border-b border-[#2a2a2a]">
+            <Search className="w-5 h-5 text-[#888888]" />
             <input
               ref={inputRef}
               type="text"
@@ -139,16 +139,16 @@ export function GlobalSearch() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={handleResultKeyDown}
-              className="flex-1 text-sm bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400"
+              className="flex-1 text-sm bg-transparent outline-none text-white placeholder-[#666666]"
             />
             <button
               onClick={() => {
                 setIsOpen(false);
                 setQuery('');
               }}
-              className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="p-1 rounded-lg hover:bg-[#222222]"
             >
-              <X className="w-4 h-4 text-gray-400" />
+              <X className="w-4 h-4 text-[#888888]" />
             </button>
           </div>
 
@@ -156,7 +156,7 @@ export function GlobalSearch() {
           <div className="max-h-80 overflow-y-auto">
             {Object.entries(groupedResults).map(([category, items]) => (
               <div key={category}>
-                <div className="px-4 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <div className="px-4 py-2 text-xs font-medium text-[#666666] uppercase tracking-wider">
                   {category}
                 </div>
                 {items.map((item) => {
@@ -172,22 +172,22 @@ export function GlobalSearch() {
                       className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
                         globalIndex === selectedIndex
                           ? 'bg-[#3D7B4C]/10 text-[#3D7B4C]'
-                          : 'hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                          : 'hover:bg-[#222222] text-white'
                       }`}
                     >
                       <div
                         className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                          globalIndex === selectedIndex ? 'bg-[#3D7B4C]/20' : 'bg-gray-100 dark:bg-gray-800'
+                          globalIndex === selectedIndex ? 'bg-[#3D7B4C]/20' : 'bg-[#222222]'
                         }`}
                       >
                         {item.icon}
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium truncate">{item.title}</p>
-                        <p className="text-xs text-gray-500 truncate">{item.description}</p>
+                        <p className="text-xs text-[#888888] truncate">{item.description}</p>
                       </div>
                       {globalIndex === selectedIndex && (
-                        <kbd className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 rounded">
+                        <kbd className="px-2 py-1 text-xs bg-[#222222] rounded border border-[#333333]">
                           Enter
                         </kbd>
                       )}
@@ -197,25 +197,25 @@ export function GlobalSearch() {
               </div>
             ))}
             {filteredResults.length === 0 && (
-              <div className="px-4 py-8 text-center text-sm text-gray-500">
+              <div className="px-4 py-8 text-center text-sm text-[#888888]">
                 Geen resultaten gevonden voor &quot;{query}&quot;
               </div>
             )}
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-2 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between text-xs text-gray-400">
+          <div className="px-4 py-2 border-t border-[#2a2a2a] flex items-center justify-between text-xs text-[#666666]">
             <div className="flex items-center gap-2">
-              <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded">↑</kbd>
-              <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded">↓</kbd>
+              <kbd className="px-1.5 py-0.5 bg-[#222222] rounded border border-[#333333]">↑</kbd>
+              <kbd className="px-1.5 py-0.5 bg-[#222222] rounded border border-[#333333]">↓</kbd>
               <span>navigeren</span>
             </div>
             <div className="flex items-center gap-2">
-              <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded">Enter</kbd>
+              <kbd className="px-1.5 py-0.5 bg-[#222222] rounded border border-[#333333]">Enter</kbd>
               <span>openen</span>
             </div>
             <div className="flex items-center gap-2">
-              <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded">Esc</kbd>
+              <kbd className="px-1.5 py-0.5 bg-[#222222] rounded border border-[#333333]">Esc</kbd>
               <span>sluiten</span>
             </div>
           </div>

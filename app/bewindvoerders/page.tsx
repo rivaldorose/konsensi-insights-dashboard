@@ -221,19 +221,19 @@ export default function BewindvoerdersPage() {
   const cityTotal = clientsPerCityData.reduce((sum, item) => sum + item.aantal, 0);
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa]">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
 
       <main className="px-8 py-8">
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-3xl font-bold text-[#111827]">Bewindvoerders & Budgetcoaches</h1>
+            <h1 className="text-3xl font-bold text-white">Bewindvoerders & Budgetcoaches</h1>
             <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full">
               Hulpverleners
             </span>
           </div>
-          <p className="text-gray-500">
+          <p className="text-[#888888]">
             Overzicht van alle hulpverleners en hun cliënten
           </p>
         </div>

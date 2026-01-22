@@ -57,10 +57,10 @@ const actionIcons: Record<ActionType, React.ReactNode> = {
 
 export function RecentActivityFeed({ activities }: RecentActivityFeedProps) {
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100 h-full">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-[#111827]">Recente Activiteit</h3>
-        <span className="text-sm text-gray-500">Vandaag</span>
+        <h3 className="text-lg font-semibold text-white">Recente Activiteit</h3>
+        <span className="text-sm text-[#888888]">Vandaag</span>
       </div>
 
       <div className="space-y-4 max-h-[400px] overflow-y-auto">
@@ -69,7 +69,7 @@ export function RecentActivityFeed({ activities }: RecentActivityFeedProps) {
           return (
             <div
               key={activity.id}
-              className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors"
+              className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#2a2a2a] transition-colors"
             >
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -79,7 +79,7 @@ export function RecentActivityFeed({ activities }: RecentActivityFeedProps) {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <p className="text-sm font-medium text-gray-900 truncate">
+                  <p className="text-sm font-medium text-white truncate">
                     {activity.description}
                   </p>
                   <span
@@ -90,9 +90,9 @@ export function RecentActivityFeed({ activities }: RecentActivityFeedProps) {
                   </span>
                 </div>
                 {activity.details && (
-                  <p className="text-xs text-gray-500 mt-0.5 truncate">{activity.details}</p>
+                  <p className="text-xs text-[#888888] mt-0.5 truncate">{activity.details}</p>
                 )}
-                <p className="text-xs text-gray-400 mt-1">{activity.timestamp}</p>
+                <p className="text-xs text-[#888888] mt-1">{activity.timestamp}</p>
               </div>
             </div>
           );

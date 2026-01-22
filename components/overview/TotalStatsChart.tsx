@@ -51,16 +51,16 @@ export function TotalStatsChart({ data }: TotalStatsChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-4 rounded-lg shadow-lg border border-gray-100">
-          <p className="font-medium text-gray-900 mb-2">{label}</p>
+        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-4 rounded-lg">
+          <p className="font-medium text-white mb-2">{label}</p>
           {payload.map((item, index) => (
             <div key={index} className="flex items-center gap-2 text-sm">
               <div
                 className="w-2.5 h-2.5 rounded-full"
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-gray-600">{item.name}:</span>
-              <span className="font-medium text-gray-900">
+              <span className="text-[#888888]">{item.name}:</span>
+              <span className="font-medium text-white">
                 {item.value.toLocaleString('nl-NL')}
               </span>
             </div>
@@ -84,11 +84,11 @@ export function TotalStatsChart({ data }: TotalStatsChartProps) {
 
   return (
     <>
-    <div className="bg-white dark:bg-gray-900 rounded-[20px] p-6 shadow-sm shadow-gray-100 dark:shadow-gray-800 border border-gray-100 dark:border-gray-800">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-semibold text-[#111827] dark:text-white">Platform Activiteit</h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Klik op een punt voor meer details</p>
+          <h3 className="text-lg font-semibold text-white">Platform Activiteit</h3>
+          <p className="text-sm text-[#888888]">Klik op een punt voor meer details</p>
         </div>
       </div>
       <div className="h-[300px] cursor-pointer">
@@ -112,24 +112,24 @@ export function TotalStatsChart({ data }: TotalStatsChartProps) {
                 <stop offset="95%" stopColor="#F59E0B" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200 dark:stroke-gray-700" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
             <XAxis
               dataKey="maand"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6B7280', fontSize: 12 }}
+              tick={{ fill: '#888888', fontSize: 12 }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: '#6B7280', fontSize: 12 }}
+              tick={{ fill: '#888888', fontSize: 12 }}
               tickFormatter={(value) => value.toLocaleString('nl-NL')}
             />
             <Tooltip content={<CustomTooltip />} />
             <Legend
               verticalAlign="top"
               height={36}
-              formatter={(value) => <span className="text-sm text-gray-600">{value}</span>}
+              formatter={(value) => <span className="text-sm text-[#888888]">{value}</span>}
             />
             <Area
               type="monotone"

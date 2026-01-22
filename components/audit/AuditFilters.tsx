@@ -61,14 +61,14 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
   const hasActiveFilters = Object.values(filters).some((v) => v !== '');
 
   return (
-    <div className="bg-white rounded-[20px] p-5 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-5 border border-[#2a2a2a]">
       <div className="flex flex-wrap items-center gap-4">
         {/* Action Type Dropdown */}
         <div className="relative">
           <select
             value={filters.actionType}
             onChange={(e) => updateFilter('actionType', e.target.value)}
-            className="appearance-none bg-gray-50 border border-gray-200 rounded-full px-4 py-2.5 pr-10 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[140px]"
+            className="appearance-none bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2.5 pr-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[140px]"
           >
             {actionOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -76,7 +76,7 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
               </option>
             ))}
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888] pointer-events-none" />
         </div>
 
         {/* Entity Type Dropdown */}
@@ -84,7 +84,7 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
           <select
             value={filters.entityType}
             onChange={(e) => updateFilter('entityType', e.target.value)}
-            className="appearance-none bg-gray-50 border border-gray-200 rounded-full px-4 py-2.5 pr-10 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[140px]"
+            className="appearance-none bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2.5 pr-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] cursor-pointer min-w-[140px]"
           >
             {entityOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -92,7 +92,7 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
               </option>
             ))}
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888] pointer-events-none" />
         </div>
 
         {/* Date Range */}
@@ -103,20 +103,20 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
               value={filters.dateFrom}
               onChange={(e) => updateFilter('dateFrom', e.target.value)}
               placeholder="Van"
-              className="bg-gray-50 border border-gray-200 rounded-full px-4 py-2.5 pl-10 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[150px]"
+              className="bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2.5 pl-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[150px]"
             />
-            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
           </div>
-          <span className="text-gray-400">-</span>
+          <span className="text-[#888888]">-</span>
           <div className="relative">
             <input
               type="date"
               value={filters.dateTo}
               onChange={(e) => updateFilter('dateTo', e.target.value)}
               placeholder="Tot"
-              className="bg-gray-50 border border-gray-200 rounded-full px-4 py-2.5 pl-10 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[150px]"
+              className="bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2.5 pl-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[150px]"
             />
-            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
           </div>
         </div>
 
@@ -124,7 +124,7 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
         {hasActiveFilters && (
           <button
             onClick={clearFilters}
-            className="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 transition-colors"
+            className="flex items-center gap-1 text-sm text-[#888888] hover:text-white transition-colors"
           >
             <X className="w-4 h-4" />
             Wis filters
@@ -138,9 +138,9 @@ export function AuditFilters({ onFilterChange }: AuditFiltersProps) {
             value={filters.search}
             onChange={(e) => updateFilter('search', e.target.value)}
             placeholder="Zoeken..."
-            className="bg-gray-50 border border-gray-200 rounded-full px-4 py-2.5 pl-10 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[220px]"
+            className="bg-[#1e1e1e] border border-[#2a2a2a] rounded-full px-4 py-2.5 pl-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C] w-[220px]"
           />
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
         </div>
       </div>
     </div>

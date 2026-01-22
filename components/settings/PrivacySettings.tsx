@@ -26,31 +26,31 @@ export function PrivacySettings() {
   return (
     <div className="space-y-6">
       {/* Data Export */}
-      <div className="bg-white rounded-[20px] p-8 shadow-sm shadow-gray-100 border border-gray-100">
+      <div className="bg-[#1a1a1a] rounded-[20px] p-8 border border-[#2a2a2a]">
         <div className="flex items-start gap-4 mb-6">
-          <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
-            <Download className="w-6 h-6 text-blue-600" />
+          <div className="w-12 h-12 bg-blue-900/30 rounded-xl flex items-center justify-center">
+            <Download className="w-6 h-6 text-blue-400" />
           </div>
           <div>
-            <h2 className="text-xl font-semibold text-[#111827]">Data Exporteren</h2>
-            <p className="text-sm text-gray-500 mt-1">
+            <h2 className="text-xl font-semibold text-white">Data Exporteren</h2>
+            <p className="text-sm text-[#888888] mt-1">
               Download een kopie van al je gegevens in JSON-formaat
             </p>
           </div>
         </div>
 
-        <div className="bg-gray-50 rounded-xl p-4 mb-6">
-          <h3 className="text-sm font-medium text-gray-700 mb-3">Inbegrepen data:</h3>
+        <div className="bg-[#1e1e1e] rounded-xl p-4 mb-6 border border-[#2a2a2a]">
+          <h3 className="text-sm font-medium text-[#888888] mb-3">Inbegrepen data:</h3>
           <div className="space-y-2">
             {dataCategories.map((category) => (
               <div key={category.label} className="flex items-center justify-between py-2">
                 <div className="flex items-center gap-3">
-                  <FileText className="w-4 h-4 text-gray-400" />
-                  <span className="text-sm text-gray-700">{category.label}</span>
+                  <FileText className="w-4 h-4 text-[#888888]" />
+                  <span className="text-sm text-white">{category.label}</span>
                 </div>
-                <div className="flex items-center gap-4 text-xs text-gray-500">
+                <div className="flex items-center gap-4 text-xs text-[#888888]">
                   <span>{category.items} items</span>
-                  <span className="bg-gray-200 px-2 py-0.5 rounded">{category.size}</span>
+                  <span className="bg-[#2a2a2a] px-2 py-0.5 rounded">{category.size}</span>
                 </div>
               </div>
             ))}
@@ -77,9 +77,9 @@ export function PrivacySettings() {
       </div>
 
       {/* Data Retention */}
-      <div className="bg-white rounded-[20px] p-8 shadow-sm shadow-gray-100 border border-gray-100">
-        <h2 className="text-xl font-semibold text-[#111827] mb-2">Data Retentie</h2>
-        <p className="text-sm text-gray-500 mb-6">
+      <div className="bg-[#1a1a1a] rounded-[20px] p-8 border border-[#2a2a2a]">
+        <h2 className="text-xl font-semibold text-white mb-2">Data Retentie</h2>
+        <p className="text-sm text-[#888888] mb-6">
           Informatie over hoe lang we je gegevens bewaren
         </p>
 
@@ -90,11 +90,11 @@ export function PrivacySettings() {
             { type: 'Inactieve accounts', retention: '2 jaar na laatste activiteit', color: 'bg-yellow-500' },
             { type: 'Verwijderde data', retention: '30 dagen in backup', color: 'bg-red-500' },
           ].map((item) => (
-            <div key={item.type} className="flex items-center gap-4 py-3 border-b border-gray-100 last:border-0">
+            <div key={item.type} className="flex items-center gap-4 py-3 border-b border-[#2a2a2a] last:border-0">
               <div className={`w-2 h-2 rounded-full ${item.color}`} />
               <div className="flex-1">
-                <p className="text-sm font-medium text-gray-900">{item.type}</p>
-                <p className="text-xs text-gray-500">{item.retention}</p>
+                <p className="text-sm font-medium text-white">{item.type}</p>
+                <p className="text-xs text-[#888888]">{item.retention}</p>
               </div>
             </div>
           ))}
@@ -102,25 +102,25 @@ export function PrivacySettings() {
       </div>
 
       {/* Delete All Data */}
-      <div className="bg-white rounded-[20px] p-8 shadow-sm shadow-gray-100 border border-red-200">
+      <div className="bg-[#1a1a1a] rounded-[20px] p-8 border border-red-900/50">
         <div className="flex items-start gap-4 mb-6">
-          <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
-            <Trash2 className="w-6 h-6 text-red-600" />
+          <div className="w-12 h-12 bg-red-900/30 rounded-xl flex items-center justify-center">
+            <Trash2 className="w-6 h-6 text-red-500" />
           </div>
           <div>
-            <h2 className="text-xl font-semibold text-red-600">Alle Data Verwijderen</h2>
-            <p className="text-sm text-gray-500 mt-1">
+            <h2 className="text-xl font-semibold text-red-500">Alle Data Verwijderen</h2>
+            <p className="text-sm text-[#888888] mt-1">
               Verwijder permanent al je gegevens uit ons systeem
             </p>
           </div>
         </div>
 
-        <div className="bg-red-50 rounded-xl p-4 mb-6 border border-red-100">
+        <div className="bg-red-900/20 rounded-xl p-4 mb-6 border border-red-900/50">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-red-700">
+            <AlertTriangle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-red-400">
               <p className="font-medium mb-1">Let op: Deze actie is onomkeerbaar</p>
-              <ul className="list-disc list-inside space-y-1 text-red-600">
+              <ul className="list-disc list-inside space-y-1 text-red-500">
                 <li>Alle gebruikersgegevens worden verwijderd</li>
                 <li>Schuldenregistraties worden gewist</li>
                 <li>Betalingsgeschiedenis wordt verwijderd</li>
@@ -132,7 +132,7 @@ export function PrivacySettings() {
 
         <button
           onClick={() => setShowDeleteModal(true)}
-          className="px-6 py-3 bg-red-50 text-red-600 rounded-full font-medium text-sm hover:bg-red-100 transition-colors border border-red-200"
+          className="px-6 py-3 bg-red-900/20 text-red-500 rounded-full font-medium text-sm hover:bg-red-900/30 transition-colors border border-red-900/50"
         >
           Verzoek tot verwijdering indienen
         </button>
@@ -141,15 +141,15 @@ export function PrivacySettings() {
       {/* Delete Confirmation Modal */}
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-[20px] p-6 w-full max-w-md mx-4">
+          <div className="bg-[#1a1a1a] rounded-[20px] p-6 w-full max-w-md mx-4 border border-[#2a2a2a]">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                <AlertTriangle className="w-5 h-5 text-red-600" />
+              <div className="w-10 h-10 bg-red-900/30 rounded-full flex items-center justify-center">
+                <AlertTriangle className="w-5 h-5 text-red-500" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">Bevestig verwijdering</h3>
+              <h3 className="text-lg font-semibold text-white">Bevestig verwijdering</h3>
             </div>
-            <p className="text-sm text-gray-600 mb-4">
-              Typ <span className="font-mono bg-gray-100 px-1 rounded">VERWIJDER</span> om te bevestigen
+            <p className="text-sm text-[#888888] mb-4">
+              Typ <span className="font-mono bg-[#2a2a2a] px-1 rounded text-white">VERWIJDER</span> om te bevestigen
               dat je al je gegevens permanent wilt verwijderen.
             </p>
             <input
@@ -157,7 +157,7 @@ export function PrivacySettings() {
               value={deleteConfirmText}
               onChange={(e) => setDeleteConfirmText(e.target.value)}
               placeholder="Typ VERWIJDER"
-              className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 mb-4"
+              className="w-full px-4 py-3 bg-[#1e1e1e] border border-[#2a2a2a] rounded-xl text-sm text-white placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 mb-4"
             />
             <div className="flex justify-end gap-3">
               <button
@@ -165,7 +165,7 @@ export function PrivacySettings() {
                   setShowDeleteModal(false);
                   setDeleteConfirmText('');
                 }}
-                className="px-5 py-2.5 text-gray-700 font-medium text-sm hover:bg-gray-50 rounded-full transition-colors"
+                className="px-5 py-2.5 text-[#888888] font-medium text-sm hover:bg-[#222222] rounded-full transition-colors"
               >
                 Annuleren
               </button>

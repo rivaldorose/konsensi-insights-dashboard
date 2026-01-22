@@ -75,7 +75,7 @@ export default function DashboardPage() {
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa]">
+    <div className="min-h-screen bg-[#0a0a0a]">
       {/* Floating Navbar */}
       <Navbar />
 
@@ -84,10 +84,10 @@ export default function DashboardPage() {
         {/* Welcome Section */}
         <div className="flex items-start justify-between mb-8">
           <div>
-            <p className="text-sm text-gray-500 mb-1">Goedemiddag,</p>
+            <p className="text-sm text-[#888888] mb-1">Goedemiddag,</p>
             <div className="flex items-center gap-3">
-              <h1 className="text-3xl font-bold text-[#111827]">Rivaldo Rose</h1>
-              <span className="px-3 py-1 bg-[#3D7B4C]/10 text-[#3D7B4C] text-xs font-medium rounded-full">
+              <h1 className="text-3xl font-bold text-white">Rivaldo Rose</h1>
+              <span className="px-3 py-1 bg-[#3D7B4C]/20 text-[#4a9d5c] text-xs font-medium rounded-full border border-[#3D7B4C]">
                 Admin
               </span>
             </div>
@@ -96,12 +96,12 @@ export default function DashboardPage() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsExportModalOpen(true)}
-              className="flex items-center gap-2 px-5 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors shadow-lg shadow-[#3D7B4C]/20"
+              className="flex items-center gap-2 px-5 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#4a9d5c] transition-colors"
             >
               <Download className="w-4 h-4" />
               Export Data
             </button>
-            <button className="flex items-center gap-2 px-5 py-2.5 border border-gray-300 text-gray-700 rounded-full font-medium text-sm hover:bg-gray-50 transition-colors">
+            <button className="flex items-center gap-2 px-5 py-2.5 border border-[#333333] text-[#888888] rounded-full font-medium text-sm hover:bg-[#1e1e1e] hover:text-white transition-colors">
               <Share2 className="w-4 h-4" />
               Delen
             </button>

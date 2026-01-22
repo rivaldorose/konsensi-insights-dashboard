@@ -18,21 +18,21 @@ export function TopCreditorsCard({ creditors }: TopCreditorsCardProps) {
     if (rank === 1) return 'bg-red-500 text-white';
     if (rank === 2) return 'bg-red-400 text-white';
     if (rank === 3) return 'bg-red-300 text-white';
-    return 'bg-gray-100 text-gray-600';
+    return 'bg-[#2a2a2a] text-[#888888]';
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100 h-full">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
       <div className="flex items-center gap-2 mb-4">
         <Building2 className="w-5 h-5 text-red-500" />
-        <h3 className="text-lg font-semibold text-[#111827]">Top Schuldeisers Ontdekt</h3>
+        <h3 className="text-lg font-semibold text-white">Top Schuldeisers Ontdekt</h3>
       </div>
 
       <div className="space-y-2">
         {creditors.map((creditor) => (
           <div
             key={creditor.rank}
-            className="flex items-center justify-between p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+            className="flex items-center justify-between p-3 bg-[#2a2a2a] rounded-xl hover:bg-[#333333] transition-colors"
           >
             <div className="flex items-center gap-3">
               <div
@@ -40,10 +40,10 @@ export function TopCreditorsCard({ creditors }: TopCreditorsCardProps) {
               >
                 {creditor.rank}
               </div>
-              <span className="font-medium text-gray-900">{creditor.naam}</span>
+              <span className="font-medium text-white">{creditor.naam}</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-[#888888]">
                 {creditor.aantal.toLocaleString('nl-NL')} gevonden
               </span>
               {creditor.trend === 'up' && (

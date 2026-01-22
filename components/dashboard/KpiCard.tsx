@@ -62,18 +62,18 @@ export function KpiCard({ label, value, icon, featured = false, sparklineData = 
   }
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] hover:bg-[#222222] hover:border-[#333333] transition-colors">
       <div className="flex items-start justify-between mb-6">
-        <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-          <Icon className="w-5 h-5 text-gray-500" />
+        <div className="w-10 h-10 bg-[#3D7B4C]/20 rounded-full flex items-center justify-center">
+          <Icon className="w-5 h-5 text-[#3D7B4C]" />
         </div>
-        <ArrowUpRight className="w-5 h-5 text-gray-400" />
+        <ArrowUpRight className="w-5 h-5 text-[#666666]" />
       </div>
 
       <div className="flex items-end justify-between">
         <div>
-          <p className="text-gray-500 text-xs font-medium tracking-wider mb-1">{label}</p>
-          <p className="text-2xl font-bold text-[#111827]">{value}</p>
+          <p className="text-[#888888] text-xs font-medium tracking-wider mb-1">{label}</p>
+          <p className="text-2xl font-bold text-white">{value}</p>
         </div>
 
         {sparklineData.length > 0 && (

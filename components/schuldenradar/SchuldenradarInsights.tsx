@@ -20,23 +20,23 @@ const iconMap = {
 };
 
 const colorMap = {
-  warning: 'bg-red-50 text-red-700 border-red-200',
-  positive: 'bg-green-50 text-green-700 border-green-200',
-  info: 'bg-blue-50 text-blue-700 border-blue-200',
+  warning: 'bg-red-900/30 text-red-300 border-red-800/50',
+  positive: 'bg-green-900/30 text-green-300 border-green-800/50',
+  info: 'bg-blue-900/30 text-blue-300 border-blue-800/50',
 };
 
 const iconColorMap = {
-  warning: 'text-red-600',
-  positive: 'text-green-600',
-  info: 'text-blue-600',
+  warning: 'text-red-400',
+  positive: 'text-green-400',
+  info: 'text-blue-400',
 };
 
 export function SchuldenradarInsights({ insights }: SchuldenradarInsightsProps) {
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="flex items-center gap-2 mb-4">
         <Lightbulb className="w-5 h-5 text-amber-500" />
-        <h3 className="text-lg font-semibold text-[#111827]">Schuldenradar Inzichten</h3>
+        <h3 className="text-lg font-semibold text-white">Schuldenradar Inzichten</h3>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

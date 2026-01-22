@@ -33,8 +33,8 @@ export function JobSeekersChart({ data }: JobSeekersChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-100">
-          <p className="font-medium text-gray-900 mb-2">{label}</p>
+        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-3 rounded-lg shadow-lg">
+          <p className="font-medium text-white mb-2">{label}</p>
           {payload.map((entry, index) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
               {entry.name}: {entry.value.toLocaleString('nl-NL')}
@@ -47,35 +47,35 @@ export function JobSeekersChart({ data }: JobSeekersChartProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-[#111827]">
+        <h3 className="text-lg font-semibold text-white">
           Werkzoekenden & Plaatsingen per Maand
         </h3>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
             <div className="w-3 h-3 rounded-full bg-[#3B82F6]" />
-            <span className="text-xs text-gray-500">Nieuwe werkzoekenden</span>
+            <span className="text-xs text-[#888888]">Nieuwe werkzoekenden</span>
           </div>
           <div className="flex items-center gap-1.5">
             <div className="w-3 h-3 rounded-full bg-[#22c55e]" />
-            <span className="text-xs text-gray-500">Geplaatst</span>
+            <span className="text-xs text-[#888888]">Geplaatst</span>
           </div>
         </div>
       </div>
       <div className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
             <XAxis
               dataKey="maand"
-              tick={{ fill: '#6B7280', fontSize: 12 }}
-              axisLine={{ stroke: '#E5E7EB' }}
+              tick={{ fill: '#888888', fontSize: 12 }}
+              axisLine={{ stroke: '#2a2a2a' }}
               tickLine={false}
             />
             <YAxis
-              tick={{ fill: '#6B7280', fontSize: 12 }}
-              axisLine={{ stroke: '#E5E7EB' }}
+              tick={{ fill: '#888888', fontSize: 12 }}
+              axisLine={{ stroke: '#2a2a2a' }}
               tickLine={false}
             />
             <Tooltip content={<CustomTooltip />} />

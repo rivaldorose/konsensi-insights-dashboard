@@ -60,7 +60,7 @@ export default function AuditLogPage() {
   }, [filters]);
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa]">
+    <div className="min-h-screen bg-[#0a0a0a]">
       {/* Floating Navbar */}
       <Navbar />
 
@@ -68,8 +68,8 @@ export default function AuditLogPage() {
       <main className="px-8 py-8">
         {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-[#111827]">Audit Log</h1>
-          <p className="text-gray-500 mt-1">
+          <h1 className="text-3xl font-bold text-white">Audit Log</h1>
+          <p className="text-[#888888] mt-1">
             Alle systeem activiteiten en wijzigingen
           </p>
         </div>

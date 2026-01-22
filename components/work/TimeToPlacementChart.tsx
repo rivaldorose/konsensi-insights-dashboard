@@ -22,9 +22,9 @@ export function TimeToPlacementChart({ data }: TimeToPlacementChartProps) {
     if (active && payload && payload.length) {
       const item = payload[0].payload;
       return (
-        <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-100">
-          <p className="font-medium text-gray-900">{item.range}</p>
-          <p className="text-sm text-gray-600">
+        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-3 rounded-lg shadow-lg">
+          <p className="font-medium text-white">{item.range}</p>
+          <p className="text-sm text-[#888888]">
             {item.count.toLocaleString('nl-NL')} plaatsingen
           </p>
         </div>
@@ -40,14 +40,14 @@ export function TimeToPlacementChart({ data }: TimeToPlacementChartProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100 h-full">
-      <h3 className="text-lg font-semibold text-[#111827] mb-4">Tijd tot Plaatsing</h3>
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
+      <h3 className="text-lg font-semibold text-white mb-4">Tijd tot Plaatsing</h3>
       <div className="h-[220px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
             <XAxis
               dataKey="range"
-              tick={{ fill: '#6B7280', fontSize: 10 }}
+              tick={{ fill: '#888888', fontSize: 10 }}
               axisLine={false}
               tickLine={false}
               interval={0}
@@ -55,8 +55,8 @@ export function TimeToPlacementChart({ data }: TimeToPlacementChartProps) {
               textAnchor="end"
               height={50}
             />
-            <YAxis tick={{ fill: '#6B7280', fontSize: 11 }} axisLine={false} tickLine={false} />
-            <Tooltip content={<CustomTooltip />} cursor={{ fill: '#f3f4f6' }} />
+            <YAxis tick={{ fill: '#888888', fontSize: 11 }} axisLine={false} tickLine={false} />
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: '#2a2a2a' }} />
             <Bar dataKey="count" radius={[6, 6, 0, 0]} barSize={35}>
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={getColor(index)} />
@@ -68,11 +68,11 @@ export function TimeToPlacementChart({ data }: TimeToPlacementChartProps) {
       <div className="mt-4 flex items-center justify-center gap-4 text-xs">
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 rounded-full bg-[#22c55e]" />
-          <span className="text-gray-500">Snel</span>
+          <span className="text-[#888888]">Snel</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-2 h-2 rounded-full bg-[#ef4444]" />
-          <span className="text-gray-500">Langzaam</span>
+          <span className="text-[#888888]">Langzaam</span>
         </div>
       </div>
     </div>

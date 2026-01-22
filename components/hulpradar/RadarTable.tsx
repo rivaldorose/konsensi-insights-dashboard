@@ -24,28 +24,28 @@ interface RadarTableProps {
 const statusConfig: Record<StatusType, { label: string; color: string; icon: React.ReactNode }> = {
   gematcht: {
     label: 'Gematcht',
-    color: 'bg-green-100 text-green-700',
+    color: 'bg-green-900/30 text-green-400',
     icon: <CheckCircle className="w-3.5 h-3.5" />,
   },
   zoekend: {
     label: 'Zoekend',
-    color: 'bg-amber-100 text-amber-700',
+    color: 'bg-amber-900/30 text-amber-400',
     icon: <Clock className="w-3.5 h-3.5" />,
   },
   geen_match: {
     label: 'Geen match',
-    color: 'bg-red-100 text-red-700',
+    color: 'bg-red-900/30 text-red-400',
     icon: <XCircle className="w-3.5 h-3.5" />,
   },
 };
 
 const probleemColors: Record<ProbleemType, string> = {
-  'Huur achterstand': 'bg-blue-100 text-blue-700',
-  'Energieschulden': 'bg-amber-100 text-amber-700',
-  'Zorgverzekering': 'bg-pink-100 text-pink-700',
-  'Belastingschuld': 'bg-red-100 text-red-700',
-  'Leningen': 'bg-purple-100 text-purple-700',
-  'Overig': 'bg-gray-100 text-gray-700',
+  'Huur achterstand': 'bg-blue-900/30 text-blue-400',
+  'Energieschulden': 'bg-amber-900/30 text-amber-400',
+  'Zorgverzekering': 'bg-pink-900/30 text-pink-400',
+  'Belastingschuld': 'bg-red-900/30 text-red-400',
+  'Leningen': 'bg-purple-900/30 text-purple-400',
+  'Overig': 'bg-gray-700/30 text-gray-400',
 };
 
 export function RadarTable({ entries }: RadarTableProps) {
@@ -63,22 +63,22 @@ export function RadarTable({ entries }: RadarTableProps) {
   });
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-[#111827]">Recente Radar Invullingen</h3>
-        <span className="text-sm text-gray-500">{filteredEntries.length} resultaten</span>
+        <h3 className="text-lg font-semibold text-white">Recente Radar Invullingen</h3>
+        <span className="text-sm text-[#888888]">{filteredEntries.length} resultaten</span>
       </div>
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3 mb-6">
         <div className="relative flex-1 min-w-[200px] max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
           <input
             type="text"
             placeholder="Zoek op gemeente, organisatie..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="w-full pl-10 pr-4 py-2.5 border border-[#2a2a2a] rounded-xl text-sm bg-[#1a1a1a] text-white placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
           />
         </div>
 
@@ -86,21 +86,21 @@ export function RadarTable({ entries }: RadarTableProps) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-[#2a2a2a] rounded-xl text-sm bg-[#1a1a1a] text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
           >
             <option value="all">Alle statussen</option>
             <option value="gematcht">Gematcht</option>
             <option value="zoekend">Zoekend</option>
             <option value="geen_match">Geen match</option>
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888] pointer-events-none" />
         </div>
 
         <div className="relative">
           <select
             value={probleemFilter}
             onChange={(e) => setProbleemFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-[#2a2a2a] rounded-xl text-sm bg-[#1a1a1a] text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
           >
             <option value="all">Alle problemen</option>
             <option value="Huur achterstand">Huur achterstand</option>
@@ -110,7 +110,7 @@ export function RadarTable({ entries }: RadarTableProps) {
             <option value="Leningen">Leningen</option>
             <option value="Overig">Overig</option>
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888] pointer-events-none" />
         </div>
       </div>
 
@@ -118,26 +118,26 @@ export function RadarTable({ entries }: RadarTableProps) {
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-100">
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <tr className="border-b border-[#2a2a2a]">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Datum
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Gemeente
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Probleem Type
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Schuldbedrag
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Status
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Organisatie
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Tijd tot Match
               </th>
             </tr>
@@ -148,10 +148,10 @@ export function RadarTable({ entries }: RadarTableProps) {
               return (
                 <tr
                   key={entry.id}
-                  className="border-b border-gray-50 hover:bg-gray-50 transition-colors"
+                  className="border-b border-[#2a2a2a] hover:bg-[#222222] transition-colors"
                 >
-                  <td className="py-3 px-4 text-sm text-gray-500">{entry.datum}</td>
-                  <td className="py-3 px-4 text-sm font-medium text-gray-900">{entry.gemeente}</td>
+                  <td className="py-3 px-4 text-sm text-[#888888]">{entry.datum}</td>
+                  <td className="py-3 px-4 text-sm font-medium text-white">{entry.gemeente}</td>
                   <td className="py-3 px-4">
                     <span
                       className={`inline-flex px-2.5 py-1 rounded-full text-xs font-medium ${probleemColors[entry.probleemType]}`}
@@ -159,7 +159,7 @@ export function RadarTable({ entries }: RadarTableProps) {
                       {entry.probleemType}
                     </span>
                   </td>
-                  <td className="py-3 px-4 text-sm text-gray-700">{entry.schuldBedrag}</td>
+                  <td className="py-3 px-4 text-sm text-[#888888]">{entry.schuldBedrag}</td>
                   <td className="py-3 px-4">
                     <span
                       className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${status.color}`}
@@ -168,8 +168,8 @@ export function RadarTable({ entries }: RadarTableProps) {
                       {status.label}
                     </span>
                   </td>
-                  <td className="py-3 px-4 text-sm text-gray-700">{entry.organisatie}</td>
-                  <td className="py-3 px-4 text-sm text-gray-500">{entry.tijdTotMatch}</td>
+                  <td className="py-3 px-4 text-sm text-[#888888]">{entry.organisatie}</td>
+                  <td className="py-3 px-4 text-sm text-[#888888]">{entry.tijdTotMatch}</td>
                 </tr>
               );
             })}

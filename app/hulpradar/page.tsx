@@ -235,19 +235,19 @@ export default function HulpradarPage() {
   const successRate = Math.round((matchSuccessData[0].value / matchTotal) * 100);
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa]">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
 
       <main className="px-8 py-8">
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-3xl font-bold text-[#111827]">Konsensi Hulpradar</h1>
+            <h1 className="text-3xl font-bold text-white">Konsensi Hulpradar</h1>
             <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
               Schuldhulp Matching
             </span>
           </div>
-          <p className="text-gray-500">
+          <p className="text-[#888888]">
             Match mensen met financiële problemen aan de juiste hulporganisatie in hun gemeente
           </p>
         </div>

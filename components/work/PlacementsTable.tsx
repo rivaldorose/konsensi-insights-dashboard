@@ -60,22 +60,22 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
   });
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-[#111827]">Recente Plaatsingen</h3>
-        <span className="text-sm text-gray-500">{filteredPlacements.length} resultaten</span>
+        <h3 className="text-lg font-semibold text-white">Recente Plaatsingen</h3>
+        <span className="text-sm text-[#888888]">{filteredPlacements.length} resultaten</span>
       </div>
 
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3 mb-6">
         <div className="relative flex-1 min-w-[200px] max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
           <input
             type="text"
             placeholder="Zoek op naam, functie, werkgever..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="w-full pl-10 pr-4 py-2.5 border border-[#2a2a2a] rounded-xl text-sm bg-[#1a1a1a] text-white placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
           />
         </div>
 
@@ -83,7 +83,7 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
           <select
             value={sectorFilter}
             onChange={(e) => setSectorFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-[#2a2a2a] rounded-xl text-sm bg-[#1a1a1a] text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
           >
             <option value="all">Alle sectoren</option>
             <option value="Horeca">Horeca</option>
@@ -95,14 +95,14 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
             <option value="Zorg">Zorg</option>
             <option value="Overig">Overig</option>
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888] pointer-events-none" />
         </div>
 
         <div className="relative">
           <select
             value={contractFilter}
             onChange={(e) => setContractFilter(e.target.value)}
-            className="appearance-none pl-4 pr-10 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
+            className="appearance-none pl-4 pr-10 py-2.5 border border-[#2a2a2a] rounded-xl text-sm bg-[#1a1a1a] text-white focus:outline-none focus:ring-2 focus:ring-[#3D7B4C]/20 focus:border-[#3D7B4C]"
           >
             <option value="all">Alle contracten</option>
             <option value="Vast">Vast contract</option>
@@ -111,7 +111,7 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
             <option value="Oproep">Oproep</option>
             <option value="Stage">Stage</option>
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888] pointer-events-none" />
         </div>
       </div>
 
@@ -119,29 +119,29 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-100">
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <tr className="border-b border-[#2a2a2a]">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Datum
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Werkzoekende
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Functie
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Werkgever
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Sector
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Contract
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Salaris
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Tijd
               </th>
             </tr>
@@ -150,9 +150,9 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
             {filteredPlacements.map((placement) => (
               <tr
                 key={placement.id}
-                className="border-b border-gray-50 hover:bg-gray-50 transition-colors"
+                className="border-b border-[#2a2a2a] hover:bg-[#2a2a2a] transition-colors"
               >
-                <td className="py-3 px-4 text-sm text-gray-500">{placement.datum}</td>
+                <td className="py-3 px-4 text-sm text-[#888888]">{placement.datum}</td>
                 <td className="py-3 px-4">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] flex items-center justify-center">
@@ -160,13 +160,13 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
                         {placement.werkzoekende.avatar}
                       </span>
                     </div>
-                    <span className="text-sm font-medium text-gray-900">
+                    <span className="text-sm font-medium text-white">
                       {placement.werkzoekende.naam}
                     </span>
                   </div>
                 </td>
-                <td className="py-3 px-4 text-sm text-gray-700">{placement.functie}</td>
-                <td className="py-3 px-4 text-sm text-gray-700">{placement.werkgever}</td>
+                <td className="py-3 px-4 text-sm text-[#888888]">{placement.functie}</td>
+                <td className="py-3 px-4 text-sm text-[#888888]">{placement.werkgever}</td>
                 <td className="py-3 px-4">
                   <span
                     className={`inline-flex px-2.5 py-1 rounded-full text-xs font-medium ${sectorColors[placement.sector]}`}
@@ -181,9 +181,9 @@ export function PlacementsTable({ placements }: PlacementsTableProps) {
                     {placement.contractType}
                   </span>
                 </td>
-                <td className="py-3 px-4 text-sm text-gray-700">{placement.salarisRange}</td>
+                <td className="py-3 px-4 text-sm text-[#888888]">{placement.salarisRange}</td>
                 <td className="py-3 px-4">
-                  <div className="flex items-center gap-1.5 text-sm text-gray-500">
+                  <div className="flex items-center gap-1.5 text-sm text-[#888888]">
                     <Clock className="w-3.5 h-3.5" />
                     {placement.tijdTotPlaatsing}
                   </div>

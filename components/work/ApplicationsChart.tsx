@@ -25,9 +25,9 @@ export function ApplicationsChart({ data, average }: ApplicationsChartProps) {
   }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-100">
-          <p className="font-medium text-gray-900">{label}</p>
-          <p className="text-sm text-gray-600">
+        <div style={{ backgroundColor: '#1a1a1a', border: '1px solid #2a2a2a', color: '#ffffff' }} className="p-3 rounded-lg shadow-lg">
+          <p className="font-medium text-white">{label}</p>
+          <p className="text-sm text-[#888888]">
             Gem. {payload[0].value.toFixed(1)} sollicitaties
           </p>
         </div>
@@ -37,14 +37,14 @@ export function ApplicationsChart({ data, average }: ApplicationsChartProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100 h-full">
-      <h3 className="text-lg font-semibold text-[#111827] mb-2">Sollicitaties per Vacature</h3>
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a] h-full">
+      <h3 className="text-lg font-semibold text-white mb-2">Sollicitaties per Vacature</h3>
 
       {/* Key Insight */}
       <div className="flex items-center gap-2 mb-4">
-        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 rounded-full">
-          <TrendingUp className="w-4 h-4 text-blue-600" />
-          <span className="text-sm font-medium text-blue-700">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-900/30 rounded-full">
+          <TrendingUp className="w-4 h-4 text-blue-400" />
+          <span className="text-sm font-medium text-blue-400">
             Gemiddeld {average} sollicitaties per vacature
           </span>
         </div>
@@ -61,11 +61,11 @@ export function ApplicationsChart({ data, average }: ApplicationsChartProps) {
             </defs>
             <XAxis
               dataKey="maand"
-              tick={{ fill: '#6B7280', fontSize: 11 }}
+              tick={{ fill: '#888888', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
             />
-            <YAxis tick={{ fill: '#6B7280', fontSize: 11 }} axisLine={false} tickLine={false} />
+            <YAxis tick={{ fill: '#888888', fontSize: 11 }} axisLine={false} tickLine={false} />
             <Tooltip content={<CustomTooltip />} />
             <Area
               type="monotone"

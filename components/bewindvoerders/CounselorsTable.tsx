@@ -19,8 +19,8 @@ interface CounselorsTableProps {
 }
 
 const rolColors: Record<RolType, string> = {
-  Bewindvoerder: 'bg-blue-100 text-blue-700',
-  Budgetcoach: 'bg-purple-100 text-purple-700',
+  Bewindvoerder: 'bg-blue-900/50 text-blue-400',
+  Budgetcoach: 'bg-purple-900/50 text-purple-400',
 };
 
 export function CounselorsTable({ counselors }: CounselorsTableProps) {
@@ -34,32 +34,32 @@ export function CounselorsTable({ counselors }: CounselorsTableProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-[#111827]">Bewindvoerders Overzicht</h3>
-        <span className="text-sm text-gray-500">{counselors.length} bewindvoerders</span>
+        <h3 className="text-lg font-semibold text-white">Bewindvoerders Overzicht</h3>
+        <span className="text-sm text-[#888888]">{counselors.length} bewindvoerders</span>
       </div>
 
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-100">
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <tr className="border-b border-[#2a2a2a]">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Naam
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Rol
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Cliënten
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Totale Schuld
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Totaal Inkomen
               </th>
-              <th className="text-left py-3 px-4 text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="text-left py-3 px-4 text-xs font-medium text-[#888888] uppercase tracking-wider">
                 Acties
               </th>
             </tr>
@@ -68,7 +68,7 @@ export function CounselorsTable({ counselors }: CounselorsTableProps) {
             {counselors.map((counselor) => (
               <tr
                 key={counselor.id}
-                className="border-b border-gray-50 hover:bg-gray-50 transition-colors"
+                className="border-b border-[#2a2a2a] hover:bg-[#2a2a2a]/50 transition-colors"
               >
                 <td className="py-3 px-4">
                   <div className="flex items-center gap-3">
@@ -77,7 +77,7 @@ export function CounselorsTable({ counselors }: CounselorsTableProps) {
                         {counselor.avatar}
                       </span>
                     </div>
-                    <span className="font-medium text-gray-900">{counselor.naam}</span>
+                    <span className="font-medium text-white">{counselor.naam}</span>
                   </div>
                 </td>
                 <td className="py-3 px-4">
@@ -88,25 +88,25 @@ export function CounselorsTable({ counselors }: CounselorsTableProps) {
                   </span>
                 </td>
                 <td className="py-3 px-4">
-                  <span className="text-sm font-medium text-gray-900">{counselor.clienten}</span>
+                  <span className="text-sm font-medium text-white">{counselor.clienten}</span>
                 </td>
                 <td className="py-3 px-4">
-                  <span className="text-sm text-red-600 font-medium">
+                  <span className="text-sm text-red-400 font-medium">
                     {formatCurrency(counselor.totaleSchuld)}
                   </span>
                 </td>
                 <td className="py-3 px-4">
-                  <span className="text-sm text-green-600 font-medium">
+                  <span className="text-sm text-green-400 font-medium">
                     {formatCurrency(counselor.totaalInkomen)}
                   </span>
                 </td>
                 <td className="py-3 px-4">
                   <div className="flex items-center gap-2">
-                    <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                      <Eye className="w-4 h-4 text-gray-500" />
+                    <button className="p-2 hover:bg-[#2a2a2a] rounded-lg transition-colors">
+                      <Eye className="w-4 h-4 text-[#888888]" />
                     </button>
-                    <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                      <Pencil className="w-4 h-4 text-gray-500" />
+                    <button className="p-2 hover:bg-[#2a2a2a] rounded-lg transition-colors">
+                      <Pencil className="w-4 h-4 text-[#888888]" />
                     </button>
                   </div>
                 </td>

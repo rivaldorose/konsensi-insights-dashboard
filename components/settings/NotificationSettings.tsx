@@ -57,24 +57,24 @@ export function NotificationSettings() {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-8 shadow-sm shadow-gray-100 border border-gray-100">
-      <h2 className="text-xl font-semibold text-[#111827] mb-6">Notificatie Instellingen</h2>
+    <div className="bg-[#1a1a1a] rounded-[20px] p-8 border border-[#2a2a2a]">
+      <h2 className="text-xl font-semibold text-white mb-6">Notificatie Instellingen</h2>
 
       <div className="space-y-8">
         {groups.map((group, groupIndex) => (
           <div key={group.title}>
-            <h3 className="text-sm font-medium text-gray-700 mb-4">{group.title}</h3>
+            <h3 className="text-sm font-medium text-[#888888] mb-4">{group.title}</h3>
             <div className="space-y-3">
               {group.settings.map((setting) => (
                 <div
                   key={setting.id}
-                  className="flex items-center justify-between py-3 px-4 bg-gray-50 rounded-xl"
+                  className="flex items-center justify-between py-3 px-4 bg-[#1e1e1e] rounded-xl border border-[#2a2a2a]"
                 >
-                  <span className="text-sm text-gray-700">{setting.label}</span>
+                  <span className="text-sm text-white">{setting.label}</span>
                   <button
                     onClick={() => toggleSetting(groupIndex, setting.id)}
                     className={`relative w-11 h-6 rounded-full transition-colors ${
-                      setting.enabled ? 'bg-[#3D7B4C]' : 'bg-gray-300'
+                      setting.enabled ? 'bg-[#3D7B4C]' : 'bg-[#444444]'
                     }`}
                   >
                     <span

@@ -23,7 +23,7 @@ export function TrendsCard({ trends }: TrendsCardProps) {
       case 'down':
         return <TrendingDown className="w-4 h-4 text-[#ef4444]" />;
       case 'stable':
-        return <Minus className="w-4 h-4 text-gray-400" />;
+        return <Minus className="w-4 h-4 text-[#888888]" />;
     }
   };
 
@@ -34,7 +34,7 @@ export function TrendsCard({ trends }: TrendsCardProps) {
       case 'down':
         return 'text-[#ef4444]';
       case 'stable':
-        return 'text-gray-500';
+        return 'text-[#888888]';
     }
   };
 
@@ -50,24 +50,24 @@ export function TrendsCard({ trends }: TrendsCardProps) {
   };
 
   return (
-    <div className="bg-white rounded-[20px] p-6 shadow-sm shadow-gray-100 border border-gray-100">
+    <div className="bg-[#1a1a1a] rounded-[20px] p-6 border border-[#2a2a2a]">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-[#111827]">Trends deze Maand</h3>
-        <p className="text-sm text-gray-500">Belangrijkste veranderingen</p>
+        <h3 className="text-lg font-bold text-white">Trends deze Maand</h3>
+        <p className="text-sm text-[#888888]">Belangrijkste veranderingen</p>
       </div>
 
       <div className="space-y-4">
         {trends.map((trend) => (
           <div
             key={trend.id}
-            className="flex items-center justify-between p-3 bg-gray-50 rounded-xl"
+            className="flex items-center justify-between p-3 bg-[#2a2a2a] rounded-xl"
           >
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
+              <div className="w-8 h-8 bg-[#1a1a1a] rounded-full flex items-center justify-center border border-[#2a2a2a]">
                 {getDirectionIcon(trend.direction)}
               </div>
               <div>
-                <p className="font-medium text-[#111827] text-sm">{trend.label}</p>
+                <p className="font-medium text-white text-sm">{trend.label}</p>
                 <p className={`text-xs font-medium ${getChangeColor(trend.direction)}`}>
                   {trend.direction === 'up' && '+'}
                   {trend.direction === 'stable' ? 'Stabiel' : `${trend.change}%`}

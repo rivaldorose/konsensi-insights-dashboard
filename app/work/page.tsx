@@ -265,19 +265,19 @@ export default function WorkPage() {
   const contractTotal = contractTypesData.reduce((sum, item) => sum + item.value, 0);
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa]">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
 
       <main className="px-8 py-8">
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-3xl font-bold text-[#111827]">Konsensi Work</h1>
+            <h1 className="text-3xl font-bold text-white">Konsensi Work</h1>
             <span className="px-3 py-1 bg-[#3D7B4C]/10 text-[#3D7B4C] text-xs font-medium rounded-full">
               Werkgelegenheid
             </span>
           </div>
-          <p className="text-gray-500">
+          <p className="text-[#888888]">
             Overzicht van werkzoekenden, vacatures en plaatsingen
           </p>
         </div>
