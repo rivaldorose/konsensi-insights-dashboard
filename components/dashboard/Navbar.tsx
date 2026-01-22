@@ -1,6 +1,7 @@
 'use client';
 
-import { TreePine, Bell, ChevronDown } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { TreePine, Bell, ChevronDown, Settings, LogOut, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -19,6 +20,20 @@ const navTabs: NavTab[] = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const isActive = (href: string) => {
     if (href === '/dashboard') {
@@ -63,13 +78,57 @@ export function Navbar() {
             <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
           </button>
 
-          {/* User Avatar */}
-          <button className="flex items-center gap-2 hover:bg-gray-100 rounded-full pl-1 pr-3 py-1 transition-colors">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] rounded-full flex items-center justify-center">
-              <span className="text-white text-sm font-medium">RR</span>
-            </div>
-            <ChevronDown className="w-4 h-4 text-gray-500" />
-          </button>
+          {/* User Avatar with Dropdown */}
+          <div className="relative" ref={menuRef}>
+            <button
+              onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+              className="flex items-center gap-2 hover:bg-gray-100 rounded-full pl-1 pr-3 py-1 transition-colors"
+            >
+              <div className="w-8 h-8 bg-gradient-to-br from-[#3D7B4C] to-[#8FD14F] rounded-full flex items-center justify-center">
+                <span className="text-white text-sm font-medium">RR</span>
+              </div>
+              <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${isUserMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {/* Dropdown Menu */}
+            {isUserMenuOpen && (
+              <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
+                {/* User Info */}
+                <div className="px-4 py-3 border-b border-gray-100">
+                  <p className="font-medium text-gray-900">Rivaldo Rose</p>
+                  <p className="text-sm text-gray-500">rivaldo@konsensi.nl</p>
+                </div>
+
+                {/* Menu Items */}
+                <div className="py-1">
+                  <Link
+                    href="/settings"
+                    onClick={() => setIsUserMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                  >
+                    <User className="w-4 h-4 text-gray-400" />
+                    Mijn Profiel
+                  </Link>
+                  <Link
+                    href="/settings"
+                    onClick={() => setIsUserMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                  >
+                    <Settings className="w-4 h-4 text-gray-400" />
+                    Instellingen
+                  </Link>
+                </div>
+
+                {/* Logout */}
+                <div className="border-t border-gray-100 pt-1">
+                  <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                    <LogOut className="w-4 h-4" />
+                    Uitloggen
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </nav>
