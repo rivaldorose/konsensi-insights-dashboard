@@ -23,6 +23,11 @@ import { IncomeBySourceChart } from '@/components/dashboard/IncomeBySourceChart'
 import { CostsByCategoryChart } from '@/components/dashboard/CostsByCategoryChart';
 import { MonthlyBalanceChart } from '@/components/dashboard/MonthlyBalanceChart';
 import { FinancialHealthScore } from '@/components/dashboard/FinancialHealthScore';
+import { PaymentsPerMonthChart } from '@/components/dashboard/PaymentsPerMonthChart';
+import { PaymentsByDayChart } from '@/components/dashboard/PaymentsByDayChart';
+import { PaymentMethodsChart } from '@/components/dashboard/PaymentMethodsChart';
+import { PaymentStatusChart } from '@/components/dashboard/PaymentStatusChart';
+import { PaymentsTable } from '@/components/dashboard/PaymentsTable';
 import {
   contentTabs,
   kpiData,
@@ -45,6 +50,12 @@ import {
   costsByCategoryData,
   monthlyBalanceData,
   financialHealthData,
+  paymentsKpiData,
+  paymentsPerMonthData,
+  paymentsByDayData,
+  paymentMethodsData,
+  paymentStatusData,
+  recentPaymentsData,
 } from '@/lib/mock-data';
 
 export default function DashboardPage() {
@@ -173,10 +184,40 @@ export default function DashboardPage() {
         )}
 
         {activeTab === 'betalingen' && (
-          <div className="bg-white rounded-[20px] p-12 shadow-sm shadow-gray-100 border border-gray-100 text-center">
-            <h3 className="text-lg font-semibold text-[#111827] mb-2">Betalingen Overzicht</h3>
-            <p className="text-gray-500">Deze tab wordt binnenkort gebouwd.</p>
-          </div>
+          <>
+            {/* Payments KPI Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              {paymentsKpiData.map((kpi) => (
+                <KpiCard
+                  key={kpi.id}
+                  label={kpi.label}
+                  value={kpi.value}
+                  icon={kpi.icon}
+                  featured={kpi.featured}
+                  sparklineData={kpi.sparklineData}
+                  trend={kpi.trend as 'up' | 'down' | 'neutral'}
+                />
+              ))}
+            </div>
+
+            {/* Charts Row 1 */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              <PaymentsPerMonthChart data={paymentsPerMonthData} />
+              <PaymentsByDayChart data={paymentsByDayData} />
+            </div>
+
+            {/* Charts Row 2 */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              <PaymentMethodsChart data={paymentMethodsData} />
+              <PaymentStatusChart
+                data={paymentStatusData}
+                total={paymentStatusData.reduce((sum, item) => sum + item.value, 0)}
+              />
+            </div>
+
+            {/* Payments Table */}
+            <PaymentsTable payments={recentPaymentsData} />
+          </>
         )}
 
         {activeTab === 'financien' && (
