@@ -1,6 +1,6 @@
 'use client';
 
-import { Users, TrendingDown, Wallet, Activity, FileText, CreditCard, ArrowUpRight } from 'lucide-react';
+import { Users, TrendingDown, Wallet, Activity, FileText, CreditCard, ArrowUpRight, BarChart2 } from 'lucide-react';
 import { LineChart, Line, ResponsiveContainer } from 'recharts';
 
 interface KpiCardProps {
@@ -10,6 +10,8 @@ interface KpiCardProps {
   featured?: boolean;
   sparklineData?: number[];
   trend?: 'up' | 'down' | 'neutral';
+  trendPositive?: boolean;
+  trendNegative?: boolean;
 }
 
 const iconMap: Record<string, React.ElementType> = {
@@ -19,14 +21,19 @@ const iconMap: Record<string, React.ElementType> = {
   activity: Activity,
   'file-text': FileText,
   'credit-card': CreditCard,
+  chart: BarChart2,
 };
 
-export function KpiCard({ label, value, icon, featured = false, sparklineData = [], trend = 'neutral' }: KpiCardProps) {
+export function KpiCard({ label, value, icon, featured = false, sparklineData = [], trend = 'neutral', trendPositive, trendNegative }: KpiCardProps) {
   const Icon = iconMap[icon] || Users;
 
   const chartData = sparklineData.map((val, idx) => ({ value: val, idx }));
 
   const getSparklineColor = () => {
+    // Explicit override for positive/negative trends
+    if (trendPositive) return '#22c55e';
+    if (trendNegative) return '#EF4444';
+    // Default behavior
     if (trend === 'up') return '#22c55e';
     if (trend === 'down') return '#22c55e'; // Down in debt is still green (positive)
     return '#6b7280';

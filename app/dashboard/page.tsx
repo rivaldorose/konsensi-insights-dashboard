@@ -18,6 +18,11 @@ import { YearComparison } from '@/components/dashboard/YearComparison';
 import { GoalsTracker } from '@/components/dashboard/GoalsTracker';
 import { ReportsSection } from '@/components/dashboard/ReportsSection';
 import { AlertSettings } from '@/components/dashboard/AlertSettings';
+import { IncomeVsCostsChart } from '@/components/dashboard/IncomeVsCostsChart';
+import { IncomeBySourceChart } from '@/components/dashboard/IncomeBySourceChart';
+import { CostsByCategoryChart } from '@/components/dashboard/CostsByCategoryChart';
+import { MonthlyBalanceChart } from '@/components/dashboard/MonthlyBalanceChart';
+import { FinancialHealthScore } from '@/components/dashboard/FinancialHealthScore';
 import {
   contentTabs,
   kpiData,
@@ -34,6 +39,12 @@ import {
   goalsData,
   reportsData,
   alertSettingsData,
+  financeKpiData,
+  incomeVsCostsData,
+  incomeBySourceData,
+  costsByCategoryData,
+  monthlyBalanceData,
+  financialHealthData,
 } from '@/lib/mock-data';
 
 export default function DashboardPage() {
@@ -169,10 +180,45 @@ export default function DashboardPage() {
         )}
 
         {activeTab === 'financien' && (
-          <div className="bg-white rounded-[20px] p-12 shadow-sm shadow-gray-100 border border-gray-100 text-center">
-            <h3 className="text-lg font-semibold text-[#111827] mb-2">Financiën Overzicht</h3>
-            <p className="text-gray-500">Deze tab wordt binnenkort gebouwd.</p>
-          </div>
+          <>
+            {/* Finance KPI Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-8">
+              {financeKpiData.map((kpi) => (
+                <KpiCard
+                  key={kpi.id}
+                  label={kpi.label}
+                  value={kpi.value}
+                  icon={kpi.icon}
+                  featured={kpi.featured}
+                  sparklineData={kpi.sparklineData}
+                  trend={kpi.trend as 'up' | 'down' | 'neutral'}
+                  trendPositive={kpi.trendPositive}
+                  trendNegative={kpi.trendNegative}
+                />
+              ))}
+            </div>
+
+            {/* Income vs Costs Chart */}
+            <div className="mb-8">
+              <IncomeVsCostsChart data={incomeVsCostsData} />
+            </div>
+
+            {/* Three Column Charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+              <IncomeBySourceChart
+                data={incomeBySourceData}
+                total={incomeBySourceData.reduce((sum, item) => sum + item.value, 0)}
+              />
+              <CostsByCategoryChart data={costsByCategoryData} />
+              <MonthlyBalanceChart data={monthlyBalanceData} />
+            </div>
+
+            {/* Financial Health Score */}
+            <FinancialHealthScore
+              score={financialHealthData.score}
+              factors={financialHealthData.factors}
+            />
+          </>
         )}
 
         {activeTab === 'inzichten' && (

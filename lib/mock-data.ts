@@ -806,3 +806,110 @@ export const alertSettingsData = [
     enabled: true,
   },
 ];
+
+// Financiën (Finance) tab data
+export const financeKpiData = [
+  {
+    id: 'total-income',
+    label: 'TOTAAL INKOMEN',
+    value: '€156.000',
+    icon: 'wallet',
+    featured: true,
+    sparklineData: [120000, 125000, 132000, 138000, 142000, 148000, 152000, 156000],
+    trend: 'up',
+  },
+  {
+    id: 'total-costs',
+    label: 'TOTALE KOSTEN',
+    value: '€98.400',
+    icon: 'trending-down',
+    featured: false,
+    sparklineData: [85000, 88000, 90000, 92000, 94000, 95000, 97000, 98400],
+    trend: 'up',
+    trendNegative: true,
+  },
+  {
+    id: 'net-difference',
+    label: 'NETTO VERSCHIL',
+    value: '+€57.600',
+    icon: 'activity',
+    featured: false,
+    sparklineData: [35000, 37000, 42000, 46000, 48000, 53000, 55000, 57600],
+    trend: 'up',
+  },
+  {
+    id: 'avg-income-user',
+    label: 'GEM. INKOMEN/USER',
+    value: '€1.850',
+    icon: 'users',
+    featured: false,
+    sparklineData: [1650, 1700, 1720, 1780, 1800, 1820, 1840, 1850],
+    trend: 'up',
+  },
+  {
+    id: 'cost-ratio',
+    label: 'KOSTEN RATIO',
+    value: '63%',
+    icon: 'chart',
+    featured: false,
+    sparklineData: [71, 70, 68, 67, 66, 65, 64, 63],
+    trend: 'down',
+    trendPositive: true,
+  },
+];
+
+export const incomeVsCostsData = [
+  { month: 'Jan', inkomen: 11500, kosten: 8200 },
+  { month: 'Feb', inkomen: 12000, kosten: 8400 },
+  { month: 'Mar', inkomen: 12800, kosten: 8100 },
+  { month: 'Apr', inkomen: 13200, kosten: 8600 },
+  { month: 'Mei', inkomen: 13500, kosten: 8300 },
+  { month: 'Jun', inkomen: 12900, kosten: 8500 },
+  { month: 'Jul', inkomen: 13800, kosten: 8200 },
+  { month: 'Aug', inkomen: 14200, kosten: 8400 },
+  { month: 'Sep', inkomen: 13600, kosten: 8100 },
+  { month: 'Okt', inkomen: 14500, kosten: 8300 },
+  { month: 'Nov', inkomen: 14800, kosten: 8500 },
+  { month: 'Dec', inkomen: 15200, kosten: 8800 },
+];
+
+export const incomeBySourceData = [
+  { name: 'Salaris', value: 89000, color: '#3D7B4C' },
+  { name: 'Uitkering', value: 38000, color: '#8FD14F' },
+  { name: 'Toeslagen', value: 22000, color: '#22c55e' },
+  { name: 'Overig', value: 7000, color: '#a3d977' },
+];
+
+export const costsByCategoryData = [
+  { name: 'Huur', value: 42000, color: '#EF4444' },
+  { name: 'Energie', value: 18500, color: '#F87171' },
+  { name: 'Verzekeringen', value: 14200, color: '#FCA5A5' },
+  { name: 'Boodschappen', value: 12800, color: '#FECACA' },
+  { name: 'Vervoer', value: 6400, color: '#FEE2E2' },
+  { name: 'Overig', value: 4500, color: '#FEF2F2' },
+];
+
+export const monthlyBalanceData = [
+  { month: 'Jan', balance: 3300 },
+  { month: 'Feb', balance: 3600 },
+  { month: 'Mar', balance: 4700 },
+  { month: 'Apr', balance: 4600 },
+  { month: 'Mei', balance: 5200 },
+  { month: 'Jun', balance: 4400 },
+  { month: 'Jul', balance: 5600 },
+  { month: 'Aug', balance: 5800 },
+  { month: 'Sep', balance: 5500 },
+  { month: 'Okt', balance: 6200 },
+  { month: 'Nov', balance: 6300 },
+  { month: 'Dec', balance: 6400 },
+];
+
+export const financialHealthData = {
+  score: 72,
+  factors: [
+    { name: 'Inkomen stabiliteit', value: 85 },
+    { name: 'Schuld ratio', value: 65 },
+    { name: 'Spaarquote', value: 45 },
+    { name: 'Betalingsgedrag', value: 92 },
+  ],
+};
