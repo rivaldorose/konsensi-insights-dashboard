@@ -28,6 +28,11 @@ import { PaymentsByDayChart } from '@/components/dashboard/PaymentsByDayChart';
 import { PaymentMethodsChart } from '@/components/dashboard/PaymentMethodsChart';
 import { PaymentStatusChart } from '@/components/dashboard/PaymentStatusChart';
 import { PaymentsTable } from '@/components/dashboard/PaymentsTable';
+import { DebtsByUrgencyChart } from '@/components/dashboard/DebtsByUrgencyChart';
+import { DebtDistributionChart } from '@/components/dashboard/DebtDistributionChart';
+import { MonthlyRepaymentChart } from '@/components/dashboard/MonthlyRepaymentChart';
+import { DebtIncomeScatter } from '@/components/dashboard/DebtIncomeScatter';
+import { DebtsTable } from '@/components/dashboard/DebtsTable';
 import {
   contentTabs,
   kpiData,
@@ -56,6 +61,12 @@ import {
   paymentMethodsData,
   paymentStatusData,
   recentPaymentsData,
+  debtsKpiData,
+  debtsByUrgencyData,
+  debtDistributionData,
+  monthlyRepaymentData,
+  debtIncomeScatterData,
+  allDebtsData,
 } from '@/lib/mock-data';
 
 export default function DashboardPage() {
@@ -177,10 +188,39 @@ export default function DashboardPage() {
         )}
 
         {activeTab === 'schulden' && (
-          <div className="bg-white rounded-[20px] p-12 shadow-sm shadow-gray-100 border border-gray-100 text-center">
-            <h3 className="text-lg font-semibold text-[#111827] mb-2">Schulden Overzicht</h3>
-            <p className="text-gray-500">Deze tab wordt binnenkort gebouwd.</p>
-          </div>
+          <>
+            {/* Debts KPI Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              {debtsKpiData.map((kpi) => (
+                <KpiCard
+                  key={kpi.id}
+                  label={kpi.label}
+                  value={kpi.value}
+                  icon={kpi.icon}
+                  featured={kpi.featured}
+                  sparklineData={kpi.sparklineData}
+                  trend={kpi.trend as 'up' | 'down' | 'neutral'}
+                />
+              ))}
+            </div>
+
+            {/* Charts Grid 2x2 */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              <DebtsByUrgencyChart
+                data={debtsByUrgencyData}
+                total={debtsByUrgencyData.reduce((sum, item) => sum + item.value, 0)}
+              />
+              <DebtDistributionChart data={debtDistributionData} />
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              <MonthlyRepaymentChart data={monthlyRepaymentData} />
+              <DebtIncomeScatter data={debtIncomeScatterData} />
+            </div>
+
+            {/* Debts Table */}
+            <DebtsTable debts={allDebtsData} />
+          </>
         )}
 
         {activeTab === 'betalingen' && (
