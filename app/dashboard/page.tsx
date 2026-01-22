@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Download, Share2 } from 'lucide-react';
 import { Navbar } from '@/components/dashboard/Navbar';
 import { KpiCard } from '@/components/dashboard/KpiCard';
@@ -8,6 +9,9 @@ import { DebtDonutChart } from '@/components/dashboard/DebtDonutChart';
 import { ComparisonCard, RatioCard } from '@/components/dashboard/ComparisonCard';
 import { UsersTable } from '@/components/dashboard/UsersTable';
 import { ContentTabs } from '@/components/dashboard/ContentTabs';
+import { UsersByCityChart } from '@/components/dashboard/UsersByCityChart';
+import { PeriodComparison } from '@/components/dashboard/PeriodComparison';
+import { AllUsersTable } from '@/components/dashboard/AllUsersTable';
 import {
   navTabs,
   contentTabs,
@@ -16,9 +20,14 @@ import {
   debtByTypeData,
   comparisonData,
   recentUsersData,
+  usersByCityData,
+  periodComparisonData,
+  allUsersData,
 } from '@/lib/mock-data';
 
 export default function DashboardPage() {
+  const [activeTab, setActiveTab] = useState('overzicht');
+
   return (
     <div className="min-h-screen bg-[#f8f9fa]">
       {/* Floating Navbar */}
@@ -67,45 +76,100 @@ export default function DashboardPage() {
 
         {/* Content Tabs */}
         <div className="mb-8">
-          <ContentTabs tabs={contentTabs} />
+          <ContentTabs tabs={contentTabs} activeTab={activeTab} onTabChange={setActiveTab} />
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          {/* Left Side - Charts (2 columns) */}
-          <div className="lg:col-span-2 space-y-6">
-            <UserGrowthChart data={userGrowthData} />
-            <DebtDonutChart data={debtByTypeData} />
-          </div>
+        {/* Tab Content */}
+        {activeTab === 'overzicht' && (
+          <>
+            {/* Main Content Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+              {/* Left Side - Charts (2 columns) */}
+              <div className="lg:col-span-2 space-y-6">
+                <UserGrowthChart data={userGrowthData} />
+                <DebtDonutChart data={debtByTypeData} />
+              </div>
 
-          {/* Right Side - Comparison Cards (1 column) */}
-          <div className="space-y-6">
-            <ComparisonCard
-              title={comparisonData.debtPaid.title}
-              subtitle={comparisonData.debtPaid.subtitle}
-              percentage={comparisonData.debtPaid.percentage}
-              positive={comparisonData.debtPaid.positive}
-              thisMonth={comparisonData.debtPaid.thisMonth}
-              lastMonth={comparisonData.debtPaid.lastMonth}
-            />
-            <ComparisonCard
-              title={comparisonData.newDebts.title}
-              subtitle={comparisonData.newDebts.subtitle}
-              percentage={comparisonData.newDebts.percentage}
-              positive={comparisonData.newDebts.positive}
-              thisMonth={comparisonData.newDebts.thisMonth}
-              lastMonth={comparisonData.newDebts.lastMonth}
-            />
-            <RatioCard
-              title={comparisonData.costIncomeRatio.title}
-              value={comparisonData.costIncomeRatio.value}
-              healthy={comparisonData.costIncomeRatio.healthy}
-            />
-          </div>
-        </div>
+              {/* Right Side - Comparison Cards (1 column) */}
+              <div className="space-y-6">
+                <ComparisonCard
+                  title={comparisonData.debtPaid.title}
+                  subtitle={comparisonData.debtPaid.subtitle}
+                  percentage={comparisonData.debtPaid.percentage}
+                  positive={comparisonData.debtPaid.positive}
+                  thisMonth={comparisonData.debtPaid.thisMonth}
+                  lastMonth={comparisonData.debtPaid.lastMonth}
+                />
+                <ComparisonCard
+                  title={comparisonData.newDebts.title}
+                  subtitle={comparisonData.newDebts.subtitle}
+                  percentage={comparisonData.newDebts.percentage}
+                  positive={comparisonData.newDebts.positive}
+                  thisMonth={comparisonData.newDebts.thisMonth}
+                  lastMonth={comparisonData.newDebts.lastMonth}
+                />
+                <RatioCard
+                  title={comparisonData.costIncomeRatio.title}
+                  value={comparisonData.costIncomeRatio.value}
+                  healthy={comparisonData.costIncomeRatio.healthy}
+                />
+              </div>
+            </div>
 
-        {/* Users Table */}
-        <UsersTable users={recentUsersData} />
+            {/* Users Table */}
+            <UsersTable users={recentUsersData} />
+          </>
+        )}
+
+        {activeTab === 'gebruikers' && (
+          <>
+            {/* Charts Row */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+              <div className="lg:col-span-2">
+                <UserGrowthChart data={userGrowthData} />
+              </div>
+              <div>
+                <UsersByCityChart data={usersByCityData} />
+              </div>
+            </div>
+
+            {/* Period Comparison */}
+            <div className="mb-8">
+              <PeriodComparison data={periodComparisonData} />
+            </div>
+
+            {/* All Users Table */}
+            <AllUsersTable users={allUsersData} />
+          </>
+        )}
+
+        {activeTab === 'schulden' && (
+          <div className="bg-white rounded-[20px] p-12 shadow-sm shadow-gray-100 border border-gray-100 text-center">
+            <h3 className="text-lg font-semibold text-[#111827] mb-2">Schulden Overzicht</h3>
+            <p className="text-gray-500">Deze tab wordt binnenkort gebouwd.</p>
+          </div>
+        )}
+
+        {activeTab === 'betalingen' && (
+          <div className="bg-white rounded-[20px] p-12 shadow-sm shadow-gray-100 border border-gray-100 text-center">
+            <h3 className="text-lg font-semibold text-[#111827] mb-2">Betalingen Overzicht</h3>
+            <p className="text-gray-500">Deze tab wordt binnenkort gebouwd.</p>
+          </div>
+        )}
+
+        {activeTab === 'financien' && (
+          <div className="bg-white rounded-[20px] p-12 shadow-sm shadow-gray-100 border border-gray-100 text-center">
+            <h3 className="text-lg font-semibold text-[#111827] mb-2">Financiën Overzicht</h3>
+            <p className="text-gray-500">Deze tab wordt binnenkort gebouwd.</p>
+          </div>
+        )}
+
+        {activeTab === 'inzichten' && (
+          <div className="bg-white rounded-[20px] p-12 shadow-sm shadow-gray-100 border border-gray-100 text-center">
+            <h3 className="text-lg font-semibold text-[#111827] mb-2">Inzichten</h3>
+            <p className="text-gray-500">Deze tab wordt binnenkort gebouwd.</p>
+          </div>
+        )}
       </main>
     </div>
   );

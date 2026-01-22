@@ -390,3 +390,186 @@ export const auditLogData: AuditLogEntry[] = [
     details: { bedrag: 500, methode: 'Bankoverschrijving', schuldId: 'sch_0h1i2j3k4l5m' },
   },
 ];
+
+// Users by city data
+export const usersByCityData = [
+  { city: 'Amsterdam', users: 42 },
+  { city: 'Rotterdam', users: 35 },
+  { city: 'Den Haag', users: 28 },
+  { city: 'Utrecht', users: 24 },
+  { city: 'Eindhoven', users: 18 },
+];
+
+// Period comparison data
+export const periodComparisonData = {
+  newUsers: { value: 23, positive: true },
+  totalDebt: { value: 12450, positive: false },
+  activeDebts: { value: -5, positive: true },
+};
+
+// Extended users data with more fields
+export type UserStatus = 'Actief' | 'Inactief' | 'Nieuw' | 'In Behandeling';
+
+export interface ExtendedUser {
+  id: string;
+  naam: string;
+  email: string;
+  stad: string;
+  status: UserStatus;
+  totaleSchuld: number;
+  inkomen: number;
+  aangemeld: string;
+}
+
+export const allUsersData: ExtendedUser[] = [
+  {
+    id: 'usr-001',
+    naam: 'Emma de Vries',
+    email: 'emma.devries@email.nl',
+    stad: 'Amsterdam',
+    status: 'Actief',
+    totaleSchuld: 4250,
+    inkomen: 2800,
+    aangemeld: '2025-11-15',
+  },
+  {
+    id: 'usr-002',
+    naam: 'Daan Bakker',
+    email: 'daan.bakker@email.nl',
+    stad: 'Rotterdam',
+    status: 'In Behandeling',
+    totaleSchuld: 8900,
+    inkomen: 2200,
+    aangemeld: '2025-12-01',
+  },
+  {
+    id: 'usr-003',
+    naam: 'Sophie Jansen',
+    email: 'sophie.j@email.nl',
+    stad: 'Utrecht',
+    status: 'Actief',
+    totaleSchuld: 2100,
+    inkomen: 3100,
+    aangemeld: '2025-10-20',
+  },
+  {
+    id: 'usr-004',
+    naam: 'Lucas van Dijk',
+    email: 'lucas.vd@email.nl',
+    stad: 'Den Haag',
+    status: 'Nieuw',
+    totaleSchuld: 5600,
+    inkomen: 2500,
+    aangemeld: '2026-01-10',
+  },
+  {
+    id: 'usr-005',
+    naam: 'Fleur Smit',
+    email: 'fleur.smit@email.nl',
+    stad: 'Eindhoven',
+    status: 'In Behandeling',
+    totaleSchuld: 12300,
+    inkomen: 1900,
+    aangemeld: '2025-09-05',
+  },
+  {
+    id: 'usr-006',
+    naam: 'Sem de Boer',
+    email: 'sem.deboer@email.nl',
+    stad: 'Amsterdam',
+    status: 'Actief',
+    totaleSchuld: 3400,
+    inkomen: 2650,
+    aangemeld: '2025-08-12',
+  },
+  {
+    id: 'usr-007',
+    naam: 'Lotte Visser',
+    email: 'lotte.v@email.nl',
+    stad: 'Rotterdam',
+    status: 'Actief',
+    totaleSchuld: 1800,
+    inkomen: 3200,
+    aangemeld: '2025-07-22',
+  },
+  {
+    id: 'usr-008',
+    naam: 'Noah Mulder',
+    email: 'noah.mulder@email.nl',
+    stad: 'Amsterdam',
+    status: 'Inactief',
+    totaleSchuld: 7500,
+    inkomen: 2100,
+    aangemeld: '2025-06-18',
+  },
+  {
+    id: 'usr-009',
+    naam: 'Julia Peters',
+    email: 'julia.peters@email.nl',
+    stad: 'Utrecht',
+    status: 'Actief',
+    totaleSchuld: 2900,
+    inkomen: 2850,
+    aangemeld: '2025-11-30',
+  },
+  {
+    id: 'usr-010',
+    naam: 'Finn de Groot',
+    email: 'finn.dgroot@email.nl',
+    stad: 'Den Haag',
+    status: 'Nieuw',
+    totaleSchuld: 4100,
+    inkomen: 2400,
+    aangemeld: '2026-01-18',
+  },
+  {
+    id: 'usr-011',
+    naam: 'Mila Hendriks',
+    email: 'mila.h@email.nl',
+    stad: 'Eindhoven',
+    status: 'Actief',
+    totaleSchuld: 6200,
+    inkomen: 2750,
+    aangemeld: '2025-10-05',
+  },
+  {
+    id: 'usr-012',
+    naam: 'Thijs van den Berg',
+    email: 'thijs.vdb@email.nl',
+    stad: 'Amsterdam',
+    status: 'In Behandeling',
+    totaleSchuld: 9800,
+    inkomen: 2000,
+    aangemeld: '2025-12-15',
+  },
+  {
+    id: 'usr-013',
+    naam: 'Sara Koning',
+    email: 'sara.koning@email.nl',
+    stad: 'Rotterdam',
+    status: 'Actief',
+    totaleSchuld: 3100,
+    inkomen: 3400,
+    aangemeld: '2025-09-28',
+  },
+  {
+    id: 'usr-014',
+    naam: 'Jesse Vermeer',
+    email: 'jesse.v@email.nl',
+    stad: 'Utrecht',
+    status: 'Nieuw',
+    totaleSchuld: 5400,
+    inkomen: 2300,
+    aangemeld: '2026-01-20',
+  },
+  {
+    id: 'usr-015',
+    naam: 'Eva van Leeuwen',
+    email: 'eva.vl@email.nl',
+    stad: 'Den Haag',
+    status: 'Actief',
+    totaleSchuld: 2800,
+    inkomen: 2950,
+    aangemeld: '2025-08-30',
+  },
+];
