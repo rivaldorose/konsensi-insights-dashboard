@@ -33,6 +33,7 @@ import { DebtDistributionChart } from '@/components/dashboard/DebtDistributionCh
 import { MonthlyRepaymentChart } from '@/components/dashboard/MonthlyRepaymentChart';
 import { DebtIncomeScatter } from '@/components/dashboard/DebtIncomeScatter';
 import { DebtsTable } from '@/components/dashboard/DebtsTable';
+import { ExportModal } from '@/components/export/ExportModal';
 import {
   contentTabs,
   kpiData,
@@ -71,6 +72,7 @@ import {
 
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState('overzicht');
+  const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#f8f9fa]">
@@ -92,7 +94,10 @@ export default function DashboardPage() {
           </div>
 
           <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 px-5 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors shadow-lg shadow-[#3D7B4C]/20">
+            <button
+              onClick={() => setIsExportModalOpen(true)}
+              className="flex items-center gap-2 px-5 py-2.5 bg-[#3D7B4C] text-white rounded-full font-medium text-sm hover:bg-[#2d5a38] transition-colors shadow-lg shadow-[#3D7B4C]/20"
+            >
               <Download className="w-4 h-4" />
               Export Data
             </button>
@@ -328,6 +333,12 @@ export default function DashboardPage() {
           </>
         )}
       </main>
+
+      {/* Export Modal */}
+      <ExportModal
+        isOpen={isExportModalOpen}
+        onClose={() => setIsExportModalOpen(false)}
+      />
     </div>
   );
 }
