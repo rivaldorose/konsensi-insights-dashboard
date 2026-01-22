@@ -26,14 +26,15 @@ const config: Config = {
         // Konsensi brand colors
         konsensi: {
           green: {
-            DEFAULT: "#3D7B4C",
-            light: "#4a9d5c",
-            dark: "#2d5a38",
+            DEFAULT: "var(--green-primary)",
+            light: "var(--green-light)",
+            dark: "var(--green-dark)",
             muted: "var(--green-muted)",
           },
           mint: "#4ade80",
           coral: "#f87171",
         },
+        "green-text": "var(--green-text)",
         // Chart colors
         chart: {
           green: "#3D7B4C",
