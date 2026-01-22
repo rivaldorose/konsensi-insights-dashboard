@@ -12,6 +12,12 @@ import { ContentTabs } from '@/components/dashboard/ContentTabs';
 import { UsersByCityChart } from '@/components/dashboard/UsersByCityChart';
 import { PeriodComparison } from '@/components/dashboard/PeriodComparison';
 import { AllUsersTable } from '@/components/dashboard/AllUsersTable';
+import { AutoInsights } from '@/components/dashboard/AutoInsights';
+import { TrendsCard } from '@/components/dashboard/TrendsCard';
+import { YearComparison } from '@/components/dashboard/YearComparison';
+import { GoalsTracker } from '@/components/dashboard/GoalsTracker';
+import { ReportsSection } from '@/components/dashboard/ReportsSection';
+import { AlertSettings } from '@/components/dashboard/AlertSettings';
 import {
   contentTabs,
   kpiData,
@@ -22,6 +28,12 @@ import {
   usersByCityData,
   periodComparisonData,
   allUsersData,
+  autoInsightsData,
+  trendsData,
+  yearComparisonData,
+  goalsData,
+  reportsData,
+  alertSettingsData,
 } from '@/lib/mock-data';
 
 export default function DashboardPage() {
@@ -164,10 +176,29 @@ export default function DashboardPage() {
         )}
 
         {activeTab === 'inzichten' && (
-          <div className="bg-white rounded-[20px] p-12 shadow-sm shadow-gray-100 border border-gray-100 text-center">
-            <h3 className="text-lg font-semibold text-[#111827] mb-2">Inzichten</h3>
-            <p className="text-gray-500">Deze tab wordt binnenkort gebouwd.</p>
-          </div>
+          <>
+            {/* Auto Insights */}
+            <div className="mb-8">
+              <AutoInsights insights={autoInsightsData} />
+            </div>
+
+            {/* Trends & Year Comparison */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              <TrendsCard trends={trendsData} />
+              <YearComparison items={yearComparisonData} />
+            </div>
+
+            {/* Goals Tracker */}
+            <div className="mb-8">
+              <GoalsTracker goals={goalsData} />
+            </div>
+
+            {/* Reports & Alert Settings */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <ReportsSection reports={reportsData} />
+              <AlertSettings initialSettings={alertSettingsData} />
+            </div>
+          </>
         )}
       </main>
     </div>

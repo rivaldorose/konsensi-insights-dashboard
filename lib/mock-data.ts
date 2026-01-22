@@ -573,3 +573,236 @@ export const allUsersData: ExtendedUser[] = [
     aangemeld: '2025-08-30',
   },
 ];
+
+// Insights data
+export const autoInsightsData = [
+  {
+    id: 'insight-1',
+    icon: 'trending-up' as const,
+    iconColor: 'text-[#22c55e]',
+    iconBg: 'bg-[#22c55e]/10',
+    title: 'Gebruikersgroei +22%',
+    description: '23 nieuwe gebruikers deze maand, 15% boven gemiddelde',
+    metric: 'Boven target',
+  },
+  {
+    id: 'insight-2',
+    icon: 'warning' as const,
+    iconColor: 'text-[#f59e0b]',
+    iconBg: 'bg-[#f59e0b]/10',
+    title: '5 hoog-risico gebruikers',
+    description: 'Directe aandacht nodig voor schulden boven €10.000',
+    metric: 'Actie vereist',
+  },
+  {
+    id: 'insight-3',
+    icon: 'success' as const,
+    iconColor: 'text-[#22c55e]',
+    iconBg: 'bg-[#22c55e]/10',
+    title: '€12.450 afbetaald',
+    description: 'Beste maand dit kwartaal',
+    metric: '+33% vs vorige maand',
+  },
+  {
+    id: 'insight-4',
+    icon: 'target' as const,
+    iconColor: 'text-[#3D7B4C]',
+    iconBg: 'bg-[#3D7B4C]/10',
+    title: 'Betalingsherinnering effectief',
+    description: '78% betaalt binnen 3 dagen na reminder',
+    metric: 'Best practice',
+  },
+  {
+    id: 'insight-5',
+    icon: 'trending-down' as const,
+    iconColor: 'text-[#22c55e]',
+    iconBg: 'bg-[#22c55e]/10',
+    title: 'Dalende nieuwe schulden',
+    description: '12% minder nieuwe schulden dan vorige maand',
+    metric: 'Positieve trend',
+  },
+  {
+    id: 'insight-6',
+    icon: 'tip' as const,
+    iconColor: 'text-[#6366f1]',
+    iconBg: 'bg-[#6366f1]/10',
+    title: 'Tip: Energie schulden stijgen',
+    description: 'Overweeg partnerships met energiemaatschappijen',
+    metric: 'Aanbeveling',
+  },
+];
+
+export const trendsData = [
+  {
+    id: 'trend-1',
+    label: 'Nieuwe gebruikers',
+    change: 15,
+    direction: 'up' as const,
+    sparklineData: [
+      { value: 12 },
+      { value: 15 },
+      { value: 14 },
+      { value: 18 },
+      { value: 16 },
+      { value: 20 },
+      { value: 23 },
+    ],
+  },
+  {
+    id: 'trend-2',
+    label: 'Afbetalingen',
+    change: 8,
+    direction: 'up' as const,
+    sparklineData: [
+      { value: 8500 },
+      { value: 9200 },
+      { value: 9800 },
+      { value: 10500 },
+      { value: 11200 },
+      { value: 11800 },
+      { value: 12450 },
+    ],
+  },
+  {
+    id: 'trend-3',
+    label: 'Nieuwe schulden',
+    change: -12,
+    direction: 'down' as const,
+    sparklineData: [
+      { value: 15000 },
+      { value: 14200 },
+      { value: 13500 },
+      { value: 12800 },
+      { value: 11500 },
+      { value: 10200 },
+      { value: 8800 },
+    ],
+  },
+  {
+    id: 'trend-4',
+    label: 'Gem. inkomen',
+    change: 0,
+    direction: 'stable' as const,
+    sparklineData: [
+      { value: 2650 },
+      { value: 2680 },
+      { value: 2640 },
+      { value: 2670 },
+      { value: 2660 },
+      { value: 2655 },
+      { value: 2650 },
+    ],
+  },
+];
+
+export const yearComparisonData = [
+  {
+    id: 'yc-1',
+    label: 'Totaal gebruikers',
+    thisYear: 156,
+    lastYear: 98,
+    format: 'number' as const,
+  },
+  {
+    id: 'yc-2',
+    label: 'Totaal afbetaald',
+    thisYear: 89200,
+    lastYear: 62500,
+    format: 'currency' as const,
+  },
+  {
+    id: 'yc-3',
+    label: 'Actieve schulden',
+    thisYear: 89,
+    lastYear: 112,
+    format: 'number' as const,
+  },
+  {
+    id: 'yc-4',
+    label: 'Gem. betaling',
+    thisYear: 450,
+    lastYear: 380,
+    format: 'currency' as const,
+  },
+];
+
+export const goalsData = [
+  {
+    id: 'goal-1',
+    title: '€100.000 totaal afbetaald',
+    current: 89200,
+    target: 100000,
+    unit: 'EUR',
+    format: 'currency' as const,
+  },
+  {
+    id: 'goal-2',
+    title: '200 actieve gebruikers',
+    current: 156,
+    target: 200,
+    unit: 'gebruikers',
+    format: 'number' as const,
+  },
+  {
+    id: 'goal-3',
+    title: 'Gemiddelde schuld onder €2.500',
+    current: 2366,
+    target: 2500,
+    unit: 'EUR',
+    format: 'currency' as const,
+  },
+];
+
+export const reportsData = [
+  {
+    id: 'report-1',
+    title: 'Maandrapport December 2025',
+    date: '2025-12-31',
+    type: 'monthly' as const,
+  },
+  {
+    id: 'report-2',
+    title: 'Kwartaalrapport Q4 2025',
+    date: '2025-12-31',
+    type: 'quarterly' as const,
+  },
+  {
+    id: 'report-3',
+    title: 'Maandrapport November 2025',
+    date: '2025-11-30',
+    type: 'monthly' as const,
+  },
+  {
+    id: 'report-4',
+    title: 'Custom Rapport: Hoog-risico',
+    date: '2025-11-15',
+    type: 'custom' as const,
+  },
+];
+
+export const alertSettingsData = [
+  {
+    id: 'alert-1',
+    label: 'Waarschuw bij nieuwe hoog-risico gebruikers',
+    description: 'Ontvang een melding bij schulden boven €10.000',
+    enabled: true,
+  },
+  {
+    id: 'alert-2',
+    label: 'Dagelijkse samenvatting',
+    description: 'Dagelijks overzicht van activiteiten om 09:00',
+    enabled: true,
+  },
+  {
+    id: 'alert-3',
+    label: 'Wekelijkse rapportage',
+    description: 'Automatisch wekelijks rapport op maandag',
+    enabled: false,
+  },
+  {
+    id: 'alert-4',
+    label: 'Alert bij ongebruikelijke activiteit',
+    description: 'Melding bij afwijkende patronen',
+    enabled: true,
+  },
+];
