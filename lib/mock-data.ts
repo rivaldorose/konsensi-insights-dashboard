@@ -212,3 +212,181 @@ export const contentTabs = [
   { id: 'financien', label: 'Financiën' },
   { id: 'inzichten', label: 'Inzichten' },
 ];
+
+// Audit Log types
+export type AuditAction = 'CREATE' | 'UPDATE' | 'DELETE';
+export type AuditEntity = 'Gebruiker' | 'Schuld' | 'Transactie' | 'Betaling' | 'Doel';
+
+export interface AuditLogEntry {
+  id: string;
+  timestamp: string;
+  action: AuditAction;
+  entity: AuditEntity;
+  entityId: string;
+  userId: string;
+  userName: string;
+  details: Record<string, unknown>;
+}
+
+export const auditLogData: AuditLogEntry[] = [
+  {
+    id: 'log-001',
+    timestamp: '2026-01-22T14:35:00',
+    action: 'CREATE',
+    entity: 'Gebruiker',
+    entityId: 'usr_8f7d6e5c4b3a',
+    userId: 'admin-001',
+    userName: 'Rivaldo Rose',
+    details: { naam: 'Emma de Vries', email: 'emma.devries@email.nl', stad: 'Amsterdam' },
+  },
+  {
+    id: 'log-002',
+    timestamp: '2026-01-22T14:20:00',
+    action: 'UPDATE',
+    entity: 'Schuld',
+    entityId: 'sch_2a3b4c5d6e7f',
+    userId: 'admin-001',
+    userName: 'Rivaldo Rose',
+    details: { bedrag: { oud: 5000, nieuw: 4500 }, status: 'In Behandeling' },
+  },
+  {
+    id: 'log-003',
+    timestamp: '2026-01-22T13:55:00',
+    action: 'CREATE',
+    entity: 'Betaling',
+    entityId: 'bet_9g8h7i6j5k4l',
+    userId: 'bw-002',
+    userName: 'Sophie Jansen',
+    details: { bedrag: 250, methode: 'iDEAL', schuldId: 'sch_2a3b4c5d6e7f' },
+  },
+  {
+    id: 'log-004',
+    timestamp: '2026-01-22T13:30:00',
+    action: 'DELETE',
+    entity: 'Doel',
+    entityId: 'doel_3m2n1o0p9q8r',
+    userId: 'admin-001',
+    userName: 'Rivaldo Rose',
+    details: { reden: 'Doel bereikt', origineel_bedrag: 1500 },
+  },
+  {
+    id: 'log-005',
+    timestamp: '2026-01-22T12:45:00',
+    action: 'UPDATE',
+    entity: 'Gebruiker',
+    entityId: 'usr_1a2b3c4d5e6f',
+    userId: 'bw-003',
+    userName: 'Daan Bakker',
+    details: { telefoon: { oud: '06-12345678', nieuw: '06-87654321' } },
+  },
+  {
+    id: 'log-006',
+    timestamp: '2026-01-22T11:20:00',
+    action: 'CREATE',
+    entity: 'Transactie',
+    entityId: 'trx_7s6t5u4v3w2x',
+    userId: 'admin-001',
+    userName: 'Rivaldo Rose',
+    details: { type: 'Afschrijving', bedrag: 150, rekening: 'NL91ABNA0417164300' },
+  },
+  {
+    id: 'log-007',
+    timestamp: '2026-01-22T10:15:00',
+    action: 'UPDATE',
+    entity: 'Schuld',
+    entityId: 'sch_4x5y6z7a8b9c',
+    userId: 'bw-002',
+    userName: 'Sophie Jansen',
+    details: { prioriteit: { oud: 'Laag', nieuw: 'Hoog' }, notitie: 'Urgente follow-up nodig' },
+  },
+  {
+    id: 'log-008',
+    timestamp: '2026-01-22T09:30:00',
+    action: 'CREATE',
+    entity: 'Gebruiker',
+    entityId: 'usr_0d1e2f3g4h5i',
+    userId: 'admin-001',
+    userName: 'Rivaldo Rose',
+    details: { naam: 'Lucas van Dijk', email: 'lucas.vd@email.nl', stad: 'Den Haag' },
+  },
+  {
+    id: 'log-009',
+    timestamp: '2026-01-21T16:45:00',
+    action: 'DELETE',
+    entity: 'Transactie',
+    entityId: 'trx_6j7k8l9m0n1o',
+    userId: 'admin-001',
+    userName: 'Rivaldo Rose',
+    details: { reden: 'Dubbele boeking', origineel_bedrag: 75 },
+  },
+  {
+    id: 'log-010',
+    timestamp: '2026-01-21T15:20:00',
+    action: 'UPDATE',
+    entity: 'Betaling',
+    entityId: 'bet_2p3q4r5s6t7u',
+    userId: 'bw-003',
+    userName: 'Daan Bakker',
+    details: { status: { oud: 'In Behandeling', nieuw: 'Voltooid' } },
+  },
+  {
+    id: 'log-011',
+    timestamp: '2026-01-21T14:00:00',
+    action: 'CREATE',
+    entity: 'Doel',
+    entityId: 'doel_8v9w0x1y2z3a',
+    userId: 'bw-002',
+    userName: 'Sophie Jansen',
+    details: { naam: 'Telefoon schuld aflossen', doelbedrag: 800, deadline: '2026-06-01' },
+  },
+  {
+    id: 'log-012',
+    timestamp: '2026-01-21T12:30:00',
+    action: 'UPDATE',
+    entity: 'Gebruiker',
+    entityId: 'usr_4b5c6d7e8f9g',
+    userId: 'admin-001',
+    userName: 'Rivaldo Rose',
+    details: { status: { oud: 'Inactief', nieuw: 'Actief' }, notitie: 'Heraangemeld' },
+  },
+  {
+    id: 'log-013',
+    timestamp: '2026-01-21T11:15:00',
+    action: 'CREATE',
+    entity: 'Schuld',
+    entityId: 'sch_0h1i2j3k4l5m',
+    userId: 'bw-003',
+    userName: 'Daan Bakker',
+    details: { type: 'Energie', bedrag: 1250, schuldeiser: 'Eneco' },
+  },
+  {
+    id: 'log-014',
+    timestamp: '2026-01-21T10:00:00',
+    action: 'DELETE',
+    entity: 'Betaling',
+    entityId: 'bet_6n7o8p9q0r1s',
+    userId: 'admin-001',
+    userName: 'Rivaldo Rose',
+    details: { reden: 'Terugboeking aangevraagd', bedrag: 100 },
+  },
+  {
+    id: 'log-015',
+    timestamp: '2026-01-20T16:30:00',
+    action: 'UPDATE',
+    entity: 'Transactie',
+    entityId: 'trx_2t3u4v5w6x7y',
+    userId: 'bw-002',
+    userName: 'Sophie Jansen',
+    details: { categorie: { oud: 'Overig', nieuw: 'Zorgverzekering' } },
+  },
+  {
+    id: 'log-016',
+    timestamp: '2026-01-20T15:00:00',
+    action: 'CREATE',
+    entity: 'Betaling',
+    entityId: 'bet_8z9a0b1c2d3e',
+    userId: 'admin-001',
+    userName: 'Rivaldo Rose',
+    details: { bedrag: 500, methode: 'Bankoverschrijving', schuldId: 'sch_0h1i2j3k4l5m' },
+  },
+];
