@@ -1,52 +1,57 @@
 'use client';
 
 import { TreePine, Bell, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface NavTab {
   id: string;
   label: string;
-  active: boolean;
+  href: string;
 }
 
-interface NavbarProps {
-  tabs: NavTab[];
-  onTabChange?: (tabId: string) => void;
-}
+const navTabs: NavTab[] = [
+  { id: 'dashboard', label: 'Dashboard', href: '/dashboard' },
+  { id: 'bewindvoerders', label: 'Bewindvoerders', href: '/bewindvoerders' },
+  { id: 'audit', label: 'Audit Log', href: '/audit-log' },
+  { id: 'export', label: 'Exporteer', href: '/exporteer' },
+];
 
-export function Navbar({ tabs, onTabChange }: NavbarProps) {
-  const [activeTab, setActiveTab] = useState(tabs.find(t => t.active)?.id || tabs[0]?.id);
+export function Navbar() {
+  const pathname = usePathname();
 
-  const handleTabClick = (tabId: string) => {
-    setActiveTab(tabId);
-    onTabChange?.(tabId);
+  const isActive = (href: string) => {
+    if (href === '/dashboard') {
+      return pathname === '/dashboard' || pathname === '/';
+    }
+    return pathname.startsWith(href);
   };
 
   return (
     <nav className="mx-6 mt-6">
       <div className="bg-white rounded-[50px] shadow-lg shadow-gray-200/50 px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link href="/dashboard" className="flex items-center gap-2">
           <div className="w-10 h-10 bg-[#3D7B4C] rounded-full flex items-center justify-center">
             <TreePine className="w-5 h-5 text-white" />
           </div>
           <span className="font-bold text-[#111827] text-lg tracking-tight">KONSENSI</span>
-        </div>
+        </Link>
 
         {/* Center Navigation */}
         <div className="flex items-center gap-1 bg-gray-100 rounded-full p-1">
-          {tabs.map((tab) => (
-            <button
+          {navTabs.map((tab) => (
+            <Link
               key={tab.id}
-              onClick={() => handleTabClick(tab.id)}
+              href={tab.href}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                activeTab === tab.id
+                isActive(tab.href)
                   ? 'bg-[#3D7B4C] text-white shadow-md'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
               }`}
             >
               {tab.label}
-            </button>
+            </Link>
           ))}
         </div>
 

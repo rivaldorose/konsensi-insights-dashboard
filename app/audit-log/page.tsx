@@ -6,13 +6,6 @@ import { AuditFilters, FilterState } from '@/components/audit/AuditFilters';
 import { AuditTable } from '@/components/audit/AuditTable';
 import { auditLogData } from '@/lib/mock-data';
 
-const auditNavTabs = [
-  { id: 'dashboard', label: 'Dashboard', active: false },
-  { id: 'bewindvoerders', label: 'Bewindvoerders', active: false },
-  { id: 'audit', label: 'Audit Log', active: true },
-  { id: 'export', label: 'Exporteer', active: false },
-];
-
 export default function AuditLogPage() {
   const [filters, setFilters] = useState<FilterState>({
     actionType: '',
@@ -69,7 +62,7 @@ export default function AuditLogPage() {
   return (
     <div className="min-h-screen bg-[#f8f9fa]">
       {/* Floating Navbar */}
-      <Navbar tabs={auditNavTabs} />
+      <Navbar />
 
       {/* Main Content */}
       <main className="px-8 py-8">

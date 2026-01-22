@@ -13,7 +13,6 @@ import { UsersByCityChart } from '@/components/dashboard/UsersByCityChart';
 import { PeriodComparison } from '@/components/dashboard/PeriodComparison';
 import { AllUsersTable } from '@/components/dashboard/AllUsersTable';
 import {
-  navTabs,
   contentTabs,
   kpiData,
   userGrowthData,
@@ -31,7 +30,7 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-[#f8f9fa]">
       {/* Floating Navbar */}
-      <Navbar tabs={navTabs} />
+      <Navbar />
 
       {/* Main Content */}
       <main className="px-8 py-8">
